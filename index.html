@@ -1,0 +1,3474 @@
+<!DOCTYPE html>
+
+<html lang="mn">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartESH — Smart English Exam Preparation</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="topbar">
+<div class="brand">
+<div class="brand-mark">S</div>
+<div>
+<div class="brand-name">SmartESH</div>
+<div class="brand-sub">Smart English Exam Preparation</div>
+</div>
+</div>
+<nav aria-label="SmartESH navigation" class="main-nav role-nav" id="roleNav"></nav>
+<div class="header-actions">
+<button class="ghost-btn" id="langBtn">MN | EN</button>
+<button class="login-btn" data-view="auth" id="accountBtn">Log in</button>
+</div>
+</header>
+<main>
+<section class="view active-view" id="home">
+<div class="smartesh-goal-banner-v22">
+<img alt="SmartESH — Англи хэлний зорилгодоо ойртоцгооё" src="assets/smartesh-goal-banner.png"/>
+</div>
+<div class="hero">
+<div class="hero-copy">
+<div class="eyebrow">Даалгаврын сан • ЭЕШ • English learning</div>
+<h1>ЭЕШ-д ухаалгаар бэлд.<br/><span>Ахиц бүрээ хар.</span></h1>
+<p>
+            Дүрэм, үгийн сан, унших, дасгал, цахим шалгалт, автомат дүн шинжилгээ —
+            бүгд нэг дор.
+          </p>
+<div class="hero-actions">
+<button class="primary-btn" data-view="practice">Үнэгүй эхлэх</button>
+<button class="secondary-btn" data-view="exams">Mock Exam өгөх</button>
+</div>
+<div class="stats-row">
+<div><strong>4</strong><span>үндсэн skill</span></div>
+<div><strong>5+</strong><span>сургалтын төрөл</span></div>
+<div><strong>24/7</strong><span>өөрийн хурдаар</span></div>
+</div>
+</div>
+<div class="hero-card">
+<div class="score-ring">82%</div>
+<h3>Таны энэ долоо хоногийн ахиц</h3>
+<div class="metric"><span>Grammar</span><b>88%</b></div>
+<div class="bar"><i style="width:88%"></i></div>
+<div class="metric"><span>Vocabulary</span><b>79%</b></div>
+<div class="bar"><i style="width:79%"></i></div>
+<div class="metric"><span>Reading</span><b>73%</b></div>
+<div class="bar"><i style="width:73%"></i></div>
+<div class="feedback">
+<b>Focus next:</b> Relative clauses, reading inference
+          </div>
+</div>
+</div>
+<div class="section-wrap">
+<div class="section-head">
+<div>
+<span class="eyebrow">Сургалтын зам</span>
+<h2>Learn → Practice → Test → Improve</h2>
+</div>
+</div>
+<div class="cards-grid four">
+<article class="feature-card">
+<div class="icon">📘</div>
+<h3>Learn</h3>
+<p>Grammar, vocabulary, reading, listening, writing.</p>
+</article>
+<article class="feature-card">
+<div class="icon">✍️</div>
+<h3>Practice</h3>
+<p>Сэдэвчилсэн богино дасгал, quiz, instant check.</p>
+</article>
+<article class="feature-card">
+<div class="icon">📝</div>
+<h3>Exams</h3>
+<p>ЭЕШ practice болон хугацаатай mock exam.</p>
+</article>
+<article class="feature-card">
+<div class="icon">📈</div>
+<h3>Progress</h3>
+<p>Сул сэдэв, ахиц, personalized feedback.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="view" id="learn">
+<div class="page-head learning-head-v59">
+<span class="eyebrow">📚 LEARNING CENTER</span>
+<h1>Монгол тайлбартай бэлэн хичээл</h1>
+<p>ЭЕШ-д хэрэгтэй дүрэм, үгийн сан, communication, reading strategy, phrasal verb, idiom-оо багш тайлбарлаж байгаа мэт ойлгомжтойгоор сураарай.</p>
+</div>
+<div class="learning-toolbar-v59">
+<div class="learning-tabs-v59" id="learningTabsV59">
+<button class="active" data-learn-type="grammar">📘 Grammar</button>
+<button data-learn-type="vocabulary">📗 Vocabulary</button>
+<button data-learn-type="communication">💬 Communication</button>
+<button data-learn-type="reading">📖 Reading</button>
+<button data-learn-type="phrasal">🔗 Phrasal Verbs</button>
+<button data-learn-type="idiom">💬 Idioms</button>
+</div>
+<input id="learningSearchV59" class="learning-search-v59" placeholder="Сэдэв, үг, дүрэм хайх..."/>
+</div>
+<div class="learning-summary-v59">
+<div><b id="learningCountV59">0</b><span>бэлэн хичээл</span></div>
+<div><b>🇲🇳</b><span>Монгол тайлбар</span></div>
+<div><b>✓</b><span>Exam focus</span></div>
+<div><b>→</b><span>Practice холбоос</span></div>
+</div>
+<div class="learning-grid-v59" id="learningGridV59"></div>
+<div class="learning-empty-v59 hidden" id="learningEmptyV59">Тохирох хичээл олдсонгүй.</div>
+</section>
+<section class="learning-modal-v59 hidden" id="learningModalV59" aria-modal="true" role="dialog">
+<div class="learning-modal-card-v59">
+<button class="learning-close-v59" id="learningCloseV59">×</button>
+<div id="learningModalBodyV59"></div>
+</div>
+</section>
+<section class="view" id="practice">
+<button class="task-exit-btn" data-task-exit="practiceHub">← Дасгалаас гарах</button>
+<div class="page-head">
+<span class="eyebrow">PRACTICE</span>
+<h1>Богино дасгал</h1>
+<p>Сэдэв сонгоод шууд шалгаж, буруу хариултаа тайлбартай харна.</p>
+</div>
+<div class="quiz-card">
+<div class="quiz-top">
+<div>
+<span class="pill">Grammar • A2–B1</span>
+<h2>Choose the correct answer</h2>
+</div>
+<span id="practiceCount">1 / 3</span>
+</div>
+<div class="task-progress-track"><i id="practiceProgressBar"></i></div>
+<div class="question-box" id="practiceQuestion"></div>
+<div class="answer-grid" id="practiceAnswers"></div>
+<div class="inline-feedback" id="practiceFeedback"></div>
+<div class="exam-action-row">
+<button class="secondary-btn" id="prevPractice">← Previous</button>
+<button class="primary-btn" id="nextPractice">Next question →</button>
+</div>
+</div>
+</section>
+<section class="view" id="exams">
+<div class="page-head">
+<span class="eyebrow">EXAMS</span>
+<h1>Mock Exams</h1>
+<p>Хугацаатай шалгалт өгөөд хэсэг тус бүрийн дүн, сул сэдвээ хараарай.</p>
+</div>
+<div class="cards-grid three">
+<article class="exam-card">
+<span class="pill free">FREE</span>
+<h3>Mock Exam #1</h3>
+<p>20 questions • 25 minutes</p>
+<div class="exam-meta"><span>Grammar</span><span>Vocabulary</span><span>Reading</span></div>
+<button class="primary-btn" id="startExamBtn">Start exam</button>
+</article>
+<article class="exam-card">
+<span class="pill">Premium</span>
+<h3>Mock Exam #2</h3>
+<p>50 questions • 60 minutes</p>
+<div class="exam-meta"><span>ЭЕШ</span><span>Full test</span></div>
+<button class="secondary-btn" data-v50-fallback="1">Unlock</button>
+</article>
+<article class="exam-card">
+<span class="pill">Premium</span>
+<h3>Reading Challenge</h3>
+<p>5 texts • 30 questions</p>
+<div class="exam-meta"><span>Reading</span><span>B1–B2</span></div>
+<button class="secondary-btn" data-v50-fallback="1">Unlock</button>
+</article>
+</div>
+<div class="exam-runner hidden" id="examRunner">
+<button class="task-exit-btn" data-task-exit="exams">← Шалгалтаас гарах</button>
+<div class="quiz-top">
+<div>
+<span class="pill free">Mock Exam #1</span>
+<h2 id="examQuestionTitle"></h2>
+</div>
+<div class="timer">⏱ <span id="timer">05:00</span></div>
+</div>
+<div id="examQuestion"></div>
+<div class="answer-grid" id="examAnswers"></div>
+<div class="task-auto-save">✓ Хариулт автоматаар хадгалагдана</div>
+<div class="exam-action-row">
+<button class="secondary-btn" id="prevExam">← Previous</button>
+<button class="secondary-btn" id="flagExamQuestion">⚑ Flag</button>
+<button class="primary-btn" id="nextExam">Next →</button>
+</div>
+<div class="task-qnav" id="examQuestionNav"></div>
+<div class="task-summary-line">
+<span id="examAnsweredCount">0 / 5 answered</span>
+<button class="secondary-btn" id="submitExamEarly">Submit exam</button>
+</div>
+</div>
+<div class="result-card hidden" id="examResult"></div>
+</section>
+<section class="view" id="studentHomeV16">
+<div class="page-head">
+<span class="eyebrow">STUDENT DASHBOARD</span>
+<h1>Өнөөдөр юу хийх вэ?</h1>
+<p>Шинэ даалгавар, mock test, мэдэгдэл, ахицаа нэг дор харна.</p>
+</div>
+<div class="section-wrap">
+<div class="smart-dashboard-v34" id="studentSmartDashboardV34">
+<div class="smart-dashboard-head-v34">
+<div>
+<span class="eyebrow">SMART TODAY</span>
+<h2>Өнөөдрийн бэлтгэлийн төлөвлөгөө</h2>
+<p>Сул сэдэв, сүүлийн оноо, өмнөх алдаанд тулгуурлан дараагийн ажлыг санал болгоно.</p>
+</div>
+<span class="smart-streak-v34">🔥 Smart streak</span>
+</div>
+<div class="smart-dashboard-grid-v34">
+<div class="smart-focus-card-v34">
+<span class="smart-step-v34">1</span>
+<div><small>NEXT BEST ACTION</small><b id="smartWeakTopicV34">—</b><p id="smartNextActionV58">Үр дүн гарсны дараа санал болгоно.</p></div>
+<button class="primary-btn" data-view="practiceHub">Эхлэх</button>
+</div>
+<div class="smart-focus-card-v34">
+<span class="smart-step-v34">2</span>
+<div><small>REVIEW</small><b id="smartReviewTopicV58">Mistake Notebook</b><p id="smartReviewTextV58">Алдаатай асуултуудаа давтана.</p></div>
+<button class="secondary-btn" data-view="readingBank">Ажиллах</button>
+</div>
+<div class="smart-focus-card-v34">
+<span class="smart-step-v34">3</span>
+<div><small>MINI CHECK</small><b>Mixed 10</b><p>Targeted practice-ийн дараа өөрийгөө шалгана.</p></div>
+<button class="secondary-btn" data-view="exams">Шалгах</button>
+</div>
+</div>
+<div class="smart-stats-v34">
+<div><small>Сүүлийн оноо</small><b id="smartLatestScoreV34">—</b></div>
+<div><small>Сүүлийн ахиц</small><b id="smartTrendV34">—</b></div>
+<div><small>Давтах сэдэв</small><b>0</b></div>
+<div><small>Дараагийн зорилго</small><b>—</b></div>
+</div>
+</div>
+<div class="panel student-class-join-v56">
+<div class="panel-head"><div><h3>🏫 Миний анги</h3><small>Багшийн өгсөн 6 тэмдэгт join code-оор ангид нэгдэнэ.</small></div><button class="text-btn" id="refreshStudentClassesV56">Шинэчлэх</button></div>
+<div class="join-class-row-v56"><input id="studentJoinCodeV56" maxlength="6" placeholder="Жишээ: AB12CD" autocomplete="off"/><button class="primary-btn" id="joinClassV56">Ангид нэгдэх</button></div>
+<div id="studentJoinMsgV56" class="helper-text"></div>
+<div id="studentClassesV56"><div class="empty-state-v50">Одоогоор ангид нэгдээгүй байна.</div></div>
+</div>
+<div class="student-today-grid">
+<div class="panel">
+<div class="panel-head"><h3>📝 Миний даалгавар</h3><span class="pill free" id="studentAssignmentBadgeV58">0 шинэ</span></div>
+<div class="v16-list" id="v16StudentAssignments"><div class="empty-state-v50">Одоогоор даалгавар алга.</div></div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>📢 Шинэ мэдээлэл</h3><button class="text-btn" data-view="notifications">Бүгдийг үзэх</button></div>
+<div class="empty-state-v50">Одоогоор шинэ мэдэгдэл алга.</div></div>
+</div>
+<div class="quick-action-grid">
+<button data-view="previousExams"><span>🎯</span><b>Өмнөх оны тест</b><small>Жинхэнэ шалгалтын материалаар ажиллах</small></button>
+<button data-view="exams"><span>⏱️</span><b>Mock Test</b><small>Бүтэн туршилтын шалгалт</small></button>
+<button data-view="practiceHub"><span>📚</span><b>Practice</b><small>Grammar • Vocabulary • Communication • Reading</small></button>
+<button data-view="progress"><span>📈</span><b>Миний ахиц</b><small>Оноо • алдаа • weak topics</small></button>
+</div>
+</div>
+</section>
+<section class="view" id="student">
+<div class="dashboard-layout">
+<aside class="side">
+<div class="user-badge">SU</div>
+<h3>Student</h3>
+<p>SmartESH learner</p>
+<hr/>
+<a data-view="studentHomeV16" href="#">Нүүр</a>
+<a data-view="learn" href="#">Хичээл</a>
+<a data-view="previousExams" href="#">Өмнөх оны тест</a>
+<a data-view="exams" href="#">Mock Test</a>
+<a data-view="practiceHub" href="#">Practice</a>
+<a data-view="assignmentsPlus" href="#">Даалгавар</a>
+<a data-view="feedbackV18" href="#">Feedback</a>
+<a data-view="studentResultReviewV36" href="#">📋 Миний тестүүд</a>
+<a data-view="mistakeNotebookV37" href="#">📕 Mistake Notebook</a>
+<a data-view="notifications" href="#">Мэдэгдэл</a>
+<a data-view="progress" href="#">Ахиц</a>
+<a data-view="accountV21" href="#">Миний эрх</a>
+</aside>
+<div class="dash-main">
+<div class="dash-head">
+<div><span class="eyebrow">STUDENT DASHBOARD</span><h1>Сайн уу, Student 👋</h1></div>
+<div class="trial-box"><b>Free</b><span>Premium эрхгүй</span></div>
+</div>
+<div class="cards-grid four compact">
+<div class="kpi"><span>Weekly study</span><b>0m</b></div>
+<div class="kpi"><span>Average score</span><b>—</b></div>
+<div class="kpi"><span>Completed</span><b>0</b></div>
+<div class="kpi"><span>Streak</span><b>0 days</b></div>
+</div>
+<div class="two-col">
+<div class="panel">
+<h3>Your Progress</h3>
+<div class="metric"><span>Grammar</span><b>—</b></div>
+<div class="bar"><i style="width:0%"></i></div>
+<div class="metric"><span>Vocabulary</span><b>—</b></div>
+<div class="bar"><i style="width:0%"></i></div>
+<div class="metric"><span>Reading</span><b>—</b></div>
+<div class="bar"><i style="width:0%"></i></div>
+</div>
+<div class="panel">
+<h3>Recommended next</h3>
+<div class="recommend">📘 Relative clauses <button data-view="practiceHub">Practice</button></div>
+<div class="recommend">📖 Reading inference <button data-view="readingBank">Read</button></div>
+<div class="recommend">📝 Mock Exam #1 <button data-view="exams">Start</button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="teacher">
+<div class="dashboard-layout">
+<aside class="side">
+<div class="user-badge teacher">T</div>
+<h3>Teacher</h3>
+<p>SmartESH teacher</p>
+<hr/>
+<a data-view="teacher" href="#">Нүүр</a>
+<a data-view="teacherAssignments" href="#">Даалгавар</a>
+<a data-view="teacherClassesV51" href="#">Ангиуд</a>
+<a data-view="learn" href="#">Хичээл</a>
+<a data-view="previousExams" href="#">Өмнөх оны тест</a>
+<a data-view="paperScannerV44" href="#">Цаасан шалгалт</a>
+<a data-view="notifications" href="#">Мэдэгдэл</a>
+<a data-view="teacherResultsV19" href="#">Үр дүн</a>
+<a data-view="accountV21" href="#">Миний эрх</a>
+</aside>
+<div class="dash-main">
+<div class="dash-head">
+<div><span class="eyebrow">TEACHER DASHBOARD</span><h1>Class overview</h1></div>
+<button class="primary-btn" data-view="teacherAssignments">+ Даалгавар үүсгэх</button>
+</div>
+<div class="cards-grid four compact">
+<div class="kpi"><span>Assigned this week</span><b>0</b></div>
+<div class="kpi"><span>Students</span><b>0</b></div>
+<div class="kpi"><span>Exams created</span><b>0</b></div>
+<div class="kpi"><span>Average score</span><b>—</b></div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Recent performance</h3><button class="text-btn" data-view="teacherResultsV19">Үр дүн харах</button></div>
+<table>
+<thead><tr><th>Student</th><th>Grammar</th><th>Vocabulary</th><th>Reading</th><th>Overall</th></tr></thead>
+<tbody><tr><td colspan="5"><div class="empty-state-v50">Одоогоор сурагчийн үр дүн алга.</div></td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<section class="view" id="teacherClassesV51">
+  <div class="dashboard-layout">
+    <aside class="side">
+      <div class="user-badge teacher">T</div>
+      <h3>Teacher</h3>
+      <p>SmartESH teacher</p><hr>
+      <a data-view="teacher" href="#">Нүүр</a>
+      <a data-view="teacherAssignments" href="#">Даалгавар</a>
+      <a class="active" data-view="teacherClassesV51" href="#">Ангиуд</a>
+      <a data-view="learn" href="#">Хичээл</a>
+      <a data-view="previousExams" href="#">Өмнөх оны тест</a>
+      <a data-view="paperScannerV44" href="#">Цаасан шалгалт</a>
+      <a data-view="notifications" href="#">Мэдэгдэл</a>
+      <a data-view="teacherResultsV19" href="#">Үр дүн</a>
+      <a data-view="accountV21" href="#">Миний эрх</a>
+    </aside>
+    <div class="dash-main">
+      <div class="dash-head">
+        <div><span class="eyebrow">TEACHER • CLASSES</span><h1>Миний ангиуд</h1>
+        <p>Анги үүсгээд join code-оо сурагчдадаа өгнө.</p></div>
+        <button class="primary-btn" id="openCreateClassV51">+ Анги үүсгэх</button>
+      </div>
+
+      <div class="cards-grid four compact">
+        <div class="kpi"><span>Нийт анги</span><b id="classCountV51">0</b></div>
+        <div class="kpi"><span>Нийт сурагч</span><b id="classStudentCountV51">0</b></div>
+        <div class="kpi"><span>Идэвхтэй анги</span><b id="activeClassCountV51">0</b></div>
+        <div class="kpi"><span>Дундаж сурагч</span><b id="avgStudentsV51">0</b></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h3>Ангиуд</h3><small>Нэр • join code • сурагчийн тоо</small></div>
+        <button class="secondary-btn" id="refreshClassesV51">↻ Шинэчлэх</button></div>
+        <div id="classListV51"><div class="empty-state-v50">Одоогоор анги үүсгээгүй байна.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="class-modal-v51 hidden" id="createClassModalV51">
+  <div class="class-modal-card-v51">
+    <div class="panel-head">
+      <div><span class="eyebrow">NEW CLASS</span><h3>Шинэ анги үүсгэх</h3></div>
+      <button class="icon-btn-v34" id="closeCreateClassV51">×</button>
+    </div>
+    <label class="bank-label">Ангийн нэр *
+      <input id="classNameV51" maxlength="80" placeholder="Жишээ: 12А Англи хэл">
+    </label>
+    <div class="two-col">
+      <label class="bank-label">Түвшин / анги
+        <input id="classLevelV51" maxlength="30" placeholder="Жишээ: 12-р анги">
+      </label>
+      <label class="bank-label">Хичээлийн жил
+        <input id="classYearV51" maxlength="20" value="2026–2027">
+      </label>
+    </div>
+    <label class="bank-label">Тайлбар
+      <textarea id="classDescriptionV51" rows="3" maxlength="300" placeholder="Сонголттой"></textarea>
+    </label>
+    <div class="class-code-note-v51">Join code автоматаар үүснэ. Сурагч энэ кодоор ангид нэгдэнэ.</div>
+    <div class="form-actions">
+      <button class="secondary-btn" id="cancelCreateClassV51">Цуцлах</button>
+      <button class="primary-btn" id="saveClassV51">Анги үүсгэх</button>
+    </div>
+    <div class="form-message" id="classCreateMsgV51"></div>
+  </div>
+</div>
+
+<div class="class-modal-v51 hidden" id="classDetailModalV51">
+  <div class="class-modal-card-v51 wide">
+    <div class="panel-head">
+      <div><span class="eyebrow">CLASS</span><h3 id="classDetailTitleV51">Анги</h3></div>
+      <button class="icon-btn-v34" id="closeClassDetailV51">×</button>
+    </div>
+    <div class="class-code-box-v51">
+      <div><small>JOIN CODE</small><strong id="classDetailCodeV51">------</strong></div>
+      <button class="secondary-btn" id="copyClassCodeV51">Код хуулах</button>
+    </div>
+    <div id="classMembersV51"><div class="empty-state-v50">Одоогоор сурагч нэгдээгүй байна.</div></div>
+    <div class="form-actions">
+      <button class="danger-btn-v51" id="archiveClassV51">Ангийг архивлах</button>
+      <button class="secondary-btn" id="closeClassDetailBottomV51">Хаах</button>
+    </div>
+    <div class="form-message" id="classDetailMsgV51"></div>
+  </div>
+</div>
+
+<section class="view" id="admin">
+<div class="section-wrap v16-admin-summary">
+<div class="dashboard-summary-grid">
+<button data-view="adminContentHub"><b>Контент</b><strong>PDF / асуулт / хичээл</strong><span>Оруулах → Preview → Publish</span></button>
+<button data-view="adminAnnouncements"><b>Мэдэгдэл</b><strong>Өнөөдрийн мэдээлэл</strong><span>Сайт руу ороход popup</span></button>
+<button data-view="scanner"><b>Цаасан шалгалт</b><strong>Answer Sheet Scanner</strong><span>Scan → score → analytics</span></button>
+<button data-view="resultsHub"><b>Тайлан</b><strong>Үр дүн &amp; weak topics</strong><span>Сурагч / багшийн ахиц</span></button>
+</div>
+</div>
+<div class="dashboard-layout">
+<aside class="side admin">
+<div class="user-badge admin-badge">A</div>
+<h3>Super Admin</h3>
+<p>SmartESH owner</p>
+<hr/>
+<a data-view="admin" href="#">Нүүр</a>
+<a data-view="adminContentHub" href="#">Контент төв</a>
+<a data-view="questionEntry" href="#">Асуулт нэмэх</a>
+<a data-view="lessonMedia" href="#">Хичээл удирдах</a>
+<a data-view="learn" href="#">📚 Хичээл Preview</a>
+<a data-view="eeshImport" href="#">Өмнөх оны тест импорт</a>
+<a data-view="aiReviewQueueV35" href="#">✨ AI Review Queue</a>
+<a data-view="publishCenterV36" href="#">🚀 Publish Center</a>
+<a data-view="productionBlueprintV40" href="#">🗄️ Production Blueprint</a>
+<a data-view="questionBankAdminV42" href="#">🧠 Question Bank</a>
+<a data-view="testEngineV43" href="#">⚙️ Test Engine</a>
+<a data-view="paperScannerV44" href="#">📷 Paper Scanner</a>
+<a data-view="qpayPremiumV45" href="#">🔑 Эрхийн код</a>
+<a data-view="accountManagementV41" href="#">🔐 Account &amp; Auth</a>
+<a data-view="adminAnnouncements" href="#">Мэдээлэл &amp; мэдэгдэл</a>
+<a data-view="paperScannerV44" href="#">Цаасан шалгалт</a>
+<a data-view="resultsHub" href="#">Тайлан</a>
+<a data-view="auth" href="#">Хэрэглэгч</a>
+<a data-view="accountV21" href="#">Төлбөр &amp; эрх</a>
+<a data-view="adminSiteSettingsV33" href="#">⚙️ Сайтын тохиргоо</a>
+<a data-view="supportAdminV55" href="#">💬 Гомдол & хүсэлт</a>
+</aside>
+<div class="dash-main">
+<div class="dash-head">
+<div><span class="eyebrow">ADMIN DASHBOARD</span><h1>SmartESH Overview</h1></div>
+<div class="admin-head-actions-v33"><button class="primary-btn" data-view="adminContentHub">+ Контент нэмэх</button><button class="secondary-btn" data-view="adminSiteSettingsV33" id="adminSettingsQuickV33">⚙️ Сайтын тохиргоо</button></div>
+</div>
+<div class="cards-grid four compact">
+<div class="kpi"><span>Total students</span><b>0</b></div>
+<div class="kpi"><span>Teachers</span><b>0</b></div>
+<div class="kpi"><span>Active premium</span><b>0</b></div>
+<div class="kpi"><span>Tests this month</span><b>0</b></div>
+</div>
+<div class="two-col">
+<div class="panel">
+<div class="panel-head"><h3>Free Trial Settings</h3><button class="text-btn" id="saveTrial">Save</button></div>
+<label>Student trial days <input id="studentDays" type="number" value="7"/></label>
+<label>Student exam limit <input id="studentExamLimit" type="number" value="3"/></label>
+<label>Teacher trial days <input id="teacherDays" type="number" value="14"/></label>
+<label>Teacher exam-create limit <input id="teacherExamLimit" type="number" value="5"/></label>
+<div class="save-notice" id="saveNotice"></div>
+</div>
+<div class="panel">
+<h3>Content management</h3>
+<div class="admin-actions">
+<button data-view="lessonMedia">+ Grammar хичээл</button>
+<button data-view="questionEntry">+ Vocabulary асуулт</button>
+<button data-view="questionEntry">+ Reading даалгавар</button>
+<button data-view="mockTestImportV48">+ Mock / Exam контент</button>
+</div>
+</div>
+</div>
+<div class="panel">
+<h3>Recent users</h3>
+<table>
+<thead><tr><th>Name</th><th>Role</th><th>Plan</th><th>Status</th><th>Action</th></tr></thead>
+<tbody><tr><td colspan="5"><div class="empty-state-v50">Одоогоор бүртгэлтэй хэрэглэгч алга.</div></td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="cms">
+<div class="page-head">
+<span class="eyebrow">ADMIN • CONTENT MANAGEMENT</span>
+<h1>Хичээл, дасгал удирдах</h1>
+<p>Код бичихгүйгээр шинэ контент үүсгэж, Free/Premium тохируулан сурагчдад нийтэлнэ.</p>
+</div>
+<div class="cms-layout">
+<div class="panel cms-form">
+<div class="panel-head">
+<h3 id="cmsFormTitle">+ Add new content</h3>
+<span class="pill">Draft editor</span>
+</div>
+<div class="form-grid">
+<label>Төрөл
+              <select id="contentType">
+<option>Grammar</option><option>Vocabulary</option><option>Reading</option><option>Listening</option><option>Writing</option><option>Exam Practice</option>
+</select>
+</label>
+<label class="wide">Гарчиг
+              <input id="contentTitle" placeholder="Ж: Present Perfect vs Past Simple"/>
+</label>
+<label class="wide">Хичээлийн тайлбар
+              <textarea id="contentBody" placeholder="Тайлбар, дүрэм, жишээ, сурагчид харах үндсэн агуулга..." rows="5"></textarea>
+</label>
+<label>Эрх
+              <select id="contentPlan"><option>Free</option><option>Premium</option></select>
+</label>
+<label>Төлөв
+              <select id="contentStatus"><option>Draft</option><option>Published</option></select>
+</label>
+</div>
+<div class="question-builder">
+<div class="panel-head">
+<h3>Practice question</h3>
+<span class="pill">Multiple choice</span>
+</div>
+<input id="qText" placeholder="Асуулт"/>
+<div class="form-grid">
+<input id="qA" placeholder="A хариулт"/>
+<input id="qB" placeholder="B хариулт"/>
+<input id="qC" placeholder="C хариулт"/>
+<input id="qD" placeholder="D хариулт"/>
+</div>
+<label>Зөв хариулт
+              <select id="qCorrect"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select>
+</label>
+</div>
+<div class="form-actions">
+<button class="secondary-btn" id="clearContent">Clear</button>
+<button class="primary-btn" id="saveContent">Save content</button>
+</div>
+<div class="save-notice" id="cmsNotice"></div>
+</div>
+<div class="panel">
+<div class="panel-head">
+<h3>Content Library</h3>
+<span class="pill" id="contentTotal">0 items</span>
+</div>
+<div class="cms-filters">
+<input id="contentSearch" placeholder="Search title..."/>
+<select id="filterType"><option>All</option><option>Grammar</option><option>Vocabulary</option><option>Reading</option><option>Listening</option><option>Writing</option><option>Exam Practice</option></select>
+</div>
+<div class="content-list" id="contentList"></div>
+</div>
+</div>
+<div class="section-wrap">
+<div class="panel">
+<div class="panel-head"><h3>Student preview</h3><span class="pill free">Published only</span></div>
+<div class="cards-grid three" id="studentContentPreview"></div>
+</div>
+</div>
+</section>
+<section class="view" id="bank">
+<div class="section-wrap bank-helper-v13">
+<div class="access-note">
+<b>Асуулт хаанаас орж ирэх вэ?</b><br/>
+      Admin → <strong>Асуулт нэмэх</strong> эсвэл <strong>PDF → Цахим тест</strong> хэсгээс оруулсан асуултууд энд автоматаар харагдана.
+      Багш энд асуулт шинээр бичихгүй — сангаас сонгож даалгавар үүсгэнэ.
+    </div>
+</div>
+<div class="page-head">
+<span class="eyebrow">TEACHER • EXAM BUILDER</span>
+<h1>2006–2026 ЭЕШ • Ухаалаг асуултын сан</h1>
+<p>Он, чадвар, нарийн сэдэв, асуултын төрөл болон түлхүүр үгээр шүүж нэг тест болгон ажиллуулна.</p>
+</div>
+<div class="section-wrap bank-shell">
+<div class="source-switch">
+<button class="source-btn active" data-source="EESH">ЭЕШ өмнөх онууд</button>
+</div>
+<div class="bank-grid">
+<div class="panel">
+<div class="panel-head"><h3>1. Асуултын эх үүсвэр</h3><span class="pill">Багш сонгоно</span></div>
+<label class="bank-label">Ажиллуулах хэлбэр
+              <select id="runMode">
+<option value="Skill">Нэг чадвар / төрөл</option>
+<option value="Year">Нэг оны бүтэн материал</option>
+<option value="Mixed">Олон оны холимог</option>
+<option value="Custom">Custom mix</option>
+</select>
+</label>
+<div id="eeshOptions">
+<label class="bank-label" id="singleYearWrap">Он
+  <select id="examYear"><option>2026</option><option>2025</option><option selected="">2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option><option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option><option>2009</option><option>2008</option><option>2007</option><option>2006</option></select>
+</label>
+<div class="hidden" id="mixedYearsWrap">
+<span class="bank-label-title">Холих онуудаа сонго</span>
+<div class="year-chip-grid year-chip-grid-v30"><label><input checked="" class="mixedYearCheck" type="checkbox" value="2026"/> 2026</label>
+<label><input checked="" class="mixedYearCheck" type="checkbox" value="2025"/> 2025</label>
+<label><input checked="" class="mixedYearCheck" type="checkbox" value="2024"/> 2024</label>
+<label><input checked="" class="mixedYearCheck" type="checkbox" value="2023"/> 2023</label>
+<label><input checked="" class="mixedYearCheck" type="checkbox" value="2022"/> 2022</label>
+<label><input checked="" class="mixedYearCheck" type="checkbox" value="2021"/> 2021</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2020"/> 2020</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2019"/> 2019</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2018"/> 2018</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2017"/> 2017</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2016"/> 2016</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2015"/> 2015</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2014"/> 2014</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2013"/> 2013</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2012"/> 2012</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2011"/> 2011</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2010"/> 2010</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2009"/> 2009</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2008"/> 2008</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2007"/> 2007</label>
+<label><input class="mixedYearCheck" type="checkbox" value="2006"/> 2006</label></div>
+</div>
+</div>
+<label class="bank-label">Агуулгын төрөл
+              <select id="skillType"><option>Grammar</option><option>Vocabulary</option><option>Dialogue</option><option>Reading</option><option>Mixed skills</option></select>
+</label>
+<div class="smart-filter-v35">
+<div class="smart-filter-head-v35">
+<div>
+<span class="bank-label-title">Нарийвчилсан сэдэв</span>
+<small>Нэг эсвэл олон сэдэв сонгоно. Систем импортын үеэр эдгээр tag-ийг автоматаар үүсгэнэ.</small>
+</div>
+<button class="secondary-btn compact-v35" id="clearSmartFiltersV35" type="button">Цэвэрлэх</button>
+</div>
+<div class="topic-group-v35" data-topic-skill="Grammar">
+<b>Grammar</b>
+<div class="topic-chips-v35">
+<label><input class="topicCheckV31" type="checkbox" value="Tenses"/> Tenses</label>
+<label><input class="topicCheckV31" type="checkbox" value="Question tags"/> Question tags</label>
+<label><input class="topicCheckV31" type="checkbox" value="Conditionals"/> Conditionals</label>
+<label><input class="topicCheckV31" type="checkbox" value="Passive voice"/> Passive voice</label>
+<label><input class="topicCheckV31" type="checkbox" value="Reported speech"/> Reported speech</label>
+<label><input class="topicCheckV31" type="checkbox" value="Modal verbs"/> Modal verbs</label>
+<label><input class="topicCheckV31" type="checkbox" value="Gerund &amp; infinitive"/> Gerund &amp; infinitive</label>
+<label><input class="topicCheckV31" type="checkbox" value="Relative clauses"/> Relative clauses</label>
+<label><input class="topicCheckV31" type="checkbox" value="Articles"/> Articles</label>
+<label><input class="topicCheckV31" type="checkbox" value="Prepositions"/> Prepositions</label>
+<label><input class="topicCheckV31" type="checkbox" value="Comparatives"/> Comparatives</label>
+<label><input class="topicCheckV31" type="checkbox" value="Subject-verb agreement"/> Subject–verb agreement</label>
+</div>
+</div>
+<div class="topic-group-v35" data-topic-skill="Vocabulary">
+<b>Vocabulary</b>
+<div class="topic-chips-v35">
+<label><input class="topicCheckV31" type="checkbox" value="Phrasal verbs"/> Phrasal verbs</label>
+<label><input class="topicCheckV31" type="checkbox" value="Idioms"/> Idioms</label>
+<label><input class="topicCheckV31" type="checkbox" value="Nature &amp; disasters"/> Nature &amp; disasters</label>
+<label><input class="topicCheckV31" type="checkbox" value="Health"/> Health</label>
+<label><input class="topicCheckV31" type="checkbox" value="Education"/> Education</label>
+<label><input class="topicCheckV31" type="checkbox" value="Environment"/> Environment</label>
+<label><input class="topicCheckV31" type="checkbox" value="Travel &amp; transport"/> Travel &amp; transport</label>
+<label><input class="topicCheckV31" type="checkbox" value="Technology"/> Technology</label>
+<label><input class="topicCheckV31" type="checkbox" value="Jobs &amp; work"/> Jobs &amp; work</label>
+<label><input class="topicCheckV31" type="checkbox" value="Crime &amp; law"/> Crime &amp; law</label>
+<label><input class="topicCheckV31" type="checkbox" value="Food &amp; lifestyle"/> Food &amp; lifestyle</label>
+<label><input class="topicCheckV31" type="checkbox" value="Word formation"/> Word formation</label>
+<label><input class="topicCheckV31" type="checkbox" value="Synonyms &amp; antonyms"/> Synonyms &amp; antonyms</label>
+<label><input class="topicCheckV31" type="checkbox" value="Collocations"/> Collocations</label>
+</div>
+</div>
+<div class="topic-group-v35" data-topic-skill="Dialogue">
+<b>Communication</b>
+<div class="topic-chips-v35">
+<label><input class="topicCheckV31" type="checkbox" value="Agreeing &amp; disagreeing"/> Agreeing / disagreeing</label>
+<label><input class="topicCheckV31" type="checkbox" value="Requests &amp; offers"/> Requests / offers</label>
+<label><input class="topicCheckV31" type="checkbox" value="Advice &amp; suggestions"/> Advice / suggestions</label>
+<label><input class="topicCheckV31" type="checkbox" value="Apologies &amp; thanks"/> Apologies / thanks</label>
+<label><input class="topicCheckV31" type="checkbox" value="Everyday situations"/> Everyday situations</label>
+</div>
+</div>
+<div class="topic-group-v35" data-topic-skill="Reading">
+<b>Reading</b>
+<div class="topic-chips-v35">
+<label><input class="topicCheckV31" type="checkbox" value="Main idea"/> Main idea</label>
+<label><input class="topicCheckV31" type="checkbox" value="Detail"/> Detail</label>
+<label><input class="topicCheckV31" type="checkbox" value="Inference"/> Inference</label>
+<label><input class="topicCheckV31" type="checkbox" value="Reference"/> Reference</label>
+<label><input class="topicCheckV31" type="checkbox" value="Vocabulary in context"/> Vocabulary in context</label>
+</div>
+</div>
+<div class="advanced-filter-grid-v35">
+<label class="bank-label">Keyword search
+      <input id="bankKeywordV35" placeholder="e.g. environment, unless, take off"/>
+</label>
+<label class="bank-label">Question type
+      <select id="bankQuestionTypeV35">
+<option value="">Бүгд</option>
+<option>Multiple choice</option>
+<option>Gap fill</option>
+<option>Dialogue completion</option>
+<option>Reading comprehension</option>
+<option>Word formation</option>
+<option>Synonym / definition</option>
+</select>
+</label>
+<label class="bank-label">Difficulty
+      <select id="bankDifficultyV35">
+<option value="">Бүгд</option>
+<option>Easy</option>
+<option>Medium</option>
+<option>Hard</option>
+</select>
+</label>
+</div>
+<div class="selected-filter-summary-v35" id="selectedFilterSummaryV35">Сэдэв сонгоогүй — сонгосон skill-ийн бүх асуултаас авна.</div>
+</div>
+<label class="bank-label">Асуултын тоо <input id="questionCount" max="100" min="1" type="number" value="10"/></label>
+<label class="bank-label">Хугацаа (минут) <input id="examMinutes" max="180" min="1" type="number" value="20"/></label>
+<label class="toggle-row"><input checked="" id="shuffleQuestions" type="checkbox"/> Асуултын дарааллыг холих</label>
+<label class="toggle-row"><input checked="" id="shuffleAnswers" type="checkbox"/> Хариултын сонголтыг холих</label>
+<label class="toggle-row"><input checked="" id="showFeedback" type="checkbox"/> Дууссаны дараа тайлбар харуулах</label>
+<button class="primary-btn wide-btn" id="buildTeacherSet">Generate teacher set</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>2. Сонгогдсон багц</h3><span class="pill free" id="generatedCount">0 questions</span></div>
+<div class="set-summary" id="teacherSetSummary"><p>Зүүн талын тохиргоог сонгоод багцаа үүсгэнэ.</p></div>
+<div class="generated-list" id="generatedQuestions"></div>
+<div class="form-actions">
+<button class="secondary-btn" id="saveTeacherSet">Save as draft</button>
+<div class="mixed-assign-fields-v29">
+<label class="bank-label">Даалгаврын нэр
+    <input id="mixedAssignmentTitleV29" value="Олон оны холимог ЭЕШ тест"/>
+</label>
+<label class="bank-label">Сурагчийн код / нэр
+    <input id="mixedRecipientV29" value="BILGUUN01"/>
+</label>
+<label class="bank-label">Deadline
+    <input id="mixedDeadlineV29" type="date"/>
+</label>
+</div>
+<button class="primary-btn" id="assignTeacherSet">Assign to students</button>
+</div>
+</div>
+</div>
+</div>
+<div class="section-wrap">
+<div class="panel">
+<div class="panel-head"><h3>Асуултын сан overview</h3><button class="text-btn" id="addBankQuestion">+ Add question</button></div>
+<div class="cards-grid four compact">
+<div class="kpi"><span>ЭЕШ questions</span><b>12</b></div>
+<div class="kpi"><span>Grammar / Vocabulary Bank questions</span><b>12</b></div>
+<div class="kpi"><span>Years available</span><b>2021–2026</b></div>
+<div class="kpi"><span>Skills</span><b>4 + mixed</b></div>
+</div>
+<p class="copyright-note">Prototype uses sample questions. Real past-paper and textbook items should be uploaded only when you have permission or the material is licensed/publicly reusable.</p>
+</div>
+</div>
+</section>
+<section class="view" id="scanner">
+<div class="page-head">
+<span class="eyebrow">PAPER TEST</span>
+<h1>Цаасан шалгалт шалгах</h1>
+<p>Шалгалтын зөв хариуг нэг удаа хадгалаад, сурагчдын answer sheet-ийг олноор нь scan хийж автоматаар шалгана.</p>
+</div>
+<div class="section-wrap">
+<div class="scanner-flow">
+<div class="flow-step active"><b>1</b><span>Шалгалт сонгох</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>2</b><span>Зөв хариу</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>3</b><span>Answer sheet scan</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>4</b><span>Оноо &amp; анализ</span></div>
+</div>
+<div class="scanner-grid">
+<div class="panel">
+<div class="panel-head">
+<div><h3>1. Шалгалт</h3><small>Шинээр үүсгэх эсвэл өмнө хадгалсан шалгалтаа сонгоно.</small></div>
+</div>
+<label class="bank-label">Шалгалтын нэр
+          <input id="paperTestName" placeholder="e.g. Grade 12 Mock 1" value="Grade 12 Practice Test 1"/>
+</label>
+<div class="two-col">
+<label class="bank-label">Анги
+            <select id="paperGrade"><option>Grade 10</option><option>Grade 11</option><option selected="">Grade 12</option><option>ЭЕШ</option></select>
+</label>
+<label class="bank-label">Асуултын тоо
+            <input id="paperQuestionCount" max="100" min="1" type="number" value="50"/>
+</label>
+</div>
+<label class="bank-label">Асуултын PDF <span class="optional-tag">сонголттой</span>
+<input accept=".pdf,image/*" id="paperQuestionPdf" type="file"/>
+</label>
+<p class="helper-text">PDF оруулах нь заавал биш. Зөвхөн answer sheet шалгуулах бол шалгалтын нэр + answer key хангалттай.</p>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div><h3>2. Зөв хариу оруулах</h3><small>Өөрт хамгийн амар аргыг сонго.</small></div>
+<span class="pill free">3 арга</span>
+</div>
+<div class="key-methods">
+<button class="key-method active" data-keymethod="manual"><span>⌨️</span><b>Гараар оруулах</b><small>1-B, 2-D, 3-A...</small></button>
+<button class="key-method" data-keymethod="upload"><span>📄</span><b>Файл upload</b><small>PDF / Excel / CSV</small></button>
+<button class="key-method" data-keymethod="existing"><span>🗂️</span><b>Өмнөхөөс сонгох</b><small>SmartESH-д хадгалсан test</small></button>
+</div>
+<div class="key-method-body" id="keyMethodBody">
+<label class="bank-label">Answer key
+            <textarea id="manualAnswerKey" placeholder="1-B, 2-D, 3-A, 4-C, 5-E ..." rows="5"></textarea>
+</label>
+<p class="helper-text">Нэг удаа хадгалсны дараа дараагийн анги, бүлгийн scan-д дахин оруулахгүй.</p>
+</div>
+<button class="primary-btn wide-btn" id="savePaperTestBtn">Шалгалт + зөв хариуг хадгалах</button>
+<div class="form-message" id="paperSaveMsg"></div>
+</div>
+</div>
+<div class="panel scanner-upload-panel">
+<div class="panel-head">
+<div><h3>3. Сурагчдын answer sheet scan</h3><small>Нэг сурагч эсвэл бүтэн ангийн зургууд/PDF-ийг зэрэг upload хийж болно.</small></div>
+<span class="pill">Batch upload</span>
+</div>
+<div class="two-col">
+<label class="bank-label">Хадгалсан шалгалт
+          <select id="savedPaperTest">
+<option>Grade 12 Practice Test 1 • 50 questions</option>
+</select>
+</label>
+<label class="bank-label">Анги
+          <select id="scanClass"><option>12A</option><option>12B</option><option>11A</option></select>
+</label>
+</div>
+<label class="scan-drop">
+<input accept=".pdf,image/*" id="studentSheets" multiple="" type="file"/>
+<span>📷</span>
+<b>Answer sheet-үүдээ энд upload хийнэ</b>
+<small>Photo / PDF • multiple files allowed</small>
+</label>
+<button class="primary-btn" id="scanGradeBtn">Scan &amp; Grade</button>
+<p class="helper-text">Бодит OMR backend холбогдоогүй үед SmartESH оноо зохиож гаргахгүй. Upload хийсэн файл review queue-д бэлтгэгдэнэ.</p>
+</div>
+<div class="panel" id="scanResultsV8" style="display:none">
+<div class="panel-head"><h3>4. Үр дүн</h3><span class="pill free">Auto-graded</span></div>
+<div class="cards-grid four compact">
+<div class="kpi"><span>Score</span><b>38/50</b></div>
+<div class="kpi"><span>Grammar</span><b>85%</b></div>
+<div class="kpi"><span>Vocabulary</span><b>74%</b></div>
+<div class="kpi"><span>Reading</span><b>61%</b></div>
+</div>
+<div class="feedback-box">
+<b>Smart feedback</b>
+<p>Reading болон vocabulary дээр дахин давтах шаардлагатай. Дараагийн targeted practice-г SmartESH санал болгоно.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="quickclass">
+<div class="page-head">
+<span class="eyebrow">TEACHER • QUICK CLASS MODE</span>
+<h1>Хэдхэн даралтаар ангийн дасгал эхлүүлэх</h1>
+<p>Ангийн хичээл дээр шууд code үүсгэж, сурагчдыг нэг дор ажиллуулна.</p>
+</div>
+<div class="section-wrap">
+<div class="bank-grid">
+<div class="panel">
+<div class="panel-head"><h3>Create session</h3><span class="pill free">Fast</span></div>
+<label class="bank-label">Анги
+              <select id="qcGrade"><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>ЭЕШ</option></select>
+</label>
+<label class="bank-label">Skill
+              <select id="qcSkill"><option>Grammar</option><option>Vocabulary</option><option>Dialogue</option><option>Reading</option><option>Mixed skills</option></select>
+</label>
+<label class="bank-label">Асуултын тоо <input id="qcCount" max="50" min="5" type="number" value="15"/></label>
+<label class="bank-label">Хугацаа <input id="qcMinutes" max="60" min="1" type="number" value="10"/></label>
+<button class="primary-btn wide-btn" id="createQuickClass">Generate class code</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Live classroom</h3><span class="pill" id="qcLiveStatus">Not started</span></div>
+<div class="class-code-box" id="qcCodeBox">----</div>
+<div class="live-grid">
+<div><span>Joined</span><b id="qcJoined">0</b></div>
+<div><span>Finished</span><b id="qcFinished">0</b></div>
+<div><span>Class avg.</span><b id="qcAverage">–</b></div>
+<div><span>Hardest item</span><b id="qcHardest">–</b></div>
+</div>
+<div class="roster-list" id="qcRoster"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="progress">
+<div class="page-head">
+<span class="eyebrow">STUDENT • PROGRESS</span>
+<h1>Ахиц ба Mistake Notebook</h1>
+<p>Сурагч өөрийн сул сэдэв, давтах асуулт, дараагийн зөвлөмжөө нэг дор харна.</p>
+</div>
+<div class="section-wrap">
+<div class="cards-grid four compact">
+<div class="kpi"><span>Overall</span><b>78%</b></div>
+<div class="kpi"><span>Grammar</span><b>84%</b></div>
+<div class="kpi"><span>Vocabulary</span><b>76%</b></div>
+<div class="kpi"><span>Reading</span><b>63%</b></div>
+</div>
+<div class="progress-grid">
+<div class="panel">
+<div class="panel-head"><h3>Weak topics</h3><span class="pill">Priority</span></div>
+<div class="weak-topic"><b>Reading inference</b><span>61%</span><small>Recommended: 12 questions</small></div>
+<div class="weak-topic"><b>Conditionals</b><span>68%</span><small>Recommended: 8 questions</small></div>
+<div class="weak-topic"><b>Academic vocabulary</b><span>72%</span><small>Recommended: 10 words</small></div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Mistake Notebook</h3><span class="pill free">Auto-saved</span></div>
+<div class="mistake-list" id="mistakeList">
+<div class="mistake-item"><b>Q14 • Reading</b><p>What can we infer from paragraph 3?</p><button class="secondary-btn small" data-v50-fallback="1">Retry</button></div>
+<div class="mistake-item"><b>Q7 • Grammar</b><p>If I had known, I ___ you.</p><button class="secondary-btn small" data-v50-fallback="1">Retry</button></div>
+<div class="mistake-item"><b>Q21 • Vocabulary</b><p>Choose the synonym of “significant”.</p><button class="secondary-btn small" data-v50-fallback="1">Retry</button></div>
+</div>
+</div>
+</div>
+<div class="panel recommendation-panel">
+<div>
+<span class="eyebrow">SMART PRACTICE</span>
+<h3>Next recommended practice</h3>
+<p>Reading inference + Conditionals • 20 questions • about 18 min</p>
+</div>
+<button class="primary-btn" data-v50-fallback="1">Start practice</button>
+</div>
+</div>
+</section>
+<section class="view" id="assignmentsPlus">
+</section>
+<section class="view" id="auth">
+<div class="page-head">
+<span class="eyebrow">ACCOUNT ACCESS • v46 CLOUD AUTH</span>
+<h1>Login / Register</h1>
+<p>Student, Teacher, Admin эрхээр нэвтэрч тус бүрийн dashboard-аа ашиглана.</p>
+</div>
+<div class="section-wrap auth-grid">
+<div class="panel">
+<div class="panel-head"><h3>Login</h3><span class="pill">Supabase Auth</span></div><div class="supabase-status-v46 pending" id="supabaseStatusV46">Supabase холбож байна…</div>
+<label class="bank-label">Email<input id="loginEmail" placeholder="teacher@smartesh.mn" type="email"/></label>
+<label class="bank-label">Password<input id="loginPassword" placeholder="••••••••" type="password"/></label>
+<button class="primary-btn wide-btn" id="loginBtn">Login</button>
+<div class="form-message" id="loginMessage"></div>
+<div class="student-preview-box-v66 qa-preview-control-v70">
+  <div><b>👨‍🎓 Student эрхээр шалгах</b><small>Жинхэнэ account үүсгэхгүйгээр Free Student дэлгэцийг үзнэ.</small></div>
+  <button class="secondary-btn wide-btn" id="studentPreviewV66" type="button">Student Preview нээх</button>
+</div>
+
+<div class="teacher-preview-box-v70 qa-preview-control-v70">
+  <div><b>👩‍🏫 Teacher эрхээр шалгах</b><small>Жинхэнэ account үүсгэхгүйгээр Teacher интерфэйсийг QA горимоор үзнэ.</small></div>
+  <button class="secondary-btn wide-btn" id="teacherPreviewV70" type="button">Teacher Preview нээх</button>
+</div>
+<div class="admin-preview-box-v69 qa-preview-control-v70">
+  <div><b>🛡️ Admin эрхээр шалгах</b><small>Жинхэнэ Admin account ашиглахгүйгээр Admin интерфэйсийг preview горимоор үзнэ.</small></div>
+  <button class="secondary-btn wide-btn" id="adminPreviewV69" type="button">Admin Preview нээх</button>
+</div>
+
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Create account</h3><span class="pill free">Register</span></div>
+<label class="bank-label">Full name<input id="regName" placeholder="Нэр"/></label>
+<label class="bank-label">Email<input id="regEmail" placeholder="name@email.com" type="email"/></label>
+<label class="bank-label">Password<input id="regPassword" placeholder="6+ characters" type="password"/></label>
+<label class="bank-label">Role
+            <select id="regRole"><option value="student">Student</option><option value="teacher">Teacher</option></select>
+</label>
+<label class="legal-consent-v55"><input id="legalConsentV55" type="checkbox"/> <span><b>Үйлчилгээний нөхцөл</b> болон <b>Нууцлалын бодлого</b>-ыг уншиж, зөвшөөрч байна.</span></label>
+<button class="primary-btn wide-btn" id="registerBtn">Create account</button>
+<div class="form-message" id="registerMessage"></div>
+</div>
+</div>
+<div class="section-wrap">
+<div class="student-assignment-hub-v39" id="studentAssignmentHubV39">
+<div class="panel-head">
+<div><span class="eyebrow">MY ASSIGNMENTS</span><h2>Миний даалгавар</h2><p>Шинэ, үргэлжилж байгаа, дууссан даалгавраа эндээс удирдана.</p></div>
+<span class="pill" id="studentDueCountV39">0 due</span>
+</div>
+<div class="student-assignment-tabs-v39">
+<button class="active" data-student-assign-tab="active">Идэвхтэй</button>
+<button data-student-assign-tab="completed">Дууссан</button>
+</div>
+<div class="student-assignment-list-v39" id="studentAssignmentListV39"></div>
+</div>
+<div class="panel mixed-student-card-v29 hidden" id="mixedAssignmentCardV29">
+<div class="panel-head">
+<div><span class="eyebrow">ASSIGNED • MIXED YEARS</span><h3 id="mixedStudentTitleV29">Олон оны холимог тест</h3></div>
+<span class="pill free" id="mixedStudentMetaV29">—</span>
+</div>
+<p id="mixedStudentDescV29">Багшийн өгсөн олон оны ЭЕШ холимог тест.</p>
+<button class="primary-btn" id="startMixedAssignmentV29">Бүтэн дэлгэцээр эхлэх →</button>
+</div>
+<div class="panel session-panel">
+<div>
+<span class="eyebrow">CURRENT SESSION</span>
+<h3 id="sessionName">Guest</h3>
+<p id="sessionRole">Not logged in</p>
+</div>
+<button class="secondary-btn" id="logoutBtn">Logout</button>
+</div>
+</div>
+</section>
+<section class="view" id="classes">
+<div class="page-head">
+<span class="eyebrow">TEACHER • CLASS MANAGEMENT</span>
+<h1>Classes &amp; Students</h1>
+<p>Анги үүсгэх, сурагч нэмэх, class code-оор элсүүлэх.</p>
+</div>
+<div class="section-wrap class-layout">
+<div class="panel">
+<div class="panel-head"><h3>Create class</h3><span class="pill free">Teacher</span></div>
+<label class="bank-label">Class name<input id="classNameInput" placeholder="11A English"/></label>
+<label class="bank-label">Grade<select id="classGradeInput"><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>ЭЕШ</option></select></label>
+<button class="primary-btn wide-btn" id="createClassBtn">Create class</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>My Classes</h3><span class="pill" id="classCount">0</span></div>
+<div class="class-list" id="classList"></div>
+</div>
+</div>
+<div class="section-wrap">
+<div class="panel">
+<div class="panel-head"><h3>Selected Class Roster</h3><span class="pill" id="selectedClassLabel">Select a class</span></div>
+<div class="roster-tools">
+<input id="studentNameInput" placeholder="Student name"/>
+<input id="studentEmailInput" placeholder="student@email.com"/>
+<button class="secondary-btn" id="addStudentBtn">Add student</button>
+</div>
+<div class="table-wrap" id="classRosterTable"></div>
+</div>
+</div>
+</section>
+<section class="view" id="assignments">
+<div class="page-head">
+<span class="eyebrow">TEACHER • ASSIGN WORK</span>
+<h1>Assignments</h1>
+<p>Шалгалт эсвэл дасгалыг ангидаа хугацаа, оролдлого, feedback policy-тай өгнө.</p>
+</div>
+<div class="section-wrap assignment-layout">
+<div class="panel">
+<div class="panel-head"><h3>Create assignment</h3><span class="pill free">Live settings</span></div>
+<label class="bank-label">Title<input id="asgTitle" placeholder="Grade 11 Grammar Quiz"/></label>
+<label class="bank-label">Class<select id="asgClass"></select></label>
+<label class="bank-label">Source
+      <select id="asgSource">
+<option>Mixed Source Builder</option>
+<option>Өмнөх ЭЕШ</option>
+<option>ХОУ</option>
+<option>Grammar / Vocabulary Bank Unit Practice</option>
+<option>Асуултын сан</option>
+<option>Custom Quiz</option>
+</select>
+</label>
+<button class="secondary-btn wide-btn" data-view="assignmentBuilder" type="button">Open Даалгавар үүсгэх Builder</button>
+<div class="two-col">
+<label class="bank-label">Start<input id="asgStart" type="datetime-local"/></label>
+<label class="bank-label">Deadline<input id="asgDeadline" type="datetime-local"/></label>
+</div>
+<div class="two-col">
+<label class="bank-label">Time limit (min)<input id="asgMinutes" min="1" type="number" value="20"/></label>
+<label class="bank-label">Attempts<select id="asgAttempts"><option>1</option><option>2</option><option>3</option><option>Unlimited</option></select></label>
+</div>
+<label class="bank-label">Feedback
+            <select id="asgFeedback"><option>Immediately after submit</option><option>After deadline</option><option>Score only</option><option>Detailed feedback</option></select>
+</label>
+<label class="check-line"><input checked="" id="asgShuffleQ" type="checkbox"/> Shuffle questions</label>
+<label class="check-line"><input checked="" id="asgShuffleA" type="checkbox"/> Shuffle answers</label>
+<button class="primary-btn wide-btn" id="createAssignmentBtn">Assign to class</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Assigned Work</h3><span class="pill" id="assignmentCount">0</span></div>
+<div class="assignment-list" id="assignmentList"></div>
+</div>
+</div>
+</section>
+<section class="view" id="resultsHub">
+<div class="page-head">
+<span class="eyebrow">RESULTS &amp; ANALYTICS</span>
+<h1>Class Results</h1>
+<p>Completion, score, skill breakdown, weak topics болон сурагч бүрийн үр дүн.</p>
+</div>
+<div class="section-wrap">
+<div class="cards-grid four compact">
+<div class="kpi"><span>Class average</span><b id="rhAverage">—</b></div>
+<div class="kpi"><span>Completion</span><b id="rhCompletion">0%</b></div>
+<div class="kpi"><span>Highest</span><b>—</b></div>
+<div class="kpi"><span>Needs support</span><b>0</b></div>
+</div>
+<div class="analytics-grid">
+<div class="panel">
+<div class="panel-head"><h3>Skill performance</h3><span class="pill">Current class</span></div>
+<div class="skill-bars">
+<div class="skill-row"><span>Grammar</span><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div><b>—</b></div>
+<div class="skill-row"><span>Vocabulary</span><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div><b>—</b></div>
+<div class="skill-row"><span>Dialogue</span><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div><b>—</b></div>
+<div class="skill-row"><span>Reading</span><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div><b>—</b></div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Weak topics</h3><span class="pill">Auto analysis</span></div>
+<div class="empty-state-v50">Үр дүн орж ирэхэд сул сэдэв автоматаар гарна.</div></div>
+</div>
+<div class="panel" style="margin-top:20px">
+<div class="panel-head"><h3>Student results</h3></div>
+<div class="table-wrap" id="resultsTable">Одоогоор үр дүн алга.</div>
+</div>
+</div>
+</section>
+<section class="view" id="paperAnalyticsV17">
+<div class="page-head">
+<span class="eyebrow">PAPER TEST • SMART ANALYTICS</span>
+<h1>Цаасан шалгалт</h1>
+<p>Answer sheet-үүдээ нэг batch-аар уншуулаад сурагч бүрийн дүн болон нийт анализыг автоматаар гаргана.</p>
+</div>
+<div class="section-wrap">
+<div class="paper-flow">
+<div class="flow-step active"><b>1</b><span>Шалгалт</span></div><i>→</i>
+<div class="flow-step"><b>2</b><span>Answer key</span></div><i>→</i>
+<div class="flow-step"><b>3</b><span>Batch scan</span></div><i>→</i>
+<div class="flow-step"><b>4</b><span>Нийт анализ</span></div>
+</div>
+<div class="paper-grid">
+<div class="panel">
+<div class="panel-head"><h3>1. Шалгалтын мэдээлэл</h3><span class="pill">Batch</span></div>
+<label class="bank-label">Шалгалтын нэр<input id="v17ExamName" value=""/></label>
+<div class="two-col">
+<label class="bank-label">Бүлэг / ангийн нэр<input id="v17GroupName" placeholder="e.g. 12A" value=""/></label>
+<label class="bank-label">Сурагчийн тоо<input id="v17StudentCount" type="number" value="0"/></label>
+</div>
+<p class="helper-text">“Ангиуд” гэсэн тусдаа цэс байхгүй. Энэ нэр зөвхөн тухайн шалгалтын batch-ийг ялгахад ашиглагдана.</p>
+<div class="panel-head v17-gap"><h3>2. Зөв хариу</h3></div>
+<div class="key-methods">
+<label><input checked="" name="keymethod" type="radio"/><span><b>Гараар</b><small>1-B, 2-D, 3-A...</small></span></label>
+<label><input name="keymethod" type="radio"/><span><b>Файл</b><small>PDF / Excel / CSV</small></span></label>
+<label><input name="keymethod" type="radio"/><span><b>SmartESH тест</b><small>Хадгалсан answer key</small></span></label>
+</div>
+<textarea class="answer-key-box" rows="4"></textarea>
+<div class="panel-head v17-gap"><h3>3. Answer sheet upload</h3><span class="pill free">Multiple</span></div>
+<label class="batch-drop">
+<input accept="image/*,.pdf" id="v17BatchFiles" multiple="" type="file"/>
+<span>📷</span><b>30 хүртэл answer sheet сонгох</b><small>JPG / PNG / PDF • нэг дор олон файл</small>
+</label>
+<div class="upload-status" id="v17UploadStatus">0 sheet сонгосон</div>
+<button class="primary-btn wide-btn" id="v17AnalyzeBtn">Scan хийгээд анализ гаргах</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Scan Preview</h3><span class="pill">OMR</span></div>
+<div class="scan-preview"><div class="empty-state-v50">Answer sheet upload хийсний дараа scan preview энд гарна.</div></div>
+</div>
+</div>
+<div class="analysis-result hidden" id="v17Analysis"><div class="empty-state-v50">Бодит scan/score дууссаны дараа analytics энд гарна.</div></div>
+</div>
+</section>
+<section class="view" id="teacherAssignments">
+<div class="page-head">
+<span class="eyebrow">TEACHER • ASSIGNMENTS</span>
+<h1>Даалгавар</h1>
+<p>Эндээс бэлэн даалгавар сонгох эсвэл өөрийн даалгаврыг шууд оруулж сурагчдад өгнө.</p>
+</div>
+<div class="section-wrap">
+<div class="assignment-center-v39" id="assignmentCenterV39">
+<div class="panel-head">
+<div><span class="eyebrow">TEACHER • ASSIGNMENT LIFECYCLE</span><h2>Даалгаврын удирдлага</h2><p>Draft → Assigned → Submitted → Reviewed</p></div>
+<button class="primary-btn" id="newAssignmentFromBankV39">+ Question Bank-аас үүсгэх</button>
+</div>
+<div class="assignment-kpis-v39">
+<div><small>Draft</small><b id="assignDraftCountV39">0</b></div>
+<div><small>Assigned</small><b id="assignActiveCountV39">0</b></div>
+<div><small>Submitted</small><b id="assignSubmittedCountV39">0</b></div>
+<div><small>Review needed</small><b id="assignReviewCountV39">0</b></div>
+</div>
+<div class="assignment-toolbar-v39">
+<select id="assignmentStatusFilterV39"><option value="all">Бүх төлөв</option><option value="draft">Draft</option><option value="assigned">Assigned</option><option value="submitted">Submitted</option><option value="reviewed">Reviewed</option></select>
+<input id="assignmentSearchV39" placeholder="Даалгаврын нэрээр хайх"/>
+<button class="secondary-btn" id="refreshAssignmentsV39">Шинэчлэх</button>
+</div>
+<div class="assignment-list-v39" id="assignmentListV39"><div class="empty-state-v37">Одоогоор даалгавар алга.</div></div>
+</div>
+<div class="mixed-year-highlight-v29">
+<div>
+<span class="eyebrow">ӨМНӨХ ОНУУДЫГ ХОЛЬЖ АЖИЛЛУУЛАХ</span>
+<h2>Олон оны ЭЕШ-ээс холимог тест үүсгэх</h2>
+<p>2006–2026 оноос хүссэн онууд + Grammar/Vocabulary-ийн нарийн сэдвүүдийг сонгоод нэг холимог тест үүсгэнэ.</p>
+</div>
+<button class="primary-btn" data-view="bank">Холимог тест үүсгэх →</button>
+</div>
+<div class="teacher-choice-grid">
+<button class="teacher-choice active" data-tmode="ready"><span>📚</span><b>Бэлэн даалгавар ашиглах</b><small>Admin-ийн оруулсан Grammar, Vocabulary, Communication, Reading, Mock Test</small></button>
+<button class="teacher-choice" data-tmode="own"><span>✍️</span><b>Өөрийн даалгавар оруулах</b><small>Асуултаа гараар бичих эсвэл PDF оруулах</small></button>
+</div>
+<div class="panel" id="readyTaskPanel">
+<div class="panel-head"><h3>1. Бэлэн даалгавраас сонгох</h3><span class="pill">Question Bank</span></div>
+<div class="task-filter-row">
+<button class="task-chip active" data-v50-fallback="1">Grammar</button><button class="task-chip" data-v50-fallback="1">Vocabulary</button>
+<button class="task-chip" data-v50-fallback="1">Communication</button><button class="task-chip" data-v50-fallback="1">Reading</button><button class="task-chip" data-v50-fallback="1">Mock Test</button>
+</div>
+<div class="teacher-task-list">
+<label class="teacher-task"><input type="checkbox"/><div><b>Conditionals Practice</b><small>Grammar • 10 questions • 15 min</small></div><button class="secondary-btn" data-v50-fallback="1" type="button">Preview</button></label>
+<label class="teacher-task"><input type="checkbox"/><div><b>Tenses Mixed Practice</b><small>Grammar • 15 questions • 20 min</small></div><button class="secondary-btn" data-v50-fallback="1" type="button">Preview</button></label>
+<label class="teacher-task"><input type="checkbox"/><div><b>Exam Grammar Set</b><small>Previous exam style • 20 questions • 25 min</small></div><button class="secondary-btn" data-v50-fallback="1" type="button">Preview</button></label>
+</div>
+<div class="recipient-box">
+<b>2. Хэнд өгөх вэ?</b>
+<p>Анги үүсгэхгүй. Сурагчийн код/нэрээр сонгоно.</p>
+<div class="recipient-entry">
+<input id="v16RecipientInput" placeholder="Сурагчийн код эсвэл нэр"/>
+<button class="secondary-btn" id="v16AddRecipient" type="button">+ Нэмэх</button>
+</div>
+<div class="recipient-chips" id="v16RecipientChips">
+<span>BILGUUN01 ×</span><span>ANU02 ×</span>
+</div>
+</div>
+<div class="assign-simple">
+<label class="bank-label">Даалгаврын нэр<input value="Grammar homework"/></label>
+<label class="bank-label">Дуусах хугацаа<input type="date"/></label>
+<button class="primary-btn" data-v50-fallback="1">Сурагчдад өгөх</button>
+</div>
+<p class="helper-text">Анги үүсгэх шаардлагагүй. Сурагчийн код/нэрээр хүлээн авагч сонгоно.</p>
+<div class="assigned-history">
+<div class="panel-head"><h3>Өгсөн даалгаврууд</h3><span class="pill">Recent</span></div>
+<div class="v16-list" id="v16AssignedHistory">
+<div class="v16-row"><div><b>Grammar homework</b><small>2 students • Due Sep 8</small></div><span class="status-ok">Assigned</span></div>
+</div>
+</div>
+</div>
+<div class="panel" id="ownTaskPanel" style="display:none">
+<div class="panel-head"><h3>Өөрийн даалгавар оруулах</h3><span class="pill free">Teacher</span></div>
+<div class="own-task-methods">
+<div>
+<h3>✍️ Гараар оруулах</h3>
+<label class="bank-label">Асуулт<textarea id="teacherOwnQuestion" placeholder="Question..." rows="3"></textarea></label>
+<div class="options-editor">
+<label><span>A</span><input id="teacherOptA" placeholder="Option A"/></label><label><span>B</span><input id="teacherOptB" placeholder="Option B"/></label>
+<label><span>C</span><input id="teacherOptC" placeholder="Option C"/></label><label><span>D</span><input id="teacherOptD" placeholder="Option D"/></label>
+</div>
+<label class="bank-label">Зөв хариу<select id="teacherCorrectAnswer"><option>A</option><option>B</option><option>C</option><option>D</option></select></label>
+<button class="secondary-btn wide-btn" id="teacherAddNextQuestion">+ Дараагийн асуулт</button>
+<div class="teacher-question-queue-v30">
+<div class="panel-head"><h4>Оруулсан асуултууд</h4><span class="pill" id="teacherDraftCountV30">0 асуулт</span></div>
+<div class="teacher-draft-list-v30" id="teacherDraftListV30"><small>Одоогоор асуулт нэмээгүй.</small></div>
+<div class="teacher-manager-note-v35" id="teacherQuestionManagerV35">
+<span>💡 Асуултаа нэмсний дараа <b>засах, хуулбарлах, дээш/доош зөөх</b> боломжтой.</span>
+<span id="teacherDraftSaveStateV35">Draft autosave идэвхтэй</span>
+</div>
+</div>
+</div>
+<div class="or-divider">ЭСВЭЛ</div>
+<div>
+<h3>📄 PDF оруулах</h3>
+<p>Багш өөрийн worksheet/test PDF-ээ оруулна. Систем цахим тест болгон бэлтгэнэ.</p>
+<label class="bank-label">PDF / зураг<input accept=".pdf,image/*" id="teacherPdfInput" type="file"/></label>
+<label class="bank-label">Зөв хариу
+            <select><option>PDF дотор байгаа</option><option>Тусдаа answer key оруулах</option><option>Гараар оруулах</option></select>
+</label>
+<button class="secondary-btn wide-btn" id="teacherPdfPreviewBtn">Задлаад Preview хийх</button><div class="form-message" id="teacherOwnStatus"></div>
+</div>
+</div>
+<div class="form-actions">
+<button class="secondary-btn" id="teacherManualPreviewBtnV30">Preview</button>
+<button class="primary-btn" id="teacherManualAssignBtnV30">Даалгаврыг хадгалж өгөх</button>
+</div>
+<div class="panel teacher-manual-preview-v30 hidden" id="teacherManualPreviewV30"></div>
+</div>
+</div>
+</section>
+<section class="view" id="adminContentHub">
+<div class="page-head">
+<span class="eyebrow">ADMIN • CONTENT CENTER</span>
+<h1>Контент төв</h1>
+<p>SmartESH-ийн бүх сургалтын контентыг эндээс оруулж, шалгаж, нийтэлнэ.</p>
+</div>
+<div class="section-wrap">
+<div class="admin-hub-grid">
+<button class="admin-hub-card" data-view="questionEntry">
+<span>✍️</span><b>Асуулт гараар нэмэх</b>
+<small>Нэг асуулт • сонголт • зөв хариу • тайлбар</small>
+</button>
+<button class="admin-hub-card" data-view="pdfToTest">
+<span>📄</span><b>PDF → Цахим тест</b>
+<small>Олон асуултыг нэг дор импортлох</small>
+</button>
+<button class="admin-hub-card" data-view="lessonMedia">
+<span>🎓</span><b>Хичээл байрлуулах</b>
+<small>Тайлбар • зураг • видео • PDF • practice</small>
+</button>
+<button class="admin-hub-card" data-view="eeshImport">
+<span>🎯</span><b>Өмнөх оны тест</b>
+<small>Он • хувилбар • answer key • review</small>
+</button>
+<button class="admin-hub-card mock-admin-card-v48" data-view="mockTestImportV48">
+<span>⏱️</span><b>Mock Test оруулах</b>
+<small>1. PDF → 2. Answer key → 3. Preview → 4. Publish</small>
+</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Нийтлэх урсгал</h3><span class="pill">Standard</span></div>
+<div class="content-flow">
+<div><b>1</b><span>Контент оруулах</span></div><i>→</i>
+<div><b>2</b><span>Preview / шалгах</span></div><i>→</i>
+<div><b>3</b><span>Approve &amp; Publish</span></div><i>→</i>
+<div><b>4</b><span>Багш / сурагч ашиглана</span></div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="questionEntry">
+<div class="page-head">
+<span class="eyebrow">ADMIN • QUESTION BANK</span>
+<h1>Асуулт нэмэх</h1>
+<p>Асуултыг 2 аргаар оруулна: PDF-ээр бөөнөөр импортлох эсвэл нэг нэгээр нь гараар нэмэх.</p>
+</div>
+<div class="section-wrap">
+<div class="entry-choice-grid">
+<button class="entry-choice active" data-entrymode="manual">
+<span>✍️</span><b>Гараар асуулт нэмэх</b>
+<small>Нэг асуулт → сонголтууд → зөв хариу → тайлбар</small>
+</button>
+<button class="entry-choice" data-entrymode="pdf">
+<span>📄</span><b>PDF-ээс импортлох</b>
+<small>Олон асуултыг нэг дор цахим тест болгох</small>
+</button>
+</div>
+<div class="panel" id="manualQuestionPanel">
+<div class="panel-head">
+<div><h3>Шинэ асуулт</h3><small>Admin асуултын санд хадгална.</small></div>
+<span class="pill free">Draft</span>
+</div>
+<div class="two-col">
+<label class="bank-label">Ангилал
+          <select id="manualQSkill">
+<option>Grammar</option><option>Vocabulary</option><option>Communication</option><option>Reading</option>
+</select>
+</label>
+<label class="bank-label">Сэдэв
+          <input id="manualQTopic" placeholder="e.g. Conditionals" value="Conditionals"/>
+</label>
+</div>
+<label class="bank-label">Асуулт
+        <textarea id="manualQText" placeholder="Choose the correct answer." rows="3">If I _____ more time, I would study English every day.</textarea>
+</label>
+<div class="options-editor">
+<label><span>A</span><input id="optA" value="have"/></label>
+<label><span>B</span><input id="optB" value="had"/></label>
+<label><span>C</span><input id="optC" value="will have"/></label>
+<label><span>D</span><input id="optD" value="am having"/></label>
+</div>
+<div class="two-col">
+<label class="bank-label">Зөв хариу
+          <select id="manualCorrect"><option>A</option><option selected="">B</option><option>C</option><option>D</option></select>
+</label>
+<label class="bank-label">Оноо
+          <input id="manualPoints" min="1" type="number" value="1"/>
+</label>
+</div>
+<label class="bank-label">Тайлбар <span class="optional-tag">сонголттой</span>
+<textarea id="manualExplanation" placeholder="Why is this answer correct?" rows="2">Second conditional: If + past simple, would + base verb.</textarea>
+</label>
+<div class="form-actions">
+<button class="secondary-btn" id="previewManualQBtn">Preview</button>
+<button class="primary-btn" id="saveManualQBtn">Асуултын санд хадгалах</button>
+</div>
+<div class="form-message" id="manualQMsg"></div>
+</div>
+<div class="panel" id="manualQuestionPreview" style="display:none">
+<div class="panel-head"><h3>Сурагчийн Preview</h3><span class="pill">Preview</span></div>
+<div class="digital-question-demo">
+<small id="mqPreviewMeta">Grammar • Conditionals</small>
+<h3>Choose the correct answer.</h3>
+<p id="mqPreviewText"></p>
+<label><input name="mqp" type="radio"/> A. <span id="mqA"></span></label>
+<label><input name="mqp" type="radio"/> B. <span id="mqB"></span></label>
+<label><input name="mqp" type="radio"/> C. <span id="mqC"></span></label>
+<label><input name="mqp" type="radio"/> D. <span id="mqD"></span></label>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="pdfToTest">
+<div class="page-head">
+<span class="eyebrow">ADMIN • PDF IMPORT</span>
+<h1>PDF-ээс цахим тест үүсгэх</h1>
+<p>Admin PDF даалгавар оруулна. Систем асуулт, сонголт, хэсгийг ялгаж Draft test болгоно. Admin review хийсний дараа багш болон сурагчдад цахимаар харагдана.</p>
+</div>
+<div class="section-wrap">
+<div class="pdf-flow">
+<div class="flow-step active"><b>1</b><span>PDF upload</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>2</b><span>Асуулт ялгах</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>3</b><span>Зөв хариу</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>4</b><span>Preview</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>5</b><span>Publish</span></div>
+</div>
+<div class="admin-import-grid">
+<div class="panel">
+<div class="panel-head"><h3>1. Даалгаврын PDF</h3><span class="pill free">Admin only</span></div>
+<label class="bank-label">Материалын нэр
+          <input id="pdfTestTitle" placeholder="e.g. Grammar Practice Set 1" value="Grammar Practice Set 1"/>
+</label>
+<div class="two-col">
+<label class="bank-label">Ангилал
+            <select id="pdfTestCategory">
+<option>Grammar</option><option>Vocabulary</option><option>Communication</option><option>Reading</option><option>Mock Test</option><option>Өмнөх оны тест</option>
+</select>
+</label>
+<label class="bank-label">Түвшин
+            <select id="pdfTestLevel"><option>Standard</option><option>Challenge</option><option>Mixed</option></select>
+</label>
+</div>
+<label class="bank-label">PDF / зураг
+          <input accept=".pdf,image/*" id="pdfTestFile" type="file"/>
+</label>
+<div class="answer-source-box">
+<b>Зөв хариу</b>
+<label><input checked="" name="pdfAnswerMode" type="radio" value="same"/> PDF дотор зөв хариу тэмдэглэгдсэн</label>
+<label><input name="pdfAnswerMode" type="radio" value="separate"/> Тусдаа answer key файл</label>
+<label><input name="pdfAnswerMode" type="radio" value="manual"/> Import хийсний дараа гараар оруулах</label>
+</div>
+<label class="bank-label">Answer key файл <span class="optional-tag">сонголттой</span>
+<input accept=".pdf,.csv,.xlsx,.xls,image/*" id="pdfAnswerFile" type="file"/>
+</label>
+<button class="primary-btn wide-btn" id="analysePdfBtnV74">PDF-г задлаж Preview үүсгэх</button>
+<p class="helper-text">Text-based PDF-г браузер дээр бодитоор задлана. Scan/image PDF бол OCR шаардлагатай тул хуурамч асуулт үүсгэхгүй. Admin асуулт бүрийг шалгаж батална.</p>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>2. Import Preview</h3><span class="pill" id="pdfImportStatus">Waiting</span></div>
+<div class="empty-state" id="pdfImportPreview">
+          PDF сонгоод “PDF-г задлаж Preview үүсгэх” дарна уу.
+        </div>
+</div>
+</div>
+<div class="panel" id="digitalTestPreview" style="display:none">
+<div class="panel-head">
+<div><h3>3. Сурагчийн харах цахим тест</h3><small>Admin publish хийхээс өмнө яг сурагчийн харах байдлаар шалгана.</small></div>
+<span class="pill free">Student preview</span>
+</div>
+<div class="digital-test-shell">
+<aside class="question-nav-demo">
+<b>Questions</b>
+<div class="qnav-grid">
+<span class="active">1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+<span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+</div>
+</aside>
+<div class="digital-question-demo">
+<small>Question 1 of 10 • Grammar</small>
+<h3>Choose the correct answer.</h3>
+<p>She _____ English every day.</p>
+<label><input name="demoq" type="radio"/> A. study</label>
+<label><input name="demoq" type="radio"/> B. studies</label>
+<label><input name="demoq" type="radio"/> C. studying</label>
+<label><input name="demoq" type="radio"/> D. studied</label>
+<div class="preview-nav"><button class="secondary-btn" data-v50-fallback="1">← Previous</button><button class="primary-btn" data-v50-fallback="1">Next →</button></div>
+</div>
+</div>
+<div class="publish-bar">
+<div>
+<b>Publish хийхэд:</b>
+<span>Teacher → Даалгаврын сан</span>
+<span>Student → Grammar / Vocabulary / Communication / Reading / Mock Test</span>
+</div>
+<button class="primary-btn" id="publishPdfTestBtnV74">Approve &amp; Publish</button>
+</div>
+<div class="form-message" id="publishPdfMsg"></div>
+</div>
+</div>
+</section>
+<section class="view" id="mockTestImportV48">
+<div class="page-head">
+<span class="eyebrow">ADMIN • MOCK TEST</span>
+<h1>Mock Test оруулах</h1>
+<p>4 алхам: PDF оруулах → answer key → сурагчийн Preview → Publish.</p>
+</div>
+<div class="section-wrap">
+<div class="mock-steps-v48">
+<button class="mock-step-v48 active" data-mock-step="1"><b>1</b><span>PDF upload</span></button>
+<i>→</i>
+<button class="mock-step-v48" data-mock-step="2"><b>2</b><span>Answer key</span></button>
+<i>→</i>
+<button class="mock-step-v48" data-mock-step="3"><b>3</b><span>Preview</span></button>
+<i>→</i>
+<button class="mock-step-v48" data-mock-step="4"><b>4</b><span>Publish</span></button>
+</div>
+<div class="panel mock-panel-v48" data-mock-panel="1">
+<div class="panel-head"><div><h3>1. Mock Test-ийн PDF</h3><small>Асуултын PDF эсвэл зураг сонгоно.</small></div><span class="pill free">Admin only</span></div>
+<div class="two-col">
+<label class="bank-label">Mock Test нэр
+        <input id="mockTitleV48" placeholder="e.g. Mock Test 01" value="Mock Test 01"/>
+</label>
+<label class="bank-label">Хугацаа
+        <div class="inline-field-v48"><input id="mockMinutesV48" max="180" min="10" type="number" value="80"/><span>минут</span></div>
+</label>
+</div>
+<div class="two-col">
+<label class="bank-label">Асуултын тоо
+        <input id="mockQuestionCountV48" max="100" min="1" type="number" value="47"/>
+</label>
+<label class="bank-label">Хувилбар
+        <input id="mockVersionV48" placeholder="A / B / C" value="A"/>
+</label>
+</div>
+<label class="upload-zone-v48" for="mockPdfV48">
+<span>📄</span><b>Mock Test PDF сонгох</b><small id="mockPdfNameV48">PDF / зураг</small>
+<input accept=".pdf,image/*" id="mockPdfV48" type="file"/>
+</label>
+<div class="form-actions"><button class="primary-btn" id="mockToAnswerV48">Дараах → Answer key</button></div>
+<div class="form-message" id="mockStep1MsgV48"></div>
+</div>
+<div class="panel mock-panel-v48 hidden" data-mock-panel="2">
+<div class="panel-head"><div><h3>2. Answer key</h3><small>Зөв хариуг оруулсны дараа Preview хийнэ.</small></div><span class="pill">Required for scoring</span></div>
+<div class="answer-source-box">
+<b>Answer key оруулах арга</b>
+<label><input checked="" name="mockAnswerModeV48" type="radio" value="manual"/> Гараар оруулах</label>
+<label><input name="mockAnswerModeV48" type="radio" value="file"/> PDF / Excel / CSV файл</label>
+<label><input name="mockAnswerModeV48" type="radio" value="none"/> Одоохондоо answer key байхгүй</label>
+</div>
+<label class="bank-label" id="mockManualKeyWrapV48">Зөв хариу
+      <textarea id="mockManualKeyV48" placeholder="1-B, 2-D, 3-A, 4-C ..." rows="5"></textarea>
+</label>
+<label class="bank-label hidden" id="mockKeyFileWrapV48">Answer key файл
+      <input accept=".pdf,.csv,.xlsx,.xls,image/*" id="mockKeyFileV48" type="file"/>
+</label>
+<p class="helper-text">Answer key байхгүй бол Mock Test-ийг Draft/Preview байдлаар хадгалж болно. Verified scoring гэж тэмдэглэхгүй.</p>
+<div class="form-actions">
+<button class="secondary-btn" data-mock-back="1">← Буцах</button>
+<button class="primary-btn" id="mockBuildPreviewV48">Preview үүсгэх</button>
+</div>
+<div class="form-message" id="mockStep2MsgV48"></div>
+</div>
+<div class="panel mock-panel-v48 hidden" data-mock-panel="3">
+<div class="panel-head"><div><h3>3. Сурагчийн Preview</h3><small>Publish хийхээс өмнө яг сурагчийн харах байдлаар шалгана.</small></div><span class="pill free">Student view</span></div>
+<div class="mock-student-shell-v48">
+<div class="mock-preview-top-v48">
+<div><b id="mockPreviewTitleV48">Mock Test 01</b><small id="mockPreviewMetaV48">47 questions • 80 min • Version A</small></div>
+<div class="mock-timer-v48">⏱ <b id="mockPreviewTimerV48">80:00</b></div>
+</div>
+<div class="mock-preview-body-v48">
+<aside><b>Questions</b><div class="mock-qgrid-v48" id="mockQGridV48"></div></aside>
+<main>
+<small>Question 1 • Preview</small>
+<h3>PDF import хийсний дараах асуулт энд харагдана.</h3>
+<label><input disabled="" type="radio"/> A. Answer choice</label>
+<label><input disabled="" type="radio"/> B. Answer choice</label>
+<label><input disabled="" type="radio"/> C. Answer choice</label>
+<label><input disabled="" type="radio"/> D. Answer choice</label>
+<div class="preview-nav"><button class="secondary-btn" disabled="">← Previous</button><button class="primary-btn" disabled="">Next →</button></div>
+</main>
+</div>
+</div>
+<div class="mock-readiness-v48" id="mockReadinessV48"></div>
+<div class="form-actions">
+<button class="secondary-btn" data-mock-back="2">← Answer key засах</button>
+<button class="primary-btn" id="mockToPublishV48">Publish шалгах →</button>
+</div>
+</div>
+<div class="panel mock-panel-v48 hidden" data-mock-panel="4">
+<div class="panel-head"><div><h3>4. Publish</h3><small>Student → Mock Test хэсэгт гаргана.</small></div><span class="pill" id="mockPublishStatusV48">Draft</span></div>
+<div class="publish-checks-v48">
+<label><input id="mockReviewedV48" type="checkbox"/> PDF / асуултуудыг Admin шалгасан</label>
+<label><input id="mockRightsV48" type="checkbox"/> Нийтлэх эрх / copyright шалгасан</label>
+<label><input checked="" id="mockVisibleV48" type="checkbox"/> Student → Mock Test хэсэгт харуулах</label>
+</div>
+<div class="mock-summary-v48" id="mockPublishSummaryV48"></div>
+<div class="form-actions">
+<button class="secondary-btn" data-mock-back="3">← Preview</button>
+<button class="secondary-btn" id="mockSaveDraftV48">Draft хадгалах</button>
+<button class="primary-btn" id="mockPublishV48">Approve &amp; Publish</button>
+</div>
+<div class="form-message" id="mockPublishMsgV48"></div>
+</div>
+</div>
+</section>
+<section class="view" id="lessonMedia">
+<div class="page-head">
+<span class="eyebrow">ADMIN • LESSON CONTENT</span>
+<h1>Дүрмийн хичээл байрлуулах</h1>
+<p>Admin дүрмийн тайлбар, зураг, видео, PDF болон жишээг нэг lesson болгон нийтэлнэ. Сурагч practice хийхээс өмнө эсвэл алдаатай сэдвээ давтахдаа үзнэ.</p>
+</div>
+<div class="section-wrap">
+<div class="lesson-editor-grid">
+<div class="panel">
+<div class="panel-head"><h3>Хичээл нэмэх</h3><span class="pill free">Admin</span></div>
+<label class="bank-label">Хичээлийн гарчиг
+          <input id="lessonTitle" value="Present Simple"/>
+</label>
+<div class="two-col">
+<label class="bank-label">Skill
+            <select id="lessonSkill"><option>Grammar</option><option>Vocabulary</option><option>Communication</option><option>Reading Strategy</option></select>
+</label>
+<label class="bank-label">Topic
+            <input id="lessonTopic" value="Present Simple"/>
+</label>
+</div>
+<label class="bank-label">Товч тайлбар
+          <textarea id="lessonSummary" placeholder="Дүрмийн гол тайлбар, хэрэглээ, жишээ..." rows="4">Daily routines, facts and repeated actions.</textarea>
+</label>
+<label class="bank-label">Хичээлийн зураг
+          <input accept="image/*" id="lessonImage" type="file"/>
+</label>
+<label class="bank-label">Видео
+          <input accept="video/*" id="lessonVideo" type="file"/>
+</label>
+<label class="bank-label">Видео link <span class="optional-tag">YouTube / Google Drive etc.</span>
+<input id="lessonVideoUrl" placeholder="https://..."/>
+</label>
+<label class="bank-label">PDF / handout <span class="optional-tag">сонголттой</span>
+<input accept=".pdf" id="lessonPdf" type="file"/>
+</label>
+<button class="primary-btn wide-btn" id="previewLessonBtn">Хичээлийг Preview хийх</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Сурагчийн Preview</h3><span class="pill">Lesson</span></div>
+<div class="lesson-card-preview" id="lessonStudentPreview">
+<div class="lesson-cover-demo">📘</div>
+<span class="lesson-tag">Grammar</span>
+<h2>Present Simple</h2>
+<p>Daily routines, facts and repeated actions.</p>
+<div class="lesson-media-tabs">
+<button class="active" data-v50-fallback="1">Explanation</button><button data-v50-fallback="1">Image</button><button data-v50-fallback="1">Video</button><button data-view="practiceHub">Practice</button>
+</div>
+<div class="lesson-example-box">
+<b>Example</b>
+<p>She <strong>studies</strong> English every day.</p>
+</div>
+</div>
+<button class="primary-btn wide-btn" id="publishLessonBtn">Publish Lesson</button>
+<div class="form-message" id="lessonPublishMsg"></div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Нийтэлсэн хичээлүүд</h3><span class="pill" id="lessonCountBadge">3 lessons</span></div>
+<div class="lesson-list" id="publishedLessons">
+<div class="lesson-list-item"><div><span>Grammar</span><b>Present Simple</b><small>Explanation • image • practice</small></div><button class="secondary-btn" data-v50-fallback="1">Edit</button></div>
+<div class="lesson-list-item"><div><span>Grammar</span><b>Present Continuous</b><small>Explanation • video • practice</small></div><button class="secondary-btn" data-v50-fallback="1">Edit</button></div>
+<div class="lesson-list-item"><div><span>Grammar</span><b>Conditionals</b><small>Explanation • PDF • practice</small></div><button class="secondary-btn" data-v50-fallback="1">Edit</button></div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="aiReviewQueueV35">
+<div class="page-head">
+<span class="eyebrow">ADMIN • AI REVIEW</span>
+<h1>AI ангиллын Review Queue</h1>
+<p>Систем өндөр confidence-тэй асуултыг автоматаар ангилна. Эргэлзээтэй асуултуудыг энд зөвхөн хурдан шалгана.</p>
+</div>
+<div class="section-wrap">
+<div class="ai-review-summary-v35">
+<div><b id="aiHighConfidenceV35">44</b><small>High confidence</small></div>
+<div><b id="aiNeedsReviewV35">3</b><small>Review required</small></div>
+<div><b id="aiApprovedV35">0</b><small>Approved</small></div>
+<div><b>80%</b><small>Review threshold</small></div>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div><h3>Шалгах шаардлагатай асуултууд</h3><small>Classification confidence 80%-аас доош</small></div>
+<button class="primary-btn" id="approveAllReviewedV35">Reviewed бүгдийг approve</button>
+</div>
+<div class="ai-review-list-v35" id="aiReviewListV35"></div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Импортын зөв урсгал</h3><span class="pill">Safe workflow</span></div>
+<div class="ai-import-flow-v35">
+<span>PDF upload</span><i>→</i><span>Question split</span><i>→</i>
+<span>AI classify</span><i>→</i><span>Low confidence review</span><i>→</i>
+<span>Admin approve</span><i>→</i><span>Publish</span>
+</div>
+<p class="helper-text">AI ангиллыг шууд нийтлэхгүй. Official answer key болон copyright status тусдаа баталгаажна.</p>
+</div>
+</div>
+</section>
+<section class="view" id="publishCenterV36">
+<div class="page-head">
+<span class="eyebrow">ADMIN • CONTENT PIPELINE</span>
+<h1>🚀 Publish Center</h1>
+<p>Импортолсон асуултуудыг Draft → Review → Approved → Published гэсэн нэг урсгалаар удирдана.</p>
+</div>
+<div class="section-wrap">
+<div class="pipeline-kpis-v36">
+<div><b id="pipeDraftV36">47</b><small>Draft</small></div>
+<div><b id="pipeReviewV36">3</b><small>Needs review</small></div>
+<div><b id="pipeApprovedV36">0</b><small>Approved</small></div>
+<div><b id="pipePublishedV36">0</b><small>Published</small></div>
+</div>
+<div class="pipeline-v36">
+<div class="pipe-step-v36"><span>1</span><b>PDF / Question import</b><small>2006–2026 source</small></div>
+<i>→</i><div class="pipe-step-v36"><span>2</span><b>AI classify</b><small>Skill • Topic • Subtopic</small></div>
+<i>→</i><div class="pipe-step-v36"><span>3</span><b>Admin review</b><small>Low-confidence only</small></div>
+<i>→</i><div class="pipe-step-v36"><span>4</span><b>Publish</b><small>Teacher + Student bank</small></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<div class="panel-head"><div><h3>Publish readiness</h3><small>Нийтлэхээс өмнөх шалгалт</small></div><span class="pill">Safe publish</span></div>
+<label class="publish-check-v36"><input checked="" id="pubClassifiedV36" type="checkbox"/> Skill / Topic / Subtopic ангилагдсан</label>
+<label class="publish-check-v36"><input id="pubReviewedV36" type="checkbox"/> Low-confidence асуултууд review хийгдсэн</label>
+<label class="publish-check-v36"><input id="pubKeyV36" type="checkbox"/> Official answer key баталгаажсан</label>
+<label class="publish-check-v36"><input id="pubRightsV36" type="checkbox"/> Нийтлэх эрх / copyright шалгагдсан</label>
+<button class="primary-btn" id="publishBatchV36">Question Bank-д нийтлэх</button>
+<div class="selected-filter-summary-v35" id="publishStatusV36">4 шалгалтаас бүгдийг баталгаажуулсны дараа publish хийнэ.</div>
+</div>
+<div class="panel">
+<h3>Нийтлэсний дараа хаана харагдах вэ?</h3>
+<div class="publish-dest-v36"><b>👩‍🏫 Teacher</b><small>Бэлэн даалгавар → 2006–2026 Smart Question Bank</small></div>
+<div class="publish-dest-v36"><b>👨‍🎓 Student</b><small>Өмнөх оны тест + Practice + Mixed Test</small></div>
+<div class="publish-dest-v36"><b>📊 Analytics</b><small>Алдаа → Weak topic → Feedback → Targeted practice</small></div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="accountManagementV41">
+<div class="page-head">
+<span class="eyebrow">ADMIN • AUTHENTICATION FOUNDATION</span>
+<h1>🔐 Account &amp; Auth</h1>
+<p>Student • Teacher • Admin account, role, access entitlement, session security.</p>
+</div>
+<div class="section-wrap">
+<div class="prod-status-v40">
+<div><small>Auth mode</small><b>Ready</b><span>Supabase-ready</span></div>
+<div><small>Roles</small><b>3</b><span>Student • Teacher • Admin</span></div>
+<div><small>Access</small><b>365</b><span>Annual entitlement</span></div>
+<div><small>Security</small><b>RLS</b><span>Server authorization</span></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel"><h3>Account үүсгэх</h3><div class="empty-state-v50">Student/Teacher account-ыг Register хуудсаар үүсгэнэ. Admin account public registration-аар үүсэхгүй.</div></div>
+<div class="panel">
+<h3>Security policy</h3>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Password database-д plaintext-аар хадгалахгүй</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Admin role-ийг public registration-аас олгохгүй</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Session server-side authorization-тай</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Row Level Security ашиглана</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Premium access entitlement-аар шалгана</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Password reset token хугацаатай</label>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><div><h3>Account registry</h3><small>Prototype preview • production DB mapping</small></div><button class="secondary-btn" id="refreshAccountsV41">Шинэчлэх</button></div>
+<div class="assignment-toolbar-v39">
+<select id="accountRoleFilterV41"><option value="all">Бүх role</option><option value="student">Student</option><option value="teacher">Teacher</option><option value="admin">Admin</option></select>
+<input id="accountSearchV41" placeholder="Нэр / email хайх"/>
+<span></span>
+</div>
+<div class="account-list-v41" id="accountListV41"></div>
+</div>
+<div class="panel">
+<h3>Production account rules</h3>
+<div class="role-matrix-v40">
+<div><b>Student</b><span>10,000₮ / year</span><span>Own attempts</span><span>Own feedback</span><span>No admin writes</span></div>
+<div><b>Teacher</b><span>20,000₮ / year</span><span>Assignments</span><span>Assigned analytics</span><span>Paper scanner</span></div>
+<div><b>Admin</b><span>Internal role</span><span>Content lifecycle</span><span>Users/access</span><span>Audit required</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="view" id="qpayPremiumV45">
+ <div class="page-head"><span class="eyebrow">ADMIN • ACCESS CODES</span><h1>🔑 Жилийн эрхийн код</h1><p>Төлбөрөө баталгаажуулсан хэрэглэгчид нэг удаагийн Student эсвэл Teacher код үүсгэж өгнө.</p></div>
+ <div class="section-wrap">
+  <div class="prod-status-v40"><div><small>Student</small><b>10,000₮</b><span>365 хоног</span></div><div><small>Teacher</small><b>20,000₮</b><span>365 хоног</span></div><div><small>Code</small><b>1 удаа</b><span>Дахин ашиглахгүй</span></div><div><small>Grant</small><b>365 хоног</b><span>Redeem хиймэгц</span></div></div>
+  <div class="settings-grid-v33"><div class="panel"><h3>📨 Холбоо барих мэдээлэл</h3><label>Facebook / Messenger холбоос<input id="v73AdminFacebook" placeholder="https://..."></label><label>И-мэйл<input id="v73AdminEmail" type="email" placeholder="name@example.com"></label><button class="primary-btn" id="v73SaveContact">Хадгалах</button><div id="v73ContactSaveStatus" class="muted"></div></div>
+  <div class="panel"><h3>➕ Шинэ код үүсгэх</h3><label>Эрхийн төрөл<select id="v73CodePlan"><option value="student">Student — 10,000₮</option><option value="teacher">Teacher — 20,000₮</option></select></label><label>Тэмдэглэл<input id="v73CodeNote" placeholder="Жишээ: Messenger төлбөр 2026-09-09"></label><button class="primary-btn" id="v73GenerateCode">Код үүсгэх</button><div id="v73GeneratedBox" class="manual-status-v72">Төлбөрөө шалгасны дараа код үүсгэнэ.</div></div></div>
+  <div class="panel"><div class="panel-head"><div><h3>Кодын бүртгэл</h3><small>Unused / Used / Expired код болон ашигласан account.</small></div><button class="secondary-btn" id="v73RefreshCodes">↻ Шинэчлэх</button></div><div id="v73CodeRegistry"><div class="empty-state-v50">Ачаалж байна...</div></div></div>
+ </div>
+</section>
+<section class="view" id="paperScannerV44">
+<div class="page-head">
+<span class="eyebrow">TEACHER / ADMIN • PAPER ASSESSMENT</span>
+<h1>📷 Answer Sheet Scanner</h1>
+<p>Paper test → scan → canonical attempts → analytics → weak-topic practice.</p>
+</div>
+<div class="section-wrap">
+<div class="prod-status-v40">
+<div><small>Input</small><b>Batch</b><span>Multiple answer sheets</span></div>
+<div><small>Scoring</small><b>Safe</b><span>Verified key only</span></div>
+<div><small>Output</small><b>Unified</b><span>Digital + Paper attempts</span></div>
+<div><small>Analytics</small><b>Ready</b><span>Weak topics + missed items</span></div>
+</div>
+<div class="pipeline-v36">
+<div class="pipe-step-v36"><span>1</span><b>Шалгалт</b><small>Select test</small></div><i>→</i>
+<div class="pipe-step-v36"><span>2</span><b>Answer key</b><small>Manual / file / saved</small></div><i>→</i>
+<div class="pipe-step-v36"><span>3</span><b>Scan</b><small>Batch sheets</small></div><i>→</i>
+<div class="pipe-step-v36"><span>4</span><b>Score</b><small>Per student</small></div><i>→</i>
+<div class="pipe-step-v36"><span>5</span><b>Analytics</b><small>Weak topic practice</small></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<div class="panel-head">
+<div><h3>1. Шалгалт сонгох</h3><small>Paper batch setup</small></div>
+<span class="pill">v44</span>
+</div>
+<div class="auth-demo-form-v41">
+<label>Batch нэр<input id="psBatchNameV44" value=""/></label>
+<label>Шалгалт
+            <select id="psExamV44">
+<option value="">Шалгалт сонгоно уу</option>
+<option value="previous-unverified">Өмнөх оны тест (answer key pending)</option>
+</select>
+</label>
+<label>Сурагчдын тоо<input id="psStudentCountV44" max="60" min="1" type="number" value="1"/></label>
+</div>
+</div>
+<div class="panel">
+<h3>2. Зөв хариу оруулах</h3>
+<div class="answer-key-methods-v44">
+<label><input checked="" name="psKeyMethodV44" type="radio" value="manual"/> Manual</label>
+<label><input name="psKeyMethodV44" type="radio" value="file"/> PDF / Excel / CSV</label>
+<label><input name="psKeyMethodV44" type="radio" value="saved"/> Saved SmartESH key</label>
+</div>
+<label class="auth-demo-form-v41">Manual key
+          <textarea id="psAnswerKeyV44" placeholder="1-B, 2-A, 3-D, 4-C, 5-B" rows="4"></textarea>
+</label>
+<div class="selected-filter-summary-v35" id="psKeyStatusV44">
+          Answer key-г оруулж баталгаажуулсны дараа scoring идэвхжинэ.
+        </div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div>
+<h3>3. Answer sheet batch scan</h3>
+<small>Production-safe intake • fake scoring disabled</small>
+</div>
+<button class="primary-btn" id="psGenerateSheetV58">A4 Answer Sheet үүсгэх</button>
+</div>
+<div class="paper-scan-zone-v44">
+<div class="paper-sheet-v44">
+<div class="paper-mark-v44">A</div><div class="paper-mark-v44">B</div><div class="paper-mark-v44">C</div><div class="paper-mark-v44">D</div>
+<p>Camera / image / PDF upload</p><input id="psFilesV58" type="file" accept="image/*,.pdf" multiple/><small>Upload → OMR service → confidence → Teacher Review → Confirm score</small>
+</div>
+<div class="paper-scan-stats-v44" id="psScanStatusV44">
+<div><small>Scanned</small><b>0</b></div>
+<div><small>Need review</small><b>0</b></div>
+<div><small>Saved attempts</small><b>0</b></div>
+</div>
+<div id="psUploadQueueV58" class="v58-upload-queue"><div class="empty-state-v50">Файл сонгоогүй байна.</div></div><div class="selected-filter-summary-v35" id="psSafetyV58">⚠ OMR backend баталгаажаагүй үед SmartESH оноо зохиож гаргахгүй.</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div><h3>4. Сурагч бүрийн дүн</h3><small>Canonical paper attempts</small></div>
+<button class="secondary-btn" id="psClearV58">Batch цэвэрлэх</button>
+</div>
+<div class="paper-results-v44" id="psStudentResultsV44">
+        Batch scan хийсний дараа үр дүн энд гарна.
+      </div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<h3>5. Нийт анализ</h3>
+<div class="paper-analytics-v44" id="psAnalyticsV44">
+<p>Average, highest, lowest, skill accuracy, weak topics, most-missed questions.</p>
+</div>
+</div>
+<div class="panel">
+<h3>Weak-topic follow-up</h3>
+<p>Paper болон Digital attempt хоёулаа ижил analytics data model ашиглана.</p>
+<button class="primary-btn" id="psCreatePracticeV44">Weak topic practice үүсгэх</button>
+<div class="selected-filter-summary-v35" id="psPracticeStatusV44">Одоогоор batch analytics алга.</div>
+</div>
+</div>
+<div class="panel">
+<h3>Production safeguards</h3>
+<div class="publish-gate-v42">
+<div>✓ Verified answer key before auto-scoring</div>
+<div>✓ Low-confidence bubble → manual review</div>
+<div>✓ Student identity / sheet mapping validation</div>
+<div>✓ Original scan retained for audit</div>
+<div>✓ Paper result saved as canonical attempt</div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="testEngineV43">
+<div class="page-head">
+<span class="eyebrow">ADMIN • ASSESSMENT CORE</span>
+<h1>⚙️ Real Test Engine Foundation</h1>
+<p>Autosave → Timer → Submit → Verified scoring → Question-by-question review → Mistake data.</p>
+</div>
+<div class="section-wrap">
+<div class="prod-status-v40">
+<div><small>Attempt model</small><b>Canonical</b><span>Per student / assignment</span></div>
+<div><small>Autosave</small><b>ON</b><span>Per answer</span></div>
+<div><small>Scoring</small><b>Safe</b><span>Verified key only</span></div>
+<div><small>Review</small><b>Detailed</b><span>Per question</span></div>
+</div>
+<div class="pipeline-v36">
+<div class="pipe-step-v36"><span>1</span><b>Start</b><small>Create attempt</small></div><i>→</i>
+<div class="pipe-step-v36"><span>2</span><b>Answer</b><small>Autosave</small></div><i>→</i>
+<div class="pipe-step-v36"><span>3</span><b>Submit</b><small>Lock attempt</small></div><i>→</i>
+<div class="pipe-step-v36"><span>4</span><b>Score</b><small>Server verified</small></div><i>→</i>
+<div class="pipe-step-v36"><span>5</span><b>Feedback</b><small>Weak topic</small></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<div class="panel-head">
+<div>
+<h3>Demo test runner</h3>
+<small>Original demo questions • no official past-paper claims</small>
+</div>
+<span class="pill">v43</span>
+</div>
+<div class="test-engine-top-v43">
+<div><small>Test</small><b id="teTitleV43">SmartESH Demo Check</b></div>
+<div><small>Time</small><b id="teTimerV43">10:00</b></div>
+<div><small>Autosave</small><b id="teSaveV43">Ready</b></div>
+<div><small>Answered</small><b id="teAnsweredV43">0 / 5</b></div>
+</div>
+<div class="te-question-v43" id="teQuestionV43"></div>
+<div class="test-engine-nav-v43">
+<button class="secondary-btn" id="tePrevV43">← Өмнөх</button>
+<div class="te-numbers-v43" id="teNumbersV43"></div>
+<button class="secondary-btn" id="teNextV43">Дараах →</button>
+</div>
+<div class="test-engine-actions-v43">
+<button class="secondary-btn" id="teFlagV43">🚩 Flag</button>
+<button class="primary-btn" id="teReviewV43">Review before submit</button>
+<button class="danger-btn" id="teSubmitV43">Submit test</button>
+</div>
+<div class="te-review-panel-v43" hidden="" id="teReviewPanelV43"></div>
+</div>
+<div class="panel">
+<h3>Scoring policy</h3>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Verified answer key → score automatically</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Unverified key → preserve answers, no fake score</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Correct answers hidden during active attempt</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Submitted attempt becomes immutable</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Mistake records derive from exact wrong answers</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Teacher analytics uses attempt records</label>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div>
+<h3>Attempt detail</h3>
+<small>Last submitted demo attempt</small>
+</div>
+<button class="secondary-btn" id="teClearAttemptV43">Demo attempt reset</button>
+</div>
+<div class="te-attempt-detail-v43" id="teAttemptDetailV43">
+        Test submit хийсний дараа question-by-question result энд гарна.
+      </div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<h3>Canonical attempt record</h3>
+<div class="db-detail-v40">
+<div class="db-field-v40"><code>attempt.id</code><span>unique attempt</span></div>
+<div class="db-field-v40"><code>student_id</code><span>authenticated user</span></div>
+<div class="db-field-v40"><code>assignment_id</code><span>optional assignment link</span></div>
+<div class="db-field-v40"><code>started_at</code><span>timestamp</span></div>
+<div class="db-field-v40"><code>submitted_at</code><span>timestamp</span></div>
+<div class="db-field-v40"><code>score</code><span>only when verified</span></div>
+<div class="db-field-v40"><code>per_question</code><span>selected / correct / taxonomy</span></div>
+</div>
+</div>
+<div class="panel">
+<h3>Production safeguards</h3>
+<div class="publish-gate-v42">
+<div>✓ Server-side score calculation</div>
+<div>✓ Attempt ownership check</div>
+<div>✓ Deadline / attempt-limit validation</div>
+<div>✓ Autosave conflict handling</div>
+<div>✓ Submit idempotency</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="questionBankAdminV42">
+<div class="page-head">
+<span class="eyebrow">ADMIN • CONTENT PIPELINE</span>
+<h1>🧠 Smart Question Bank</h1>
+<p>2006–2026 ЭЕШ материал → AI ангилалт → Admin review → Publish → Teacher ашиглана.</p>
+</div>
+<div class="section-wrap">
+<div class="prod-status-v40">
+<div><small>Archive years</small><b>21</b><span>2006–2026</span></div>
+<div><small>Workflow</small><b>5</b><span>Import → Split → Classify → Review → Publish</span></div>
+<div><small>Answer key</small><b>Safe</b><span>Verified before scoring</span></div>
+<div><small>Teacher bank</small><b>Ready</b><span>Published only</span></div>
+</div>
+<div class="pipeline-v36">
+<div class="pipe-step-v36"><span>1</span><b>Import</b><small>PDF / image</small></div><i>→</i>
+<div class="pipe-step-v36"><span>2</span><b>Split</b><small>Question detection</small></div><i>→</i>
+<div class="pipe-step-v36"><span>3</span><b>Classify</b><small>Skill / Topic / Subtopic</small></div><i>→</i>
+<div class="pipe-step-v36"><span>4</span><b>Review</b><small>Low confidence + key</small></div><i>→</i>
+<div class="pipe-step-v36"><span>5</span><b>Publish</b><small>Teacher + Student</small></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<div class="panel-head"><div><h3>Import batch</h3><small>Production ingestion model</small></div><span class="pill">v42</span></div>
+<div class="auth-demo-form-v41">
+<label>Он
+          <select id="qbYearV42"></select>
+</label>
+<label>Хувилбар
+          <input id="qbVersionV42" placeholder="A"/>
+</label>
+<label>Source type
+          <select id="qbSourceTypeV42">
+<option>Official previous exam</option>
+<option>Teacher-created</option>
+<option>Mock test</option>
+</select>
+</label>
+<label>Answer key status
+          <select id="qbKeyStatusV42">
+<option value="pending">Pending</option>
+<option value="verified">Verified</option>
+</select>
+</label>
+<button class="primary-btn" id="createBatchV42">Import batch үүсгэх</button>
+<div class="selected-filter-summary-v35" id="qbBatchStatusV42">
+          Prototype дээр файл задлахгүй; production pipeline-ийн batch lifecycle-г туршина.
+        </div>
+</div>
+</div>
+<div class="panel">
+<h3>AI classification policy</h3>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Skill auto-tag</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Topic auto-tag</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Subtopic auto-tag</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Multi-tag allowed</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Low confidence → AI Review Queue</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Never auto-publish imported exam content</label>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div><h3>Question Bank Manager</h3><small>Published / Review / Draft / Archived</small></div>
+<button class="secondary-btn" id="seedQBV42">Demo data сэргээх</button>
+</div>
+<div class="assignment-toolbar-v39">
+<select id="qbStatusFilterV42">
+<option value="all">Бүх төлөв</option>
+<option value="published">Published</option>
+<option value="review">Review</option>
+<option value="draft">Draft</option>
+<option value="archived">Archived</option>
+</select>
+<select id="qbSkillFilterV42">
+<option value="all">Бүх skill</option>
+<option>Grammar</option>
+<option>Vocabulary</option>
+<option>Communication</option>
+<option>Reading</option>
+</select>
+<input id="qbSearchV42" placeholder="Question / topic / subtopic хайх"/>
+</div>
+<div class="qb-manager-v42" id="qbManagerV42"></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<h3>Publish gate</h3>
+<div class="publish-gate-v42">
+<div>✓ Classification complete</div>
+<div>✓ Low confidence reviewed</div>
+<div>✓ Official answer key verified</div>
+<div>✓ Rights / copyright cleared</div>
+</div>
+<p class="note">Эдгээр 4 нөхцөл хангагдсан үед л Student/Teacher талд Published болно.</p>
+</div>
+<div class="panel">
+<h3>Teacher delivery</h3>
+<div class="role-matrix-v40">
+<div><b>Ready bank</b><span>Topic filter</span><span>Year filter</span><span>Difficulty</span><span>Assign</span></div>
+<div><b>Mixed test</b><span>2006–2026</span><span>Multiple years</span><span>Random</span><span>Preview</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="productionBlueprintV40">
+<div class="page-head">
+<span class="eyebrow">ADMIN • PRODUCTION FOUNDATION</span>
+<h1>🗄️ Production Blueprint</h1>
+<p>Prototype-ийн localStorage өгөгдлийг жинхэнэ database + backend руу шилжүүлэх суурь бүтэц.</p>
+</div>
+<div class="section-wrap">
+<div class="prod-status-v40">
+<div><small>Core tables</small><b>15</b><span>Designed</span></div>
+<div><small>Role model</small><b>3</b><span>Student • Teacher • Admin</span></div>
+<div><small>Data flow</small><b>1</b><span>Digital + Paper</span></div>
+<div><small>Prototype DB</small><b>Local</b><span>Migration-ready</span></div>
+</div>
+<div class="pipeline-v36">
+<div class="pipe-step-v36"><span>1</span><b>Auth</b><small>User + Role</small></div><i>→</i>
+<div class="pipe-step-v36"><span>2</span><b>Content</b><small>Questions + Exams</small></div><i>→</i>
+<div class="pipe-step-v36"><span>3</span><b>Delivery</b><small>Assignments</small></div><i>→</i>
+<div class="pipe-step-v36"><span>4</span><b>Attempts</b><small>Answers + Score</small></div><i>→</i>
+<div class="pipe-step-v36"><span>5</span><b>Intelligence</b><small>Mistakes + Weak topics</small></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<div class="panel-head"><div><h3>Core database</h3><small>Production schema</small></div><span class="pill">v40</span></div>
+<div class="db-table-list-v40">
+<button data-db-v40="profiles">👤 profiles <small>user role + access</small></button>
+<button data-db-v40="questions">❓ questions <small>2006–2026 + metadata</small></button>
+<button data-db-v40="question_options">🔘 question_options <small>A–E choices</small></button>
+<button data-db-v40="exams">📝 exams <small>mock + previous exams</small></button>
+<button data-db-v40="exam_questions">🔗 exam_questions <small>exam/question mapping</small></button>
+<button data-db-v40="assignments">📚 assignments <small>teacher delivery</small></button>
+<button data-db-v40="assignment_targets">🎯 assignment_targets <small>recipient mapping</small></button>
+<button data-db-v40="attempts">⏱️ attempts <small>student test session</small></button>
+<button data-db-v40="attempt_answers">✅ attempt_answers <small>per-question answer</small></button>
+<button data-db-v40="mistakes">📕 mistakes <small>mistake notebook</small></button>
+<button data-db-v40="paper_batches">📄 paper_batches <small>scanner batch</small></button>
+<button data-db-v40="notifications">🔔 notifications <small>daily updates</small></button>
+<button data-db-v40="payments">💳 payments <small>QPay verification</small></button>
+<button data-db-v40="entitlements">🔐 entitlements <small>365-day Premium</small></button>
+<button data-db-v40="audit_logs">🧾 audit_logs <small>Admin history</small></button>
+</div>
+</div>
+<div class="panel">
+<h3 id="dbDetailTitleV40">profiles</h3>
+<div class="db-detail-v40" id="dbDetailV40"></div>
+</div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<h3>Role permissions</h3>
+<div class="role-matrix-v40">
+<div><b>Student</b><span>Published content</span><span>Own assignments</span><span>Own results</span><span>Own mistakes</span></div>
+<div><b>Teacher</b><span>Published bank</span><span>Create assignments</span><span>Assigned results</span><span>Paper analytics</span></div>
+<div><b>Admin</b><span>Content CRUD</span><span>AI review/publish</span><span>User/access</span><span>Settings/audit</span></div>
+</div>
+</div>
+<div class="panel">
+<h3>Production safety rules</h3>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Students only read Published questions</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Answer key hidden during active attempt</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> QPay entitlement verified server-side</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> Admin actions recorded in audit log</label>
+<label class="publish-check-v36"><input checked="" disabled="" type="checkbox"/> AI imports require review policy</label>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><div><h3>Migration readiness</h3><small>v39 localStorage → production tables</small></div><button class="primary-btn" id="runMigrationAuditV40">Migration audit ажиллуулах</button></div>
+<div class="migration-audit-v40" id="migrationAuditV40">Audit ажиллуулаад prototype data key-үүдийг production table-тэй тулгана.</div>
+</div>
+</div>
+</section>
+<section class="view" id="adminSiteSettingsV33">
+<div class="section-wrap">
+<div class="page-title-row admin-settings-title-v33">
+<div>
+<span class="eyebrow">ADMIN • CONTROL CENTER</span>
+<h1>⚙️ Сайтын тохиргоо</h1>
+<p>Үнэ, төлбөрийн нөхцөл, сайт дээрх жижиг өөрчлөлт, feature болон шалгалтын default тохиргоог кодгүйгээр удирдана.</p>
+</div>
+<div class="admin-setting-actions-v33">
+<button class="secondary-btn" id="resetAdminSettingsV33">Default болгох</button>
+<button class="primary-btn" id="saveAdminSettingsV33">Өөрчлөлт хадгалах</button>
+</div>
+</div>
+<div class="admin-settings-summary-v33">
+<div><b id="summaryStudentPriceV33">10,000₮</b><small>Сурагч / 365 хоног</small></div>
+<div><b id="summaryTeacherPriceV33">20,000₮</b><small>Багш / 365 хоног</small></div>
+<div><b id="summaryAIStatusV33">ON</b><small>AI Auto Classification</small></div>
+<div><b id="summaryScannerStatusV33">ON</b><small>Answer Sheet Scanner</small></div>
+</div>
+<div class="admin-settings-tabs-v33">
+<button class="active" data-admin-tab-v33="pricing">💳 Төлбөр &amp; эрх</button>
+<button data-admin-tab-v33="content">🖥 Сайтын контент</button>
+<button data-admin-tab-v33="features">🧩 Feature</button>
+<button data-admin-tab-v33="exam">📝 Шалгалт</button>
+<button data-admin-tab-v33="ai">✨ AI Import</button>
+<button data-admin-tab-v33="system">🔧 Систем</button>
+</div>
+<div class="admin-setting-pane-v33 active" data-admin-pane-v33="pricing">
+<div class="settings-grid-v33">
+<div class="panel">
+<span class="eyebrow">ANNUAL ACCESS</span><h3>Жилийн эрхийн үнэ</h3>
+<label>Сурагчийн үнэ (₮)<input id="settingStudentPriceV33" min="0" type="number" value="10000"/></label>
+<label>Багшийн үнэ (₮)<input id="settingTeacherPriceV33" min="0" type="number" value="20000"/></label>
+<label>Эрхийн хугацаа (хоног)<input id="settingAccessDaysV33" min="1" type="number" value="365"/></label>
+<label class="toggle-row-v33"><input checked="" id="settingPriceVisibleV33" type="checkbox"/> Үнийг хэрэглэгчид харуулах</label>
+</div>
+<div class="panel">
+<span class="eyebrow">PAYMENT TERMS</span><h3>Төлбөрийн нөхцөл</h3>
+<label>Тайлбар<textarea id="settingPaymentTermsV33" rows="5">Нэг удаагийн төлбөрөөр 365 хоногийн Premium эрх нээгдэнэ.</textarea></label>
+<label class="toggle-row-v33"><input checked="" id="settingQPayV33" type="checkbox"/> QPay идэвхтэй</label>
+<label class="toggle-row-v33"><input id="settingFreeTrialV33" type="checkbox"/> Free trial</label>
+<label>Trial хоног<input id="settingTrialDaysV33" min="0" type="number" value="3"/></label>
+</div>
+<div class="panel">
+<span class="eyebrow">ACCESS</span><h3>Эрхийн удирдлага</h3>
+<label class="toggle-row-v33"><input checked="" id="settingExpiryReminderV33" type="checkbox"/> Дуусах хугацааны сануулга</label>
+<label>Хэд хоногийн өмнө<input id="settingReminderDaysV33" min="1" type="number" value="7"/></label>
+<label class="toggle-row-v33"><input checked="" id="settingManualGrantV33" type="checkbox"/> Admin үнэгүй эрх өгөх</label>
+<label class="toggle-row-v33"><input checked="" id="settingManualExtendV33" type="checkbox"/> Admin эрх сунгах</label>
+</div>
+<div class="panel">
+<span class="eyebrow">MESSAGES</span><h3>Төлбөрийн мессеж</h3>
+<label>Амжилттай төлбөр<textarea id="settingPaymentSuccessV33" rows="3">Таны Premium эрх амжилттай идэвхжлээ.</textarea></label>
+<label>Эрх дууссан үед<textarea id="settingExpiredTextV33" rows="3">Таны Premium эрх дууссан байна. Эрхээ сунгана уу.</textarea></label>
+</div>
+</div>
+</div>
+<div class="admin-setting-pane-v33" data-admin-pane-v33="content">
+<div class="settings-grid-v33">
+<div class="panel">
+<span class="eyebrow">BRAND</span><h3>Сайтын үндсэн мэдээлэл</h3>
+<label>Сайтын нэр<input id="settingSiteNameV33" value="SmartESH"/></label>
+<label>Tagline<input id="settingTaglineV33" value="Smart English Exam Preparation"/></label>
+<label>Hero гарчиг<input id="settingHeroV33" value="ЭЕШ-д ухаалгаар бэлд. Ахиц бүрээ хар."/></label>
+<label>CTA текст<input id="settingCtaV33" value="Бэлтгэлээ эхлүүлэх"/></label>
+<label>Support email<input id="settingSupportV33" value="support@smartesh.mn"/></label>
+</div>
+<div class="panel">
+<span class="eyebrow">HOME PAGE</span><h3>Нүүр хуудасны жижиг өөрчлөлт</h3>
+<label>Announcement<input id="settingAnnouncementV33" value="2026 ЭЕШ бэлтгэл — шинэ mock test нэмэгдлээ"/></label>
+<label class="toggle-row-v33"><input checked="" id="settingShowAnnouncementV33" type="checkbox"/> Announcement харуулах</label>
+<label class="toggle-row-v33"><input checked="" id="settingShowPreviousV33" type="checkbox"/> Өмнөх оны тест</label>
+<label class="toggle-row-v33"><input checked="" id="settingShowMockV33" type="checkbox"/> Mock Test</label>
+<label class="toggle-row-v33"><input checked="" id="settingShowPracticeV33" type="checkbox"/> Practice</label>
+<label class="toggle-row-v33"><input checked="" id="settingShowFeedbackV33" type="checkbox"/> Feedback</label>
+</div>
+</div>
+</div>
+<div class="admin-setting-pane-v33" data-admin-pane-v33="features">
+<div class="settings-grid-v33">
+<div class="panel">
+<span class="eyebrow">FEATURE FLAGS</span><h3>Feature ON / OFF</h3>
+<label class="toggle-row-v33"><input checked="" id="settingScannerV33" type="checkbox"/> Answer Sheet Scanner</label>
+<label class="toggle-row-v33"><input checked="" id="settingNotificationsV33" type="checkbox"/> Notifications</label>
+<label class="toggle-row-v33"><input checked="" id="settingTeacherManualV33" type="checkbox"/> Teacher manual assignment</label>
+<label class="toggle-row-v33"><input checked="" id="settingMixedYearV33" type="checkbox"/> 2006–2026 Mixed Test</label>
+<label class="toggle-row-v33"><input checked="" id="settingStudentFeedbackV33" type="checkbox"/> Smart Feedback</label>
+<label class="toggle-row-v33"><input checked="" id="settingMistakeNotebookV33" type="checkbox"/> Mistake Notebook</label>
+</div>
+<div class="panel">
+<span class="eyebrow">NOTIFICATIONS</span><h3>Мэдэгдлийн default</h3>
+<label>Audience<select id="settingAudienceV33"><option>Бүгд</option><option>Сурагч</option><option>Багш</option></select></label>
+<label class="toggle-row-v33"><input checked="" id="settingPopupV33" type="checkbox"/> Login дараа popup</label>
+<label class="toggle-row-v33"><input checked="" id="settingPinnedAllowedV33" type="checkbox"/> Pinned announcement</label>
+</div>
+</div>
+</div>
+<div class="admin-setting-pane-v33" data-admin-pane-v33="exam">
+<div class="settings-grid-v33">
+<div class="panel">
+<span class="eyebrow">DEFAULTS</span><h3>Шалгалтын default</h3>
+<label>Хугацаа (мин)<input id="settingExamMinutesV33" min="1" type="number" value="40"/></label>
+<label>Оролдлого<input id="settingAttemptsV33" min="1" type="number" value="1"/></label>
+<label class="toggle-row-v33"><input checked="" id="settingShuffleQV33" type="checkbox"/> Асуулт shuffle</label>
+<label class="toggle-row-v33"><input id="settingShuffleAV33" type="checkbox"/> Answer choices shuffle</label>
+<label class="toggle-row-v33"><input id="settingInstantFeedbackV33" type="checkbox"/> Instant feedback</label>
+</div>
+<div class="panel">
+<span class="eyebrow">RUNNER UX</span><h3>Даалгавар ажиллуулах горим</h3>
+<label class="toggle-row-v33"><input checked="" id="settingFullscreenV33" type="checkbox"/> Бүтэн дэлгэц</label>
+<label class="toggle-row-v33"><input checked="" id="settingAutosaveV33" type="checkbox"/> Autosave</label>
+<label class="toggle-row-v33"><input checked="" id="settingFlaggingV33" type="checkbox"/> Flag question</label>
+<label class="toggle-row-v33"><input checked="" id="settingReviewBeforeSubmitV33" type="checkbox"/> Submit өмнө review</label>
+</div>
+</div>
+</div>
+<div class="admin-setting-pane-v33" data-admin-pane-v33="ai">
+<div class="settings-grid-v33">
+<div class="panel">
+<span class="eyebrow">2006–2026 AUTO IMPORT</span><h3>AI автомат ангилал</h3>
+<label class="toggle-row-v33"><input checked="" id="settingAiClassifyV33" type="checkbox"/> AI Auto Classification</label>
+<label class="toggle-row-v33"><input checked="" id="settingAutoTagV33" type="checkbox"/> Skill / Topic / Subtopic автоматаар</label>
+<label>Low-confidence босго (%)<input id="settingConfidenceV33" max="100" min="1" type="number" value="80"/></label>
+<label class="toggle-row-v33"><input checked="" id="settingMultiTagV33" type="checkbox"/> Нэг асуултад олон tag</label>
+</div>
+<div class="panel">
+<span class="eyebrow">SAFE PUBLISH</span><h3>Review policy</h3>
+<label class="toggle-row-v33"><input checked="" id="settingReviewLowConfidenceV33" type="checkbox"/> Low confidence → Review queue</label>
+<label class="toggle-row-v33"><input checked="" id="settingNeverAutoPublishV33" type="checkbox"/> AI шууд publish хийхгүй</label>
+<p class="helper-text">PDF → Question split → AI classify → uncertain review → Admin approve → Publish.</p>
+</div>
+</div>
+</div>
+<div class="admin-setting-pane-v33" data-admin-pane-v33="system">
+<div class="settings-grid-v33">
+<div class="panel">
+<span class="eyebrow">SYSTEM</span><h3>Ерөнхий тохиргоо</h3>
+<label class="toggle-row-v33"><input id="settingMaintenanceV33" type="checkbox"/> Maintenance mode</label>
+<label>Maintenance message<textarea id="settingMaintenanceTextV33" rows="3">SmartESH дээр түр шинэчлэлт хийж байна.</textarea></label>
+<label class="toggle-row-v33"><input checked="" id="settingAuditV33" type="checkbox"/> Admin өөрчлөлтийн түүх</label>
+</div>
+<div class="panel">
+<span class="eyebrow">CHANGE HISTORY</span><h3>Admin өөрчлөлтийн түүх</h3>
+<div class="audit-list-v36" id="adminAuditListV36"><small>Өөрчлөлт хадгалахад энд харагдана.</small></div>
+<button class="secondary-btn" id="refreshAuditV36">Шинэчлэх</button>
+</div>
+<div class="panel">
+<span class="eyebrow">ADMIN CAPABILITY</span><h3>Явцын дунд өөрчилж болох зүйлс</h3>
+<p class="helper-text"><b>Admin өөрөө:</b> үнэ, төлбөрийн нөхцөл, announcement, текст, feature ON/OFF, шалгалтын default, AI threshold, контент, мэдэгдэл.</p>
+<p class="helper-text"><b>Developer:</b> шинэ database structure, login/security, payment integration, үндсэн layout/function зэрэг том өөрчлөлт.</p>
+</div>
+</div>
+</div>
+<div class="admin-save-status-v33" id="adminSaveStatusV33">Өөрчлөлт хадгалагдаагүй.</div>
+</div>
+</section>
+<section class="view" id="mixedRunnerV29">
+<div class="mixed-runner-shell-v34">
+<div class="mixed-runner-top-v34">
+<div>
+<span class="eyebrow">SMARTESH • 2006–2026 MIXED EESH</span>
+<h2 id="mixedRunnerTitleV29">Олон оны холимог тест</h2>
+</div>
+<button class="task-exit-btn" id="exitMixedRunnerV29">← Даалгавраас гарах</button>
+</div>
+<div class="task-progress-track"><i id="mixedProgressBarV29"></i></div>
+<div class="mixed-meta-row-v34">
+<span id="mixedQuestionMetaV29">Question 1</span>
+<span id="mixedAnsweredV29">0 answered</span>
+</div>
+<div class="mixed-question-card-v34">
+<div class="mixed-source-v34" id="mixedSourceV29">2024 • Grammar</div>
+<h1 id="mixedQuestionV29">Question</h1>
+<div class="mixed-options-v34" id="mixedOptionsV29"></div>
+</div>
+<div class="exam-action-row">
+<button class="secondary-btn" id="mixedPrevV29">← Өмнөх</button>
+<button class="secondary-btn" id="mixedFlagV29">⚑ Flag</button>
+<button class="primary-btn" id="mixedNextV29">Дараах →</button>
+</div>
+<div class="task-qnav" id="mixedQNavV29"></div>
+<div class="task-summary-line">
+<span>Хариулт автоматаар хадгалагдана • <b id="mixedSavedAtV34">Ready</b></span>
+<button class="primary-btn" id="mixedSubmitV29">Тест дуусгах</button>
+</div>
+</div>
+</section>
+<section class="view" id="studentResultReviewV36">
+<div class="page-head">
+<span class="eyebrow">STUDENT • TEST HISTORY</span>
+<h1>📋 Миний тестүүд</h1>
+<p>Оноогоо харахаас гадна аль асуулт, аль сэдэв дээр алдсанаа дахин ажиллана.</p>
+</div>
+<div class="section-wrap">
+<div class="student-history-kpis-v36">
+<div><small>Сүүлийн оноо</small><b id="historyLatestV36">—</b></div>
+<div><small>Шилдэг оноо</small><b id="historyBestV36">—</b></div>
+<div><small>Нийт тест</small><b id="historyCountV36">0</b></div>
+<div><small>Давтах priority</small><b id="historyWeakV36">—</b></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<h3>Сүүлийн оролдлогууд</h3>
+<div class="history-list-v36" id="studentHistoryListV36"><small>Одоогоор тестийн үр дүн алга.</small></div>
+</div>
+<div class="panel">
+<h3>Smart next step</h3>
+<div class="smart-next-v36">
+<span>1</span><div><b>Weak topic practice</b><small id="historyWeakPlanV36">Тест хийсний дараа автоматаар гарна.</small></div>
+</div>
+<div class="smart-next-v36"><span>2</span><div><b>Mini re-check</b><small>10 mixed questions</small></div></div>
+<button class="primary-btn" data-view="practiceHub">Smart Practice эхлүүлэх</button>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="mistakeNotebookV37">
+<div class="page-head">
+<span class="eyebrow">STUDENT • SMART FEEDBACK</span>
+<h1>📕 Mistake Notebook</h1>
+<p>Цахим болон цаасан шалгалтын алдаануудыг нэг дор хадгалж, сул сэдвээр дахин ажиллана.</p>
+</div>
+<div class="section-wrap">
+<div class="mistake-kpis-v37">
+<div><small>Нийт алдаа</small><b id="mistakeTotalV37">0</b></div>
+<div><small>Priority topic</small><b id="mistakePriorityV37">—</b></div>
+<div><small>Давтсан</small><b id="mistakeReviewedV37">0</b></div>
+<div><small>Mastered</small><b id="mistakeMasteredV37">0</b></div>
+</div>
+<div class="mistake-toolbar-v37">
+<select id="mistakeFilterV37">
+<option value="all">Бүх алдаа</option>
+<option value="Grammar">Grammar</option>
+<option value="Vocabulary">Vocabulary</option>
+<option value="Reading">Reading</option>
+<option value="Communication">Communication</option>
+</select>
+<button class="primary-btn" id="practiceMistakesV37">Алдаанаасаа 5 асуулт ажиллах</button>
+</div>
+<div class="mistake-list-v37" id="mistakeListV37">
+<div class="empty-state-v37">Тест хийсний дараа алдаанууд энд автоматаар нэмэгдэнэ.</div>
+</div>
+</div>
+</section>
+<section class="view" id="smartPracticeRunnerV38">
+<div class="smart-practice-shell-v38">
+<div class="mixed-runner-top-v34">
+<div><span class="eyebrow">TARGETED REMEDIATION</span><h2 id="smartPracticeTitleV38">Smart Practice</h2></div>
+<button class="task-exit-btn" id="exitSmartPracticeV38">← Гарах</button>
+</div>
+<div class="task-progress-track"><i id="smartPracticeProgressV38"></i></div>
+<div class="mixed-meta-row-v34"><span id="smartPracticeMetaV38">Question 1</span><span id="smartPracticeAnsweredV38">0 answered</span></div>
+<div class="mixed-question-card-v34">
+<div class="mixed-source-v34" id="smartPracticeTopicV38">Weak topic</div>
+<h1 id="smartPracticeQuestionV38">Question</h1>
+<div class="mixed-options-v34" id="smartPracticeOptionsV38"></div>
+<div class="practice-explanation-v38 hidden" id="smartPracticeExplanationV38"></div>
+</div>
+<div class="exam-action-row">
+<button class="secondary-btn" id="smartPracticePrevV38">← Өмнөх</button>
+<button class="primary-btn" id="smartPracticeNextV38">Дараах →</button>
+</div>
+<div class="task-qnav" id="smartPracticeNavV38"></div>
+<div class="task-summary-line"><span>Targeted practice • autosave</span><button class="primary-btn" id="smartPracticeSubmitV38">Practice дуусгах</button></div>
+</div>
+</section>
+<section class="view" id="instantResultV38">
+<div class="instant-result-shell-v38">
+<div class="result-hero-v38">
+<span class="eyebrow">TEST COMPLETE • SMART FEEDBACK</span>
+<div class="result-score-ring-v38"><b id="instantScoreV38">—</b><small>Score</small></div>
+<h1 id="instantResultTitleV38">Тест дууслаа</h1>
+<p id="instantResultMessageV38">Үр дүнг боловсруулж байна.</p>
+</div>
+<div class="result-kpis-v38">
+<div><small>Correct</small><b id="instantCorrectV38">—</b></div>
+<div><small>Wrong</small><b id="instantWrongV38">—</b></div>
+<div><small>Unanswered</small><b id="instantUnansweredV38">—</b></div>
+<div><small>Priority topic</small><b id="instantWeakV38">—</b></div>
+</div>
+<div class="result-grid-v38">
+<div class="panel">
+<div class="panel-head"><div><span class="eyebrow">WHY?</span><h3>Алдааны анализ</h3></div><button class="secondary-btn" data-view="mistakeNotebookV37">Mistake Notebook →</button></div>
+<div class="instant-mistakes-v38" id="instantMistakesV38"></div>
+</div>
+<div class="panel smart-plan-v38">
+<span class="eyebrow">NEXT BEST ACTION</span><h3>Одоо юу хийх вэ?</h3>
+<div class="plan-step-v38"><span>1</span><div><b id="instantPlanTopicV38">Weak topic practice</b><small>10 targeted questions</small></div></div>
+<div class="plan-step-v38"><span>2</span><div><b>Explanation review</b><small>Алдааны дүрэм, шалтгааныг давтах</small></div></div>
+<div class="plan-step-v38"><span>3</span><div><b>Mini re-check</b><small>10 mixed questions</small></div></div>
+<button class="primary-btn" id="instantStartPracticeV38">Smart Practice эхлүүлэх</button>
+<button class="secondary-btn" data-view="studentResultReviewV36">Миний тестүүд</button>
+</div>
+</div>
+<div class="result-actions-v38">
+<button class="secondary-btn" data-view="studentHomeV16">Нүүр рүү</button>
+<button class="primary-btn" data-view="mistakeNotebookV37">Бүх алдаагаа харах</button>
+</div>
+</div>
+</section>
+
+<section class="view" id="accountV21">
+  <div class="page-head"><span class="eyebrow">ACCOUNT • ANNUAL ACCESS</span><h1>Миний эрх</h1><p>Жилийн эрхээ авахын тулд SmartESH-тэй Facebook эсвэл и-мэйлээр холбогдож нэг удаагийн идэвхжүүлэх код авна.</p></div>
+  <div class="section-wrap payment-v53">
+    <div class="payment-status-hero-v53"><div><span class="payment-status-label-v53">МИНИЙ ЭРХ</span><h2 id="v53PlanName">Free</h2><p id="v53AccessText">Premium эрх идэвхгүй байна.</p></div><div class="payment-status-meta-v53"><div><small>Төлөв</small><b id="v53AccessStatus">Free</b></div><div><small>Дуусах</small><b id="v53AccessExpiry">—</b></div><div><small>Үлдсэн</small><b id="v53AccessDays">—</b></div></div></div>
+    <div class="pricing-grid-v21 payment-plans-v53">
+      <div class="price-card-v21" id="v53StudentPlanCard"><span class="price-icon">🎓</span><h3>Student</h3><div class="big-price">10,000₮</div><p><b>365 хоног</b> • нэг удаагийн төлбөр</p><ul><li>Өмнөх оны тестүүд</li><li>Mock Test & Practice</li><li>Feedback & Mistake Notebook</li><li>Ахиц, сул сэдвийн анализ</li></ul></div>
+      <div class="price-card-v21 featured" id="v53TeacherPlanCard"><span class="popular-badge">TEACHER</span><span class="price-icon">👩‍🏫</span><h3>Teacher</h3><div class="big-price">20,000₮</div><p><b>365 хоног</b> • нэг удаагийн төлбөр</p><ul><li>Анги & даалгавар</li><li>Question Bank & Mock Test</li><li>Үр дүн, Excel тайлан</li><li>Paper Scanner workflow</li></ul></div>
+    </div>
+    <div class="payment-checkout-grid-v53">
+      <div class="panel activation-contact-v73"><div class="panel-head"><div><h3>💬 Жилийн эрх авах</h3><small>1. Холбогдох → 2. Төлбөр хийх → 3. Код авах → 4. Кодоо идэвхжүүлэх</small></div><span class="pill">Activation code</span></div><p>Төлбөрийн мэдээлэл болон нэг удаагийн код авахын тулд доорх сувгаар холбогдоно уу.</p><div class="activation-contact-buttons-v73"><a class="primary-btn" id="v73FacebookLink" target="_blank" rel="noopener">Facebook-ээр холбогдох</a><a class="secondary-btn" id="v73EmailLink">И-мэйлээр холбогдох</a></div><small id="v73ContactHint" class="muted">Admin холбоо барих мэдээллээ тохируулсны дараа товчнууд идэвхжинэ.</small></div>
+      <div class="panel activation-redeem-v73"><div class="panel-head"><div><h3>🔑 Код идэвхжүүлэх</h3><small>Admin-аас авсан нэг удаагийн кодоо оруулна.</small></div></div><label>Activation code<input id="v73ActivationCode" autocomplete="off" maxlength="24" placeholder="Жишээ: SMT-ABCD-EFGH"></label><button class="primary-btn wide-btn" id="v73RedeemCode">365 хоногийн эрх идэвхжүүлэх</button><div id="v73RedeemStatus" class="manual-status-v72">Кодоо яг өгсөн хэлбэрээр нь оруулна уу.</div></div>
+    </div>
+    <div class="panel"><div class="panel-head"><div><h3>Account</h3><small>Эрх энэ нэвтэрсэн account-д холбогдоно.</small></div><span class="pill" id="v53RoleBadge">—</span></div><div class="account-profile-v53"><div><small>Нэр</small><b id="v53Name">—</b></div><div><small>Имэйл</small><b id="v53Email">—</b></div></div><div class="payment-security-v53"><h4>Кодын дүрэм</h4><p>✓ Код нэг удаа ашиглагдана</p><p>✓ Student код зөвхөн Student account-д ажиллана</p><p>✓ Teacher код зөвхөн Teacher account-д ажиллана</p><p>✓ Амжилттай идэвхжүүлмэгц 365 хоногийн Premium эрх нээгдэнэ</p></div></div>
+  </div>
+</section>
+<section class="view" id="workingDemoV20">
+<div class="page-head">
+<span class="eyebrow">V20 • END-TO-END DEMO</span>
+<h1>SmartESH ажиллах бүтэн урсгал</h1>
+<p>Admin → Teacher → Student → Auto marking → Feedback → Results холбоосыг нэг дэлгэц дээр туршина.</p>
+</div>
+<div class="section-wrap">
+<div class="e2e-flow">
+<div class="e2e-step active"><b>1</b><span>Admin</span><small>Асуулт нэмэх</small></div><i>→</i>
+<div class="e2e-step"><b>2</b><span>Teacher</span><small>Assign</small></div><i>→</i>
+<div class="e2e-step"><b>3</b><span>Student</span><small>Test</small></div><i>→</i>
+<div class="e2e-step"><b>4</b><span>System</span><small>Mark</small></div><i>→</i>
+<div class="e2e-step"><b>5</b><span>Results</span><small>Feedback</small></div>
+</div>
+<div class="e2e-grid">
+<div class="panel">
+<div class="panel-head"><h3>1. Admin — Question Bank</h3><span class="pill">Live demo data</span></div>
+<label class="bank-label">Category
+          <select id="v20Category"><option>Grammar</option><option>Vocabulary</option><option>Communication</option><option>Reading</option></select>
+</label>
+<label class="bank-label">Topic<input id="v20Topic" value="Conditionals"/></label>
+<label class="bank-label">Question<input id="v20Question" value="If I had more time, I ___ English every day."/></label>
+<div class="option-grid">
+<input id="v20A" value="study"/><input id="v20B" value="would study"/><input id="v20C" value="studied"/><input id="v20D" value="will study"/>
+</div>
+<label class="bank-label">Correct answer<select id="v20Correct"><option>A</option><option selected="">B</option><option>C</option><option>D</option></select></label>
+<button class="primary-btn wide-btn" id="v20SaveQuestion">Question Bank-д хадгалах</button>
+<div class="demo-status" id="v20BankStatus">Question Bank: 0 шинэ асуулт</div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>2. Teacher — Assign</h3><span class="pill">Ready bank</span></div>
+<div class="ready-task-card" id="v20TeacherBank">
+<span class="skill-tag">Grammar</span><h4>Conditionals practice</h4><p>Admin-ийн Question Bank-аас сонгоно.</p>
+</div>
+<label class="bank-label">Сурагчийн код / нэр<input id="v20Recipient" value="BILGUUN01"/></label>
+<label class="bank-label">Deadline<input id="v20Deadline" type="date"/></label>
+<button class="primary-btn wide-btn" id="v20Assign">Сурагчид өгөх</button>
+<div class="demo-status" id="v20AssignStatus">Одоогоор шинэ assignment байхгүй.</div>
+</div>
+</div>
+<div class="panel v20-gap">
+<div class="panel-head"><h3>3. Student — Миний даалгавар</h3><span class="pill free">BILGUUN01</span></div>
+<div class="empty-demo" id="v20StudentEmpty">Teacher assignment өгсний дараа энд тест гарна.</div>
+<div class="student-demo-test" hidden="" id="v20StudentTest">
+<div class="test-meta"><span class="skill-tag" id="v20StudentTag">Grammar</span><b id="v20StudentTopic">Conditionals</b><small>1 question demo</small></div>
+<h3 id="v20StudentQuestion">Question</h3>
+<div class="demo-choices" id="v20Choices"></div>
+<button class="primary-btn" id="v20Submit">Хариугаа шалгах</button>
+</div>
+</div>
+<div class="v20-result" hidden="" id="v20Result">
+<div class="analysis-stats">
+<div><span>Score</span><b id="v20Score">100%</b></div>
+<div><span>Correct</span><b id="v20CorrectCount">1/1</b></div>
+<div><span>Weak topic</span><b id="v20Weak">—</b></div>
+<div><span>Status</span><b id="v20Status">Done</b></div>
+</div>
+<div class="analysis-two">
+<div class="panel">
+<div class="panel-head"><h3>4. Auto Feedback</h3><span class="pill">Instant</span></div>
+<div class="feedback-box" id="v20FeedbackText">Feedback энд гарна.</div>
+<button class="secondary-btn" data-view="feedbackV18">Mistake Notebook нээх</button>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>5. Teacher Results</h3><span class="pill">Updated</span></div>
+<div class="result-line"><span>Student</span><b>BILGUUN01</b></div>
+<div class="result-line"><span>Latest score</span><b id="v20TeacherScore">—</b></div>
+<div class="result-line"><span>Topic</span><b id="v20TeacherTopic">—</b></div>
+<button class="primary-btn wide-btn" data-view="teacherResultsV19">Үр дүн рүү очих</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="teacherResultsV19">
+<div class="page-head">
+<span class="eyebrow">TEACHER • RESULTS</span>
+<h1>Үр дүн &amp; Дараагийн алхам</h1>
+<p>Цахим болон цаасан шалгалтын дүнг нэгтгээд, сул сэдвийг илрүүлж, шууд давтлага өгнө.</p>
+</div>
+<div class="section-wrap">
+<div class="unified-analytics-v37" id="unifiedAnalyticsV37">
+<div class="panel-head">
+<div>
+<span class="eyebrow">DIGITAL + PAPER • ONE ANALYTICS</span>
+<h2>Нэгдсэн үр дүн</h2>
+<p>Цахим тест болон answer sheet scan-ийн үр дүн нэг weak-topic системд орно.</p>
+</div>
+<button class="secondary-btn" id="refreshUnifiedV37">Шинэчлэх</button>
+</div>
+<div class="unified-kpis-v37">
+<div><small>Нийт оролдлого</small><b id="uAttemptsV37">0</b></div>
+<div><small>Дундаж</small><b id="uAverageV37">—</b></div>
+<div><small>Digital</small><b id="uDigitalV37">0</b></div>
+<div><small>Paper</small><b id="uPaperV37">0</b></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<h3>Weak topics</h3>
+<div class="weak-bars-v37" id="uWeakTopicsV37"><small>Үр дүн орж ирэхэд автоматаар гарна.</small></div>
+</div>
+<div class="panel">
+<h3>Most-missed questions</h3>
+<div class="missed-list-v37" id="uMissedQuestionsV37"><small>Одоогоор мэдээлэл алга.</small></div>
+<button class="primary-btn" id="uCreatePracticeV37">Weak-topic practice үүсгэх</button>
+</div>
+</div>
+</div>
+<div class="teacher-results-smart-v34" id="teacherResultsSmartV34">
+<div class="panel-head">
+<div><span class="eyebrow">SMART ANALYTICS</span><h2>Даалгаврын дүнгийн тойм</h2></div>
+<button class="secondary-btn" id="refreshTeacherResultsV34">Шинэчлэх</button>
+</div>
+<div class="teacher-result-kpis-v34">
+<div><small>Нийт оролдлого</small><b id="teacherTotalAttemptsV34">0</b></div>
+<div><small>Дундаж</small><b id="teacherAverageV34">—</b></div>
+<div><small>Хамгийн өндөр</small><b id="teacherHighestV34">—</b></div>
+<div><small>Priority</small><b id="teacherWeakestV34">—</b></div>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<h3>Сүүлийн үр дүн</h3>
+<div class="teacher-result-list-v34" id="teacherRecentResultsV34"><small>Одоогоор үр дүн алга.</small></div>
+</div>
+<div class="panel">
+<h3>Weak topic → Practice</h3>
+<div class="teacher-weak-list-v34" id="teacherWeakTopicsV34"><small>Үр дүн орж ирэхэд автоматаар гарна.</small></div>
+<button class="primary-btn" id="createWeakPracticeV34">Сул сэдвээр давтлага үүсгэх</button>
+</div>
+</div>
+</div>
+<div class="result-toolbar">
+<select id="v19ExamFilter"><option>Одоогоор тест алга</option></select>
+<select><option>Бүх сурагч</option><option>12A batch</option><option>12B batch</option></select>
+<div class="excel-export-actions-v52">
+<button class="secondary-btn excel-btn-v52" id="exportAssignmentExcelV52">📗 Даалгавар Excel</button>
+<button class="secondary-btn excel-btn-v52" id="exportMockExcelV52">⏱️ Mock Test Excel</button>
+</div>
+</div>
+<div class="analysis-stats">
+<div><span>Сурагч</span><b>0</b></div>
+<div><span>Дундаж</span><b>—</b></div>
+<div><span>Сайжирсан</span><b>0</b></div>
+<div><span>Анхаарах</span><b>0</b></div>
+</div>
+<div class="analysis-two">
+<div class="panel">
+<div class="panel-head"><h3>Skill performance</h3><span class="pill">Current test</span></div>
+<div class="skill-bar"><div><b>Grammar</b><span>—</span></div><progress max="100" value="0"></progress></div>
+<div class="skill-bar"><div><b>Vocabulary</b><span>—</span></div><progress max="100" value="0"></progress></div>
+<div class="skill-bar"><div><b>Communication</b><span>—</span></div><progress max="100" value="0"></progress></div>
+<div class="skill-bar weak"><div><b>Reading</b><span>—</span></div><progress max="100" value="0"></progress></div>
+</div>
+<div class="panel weak-panel">
+<div class="panel-head"><h3>⚠️ Нийт сул сэдэв</h3><span class="pill warn">Priority</span></div>
+<button class="primary-btn wide-btn" id="v19AssignAll">✨ Эдгээр сэдвээр давтлага өгөх</button>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Сурагч бүрийн Smart Analysis</h3><span class="pill">Click student</span></div>
+<div class="teacher-student-table"><div class="table-head"><span>Сурагч</span><span>Одоо</span><span>Өмнөх</span><span>Өөрчлөлт</span><span>Weak topic</span><span>Action</span></div><div class="empty-state-v50">Одоогоор сурагчийн үр дүн алга.</div></div>
+</div>
+<div class="student-detail panel hidden" id="v19StudentDetail">
+<div class="panel-head"><div><span class="eyebrow">STUDENT DETAIL</span><h3 id="v19StudentName">Bilguun</h3></div><span class="pill">Personal analysis</span></div>
+<div class="student-detail-grid">
+<div><span>Mock Test 01</span><b>74%</b></div><div><span>Mock Test 02</span><b>82%</b></div><div><span>Progress</span><b class="up">+8%</b></div>
+</div>
+<h4>Алдааны чиглэл</h4>
+<div class="teacher-actions">
+<button class="secondary-btn v19-target" data-topic="Personal weak topics">Targeted practice өгөх</button>
+<button class="secondary-btn" data-view="feedbackV18">Mistake Notebook харах</button>
+<button class="primary-btn" data-v50-fallback="1">Feedback илгээх</button>
+</div>
+</div>
+<div class="panel compare-panel">
+<div class="panel-head"><h3>Mock Test харьцуулалт</h3><span class="pill free">Progress</span></div>
+<div class="compare-grid">
+<div><small>Mock 01</small><b>—</b><span>Class average</span></div>
+<div class="arrow-big">→</div>
+<div><small>Mock 02</small><b>—</b><span>Class average</span></div>
+<div class="compare-result"><b>—</b><span>Нийт ахиц</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="report-modal-v52 hidden" id="reportModalV52">
+  <div class="report-modal-card-v52">
+    <div class="panel-head">
+      <div>
+        <span class="eyebrow">TEACHER • EXCEL REPORT</span>
+        <h3 id="reportTitleV52">Excel тайлан</h3>
+        <small id="reportTypeHintV52">Бодит үр дүнг Excel (.xlsx)-ээр татна.</small>
+      </div>
+      <button class="icon-btn-v34" id="closeReportV52">×</button>
+    </div>
+
+    <div class="report-type-strip-v52">
+      <button id="reportTypeAssignmentV52" data-report-type-v52="assignment">📗 Даалгавар</button>
+      <button id="reportTypeMockV52" data-report-type-v52="mock">⏱️ Mock Test</button>
+    </div>
+
+    <label class="bank-label">Тайланд оруулах тест
+      <select id="reportContentV52"><option value="">Ачаалж байна...</option></select>
+    </label>
+
+    <div class="report-scope-v52">
+      <b>Хамрах хүрээ</b>
+      <label><input type="radio" name="reportScopeV52" value="class" checked> Бүх ангиар</label>
+      <label><input type="radio" name="reportScopeV52" value="students"> Сонгосон сурагчдаар</label>
+    </div>
+
+    <label class="bank-label">Анги
+      <select id="reportClassV52"><option value="">Анги сонгоно уу</option></select>
+    </label>
+
+    <div class="report-students-wrap-v52 hidden" id="reportStudentsWrapV52">
+      <div class="panel-head compact">
+        <div><b>Сурагч сонгох</b><small>Нэг эсвэл хэд хэдэн сурагч сонгож болно.</small></div>
+        <button class="text-btn" id="selectAllStudentsV52">Бүгдийг сонгох</button>
+      </div>
+      <div class="report-students-v52" id="reportStudentsV52">
+        <div class="empty-state-v50">Эхлээд анги сонгоно уу.</div>
+      </div>
+    </div>
+
+    <div class="report-preview-v52" id="reportPreviewV52">
+      <div><small>Төрөл</small><b id="reportPreviewTypeV52">—</b></div>
+      <div><small>Анги</small><b id="reportPreviewClassV52">—</b></div>
+      <div><small>Сурагч</small><b id="reportPreviewStudentsV52">0</b></div>
+      <div><small>Үр дүн</small><b id="reportPreviewResultsV52">—</b></div>
+    </div>
+
+    <div class="report-note-v52">
+      Excel файлд <b>Summary</b>, <b>Attempts</b>, <b>Question Details</b> гэсэн тусдаа sheet орно.
+      Даалгавар ба Mock Test хоорондоо тусдаа файл болно.
+    </div>
+
+    <div class="form-actions">
+      <button class="secondary-btn" id="cancelReportV52">Цуцлах</button>
+      <button class="primary-btn" id="downloadReportV52">Excel (.xlsx) татах</button>
+    </div>
+    <div class="form-message" id="reportMsgV52"></div>
+  </div>
+</div>
+
+<section class="view" id="feedbackV18">
+<div class="page-head">
+<span class="eyebrow">SMART FEEDBACK</span>
+<h1>Миний алдаа &amp; Feedback</h1>
+<p>Цахим болон цаасан шалгалтын алдааг нэг дор хадгалж, яг ямар сэдвээ давтахыг санал болгоно.</p>
+</div>
+<div class="section-wrap">
+<div class="feedback-summary">
+<div><span>Сүүлийн оноо</span><b>—</b><small>Mock Test 02</small></div>
+<div><span>Нийт алдаа</span><b>0</b><small>50 questions</small></div>
+<div><span>Хамгийн сул skill</span><b>—</b><small>49%</small></div>
+<div><span>Давтах сэдэв</span><b>0</b><small>Priority topics</small></div>
+</div>
+<div class="feedback-grid">
+<div class="panel">
+<div class="panel-head"><h3>📒 Mistake Notebook</h3><span class="pill">Auto saved</span></div>
+<div class="mistake-list"><div class="empty-state-v50">Тест ажилласны дараа алдаанууд энд автоматаар хадгалагдана.</div></div>
+</div>
+<div>
+<div class="panel coach-panel">
+<div class="panel-head"><h3>✨ Smart Feedback</h3><span class="pill free">Personal</span></div>
+<p><b>Энэ долоо хоногт:</b> Reading inference болон Conditionals дээр хамгийн их алдаа гаргасан байна.</p>
+<div class="coach-plan">
+<div><b>1</b><span><strong>Conditionals</strong><small>5 min lesson + 10 questions</small></span></div>
+<div><b>2</b><span><strong>Reading inference</strong><small>1 short text + 5 questions</small></span></div>
+<div><b>3</b><span><strong>Mini check</strong><small>10 mixed questions</small></span></div>
+</div>
+<button class="primary-btn wide-btn" id="v18StartPlan">Өнөөдрийн Smart Practice эхлүүлэх</button>
+</div>
+<div class="panel v18-gap">
+<div class="panel-head"><h3>Ахиц</h3><span class="pill">Last 4 tests</span></div>
+<div class="simple-trend">
+<span style="height:42%"><i>52</i></span>
+<span style="height:55%"><i>61</i></span>
+<span style="height:67%"><i>68</i></span>
+<span style="height:78%"><i>74</i></span>
+</div>
+<p class="positive-note">↑ Сүүлийн 4 шалгалтаар ахицтай байна.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="notifications">
+<div class="page-head">
+<span class="eyebrow">UPDATES</span>
+<h1>Шинэ мэдээлэл &amp; мэдэгдэл</h1>
+<p>Өдөр тутмын шинэ мэдээлэл, шалгалтын сануулга, шинэ контент болон багшийн мэдэгдлүүд.</p>
+</div>
+<div class="section-wrap notifications-layout">
+<div>
+<div class="notif-filter-row">
+<button class="notif-filter active" data-nfilter="all">Бүгд</button>
+<button class="notif-filter" data-nfilter="announcement">Мэдэгдэл</button>
+<button class="notif-filter" data-nfilter="update">Шинэ контент</button>
+<button class="notif-filter" data-nfilter="tip">Өдрийн зөвлөгөө</button>
+</div>
+<div class="notification-feed" id="notificationFeed"><div class="empty-state-v50">Одоогоор мэдэгдэл алга.</div></div>
+</div>
+<aside class="panel notification-side">
+<div class="panel-head"><h3>Товч</h3><span class="pill free">0 шинэ</span></div>
+<div class="mini-stat"><span>Шинэ мэдэгдэл</span><b>0</b></div>
+<div class="mini-stat"><span>Шинэ practice</span><b>0</b></div>
+<div class="mini-stat"><span>Mock Test</span><b>0</b></div>
+<button class="secondary-btn wide-btn" id="markAllReadBtn">Бүгдийг уншсан болгох</button>
+</aside>
+</div>
+</section>
+<section class="view" id="adminAnnouncements">
+<div class="page-head">
+<span class="eyebrow">ADMIN • PUBLISH</span>
+<h1>Мэдээлэл &amp; мэдэгдэл нийтлэх</h1>
+<p>Сурагч, багш эсвэл бүх хэрэглэгчид өдөр тутмын мэдээлэл, мэдэгдэл нийтэлнэ.</p>
+</div>
+<div class="section-wrap admin-announcement-grid">
+<div class="panel">
+<div class="panel-head"><h3>Шинэ нийтлэл</h3><span class="pill free">Admin</span></div>
+<div class="two-col">
+<label class="bank-label">Төрөл
+          <select id="annType">
+<option value="announcement">📢 Мэдэгдэл</option>
+<option value="update">🆕 Шинэ контент</option>
+<option value="tip">💡 Өдрийн зөвлөгөө</option>
+<option value="schedule">📅 Хуваарь / сануулга</option>
+</select>
+</label>
+<label class="bank-label">Хэнд
+          <select id="annAudience">
+<option>Бүгд</option>
+<option>Сурагч</option>
+<option>Багш</option>
+</select>
+</label>
+</div>
+<label class="bank-label">Гарчиг
+        <input id="annTitle" placeholder="e.g. Mock Test 03 нийтлэгдлээ"/>
+</label>
+<label class="bank-label">Мэдээлэл
+        <textarea id="annBody" placeholder="Мэдэгдлийн дэлгэрэнгүй..." rows="5"></textarea>
+</label>
+<div class="two-col">
+<label class="bank-label">Зураг <span class="optional-tag">сонголттой</span>
+<input accept="image/*" id="annImage" type="file"/>
+</label>
+<label class="bank-label">Link <span class="optional-tag">сонголттой</span>
+<input id="annLink" placeholder="https://..."/>
+</label>
+</div>
+<label class="toggle-row">
+<input id="annPinned" type="checkbox"/>
+<span><b>Дээд талд тогтоох</b><small>Чухал мэдэгдлийг эхэнд харуулна.</small></span>
+</label>
+<div class="two-col">
+<label class="bank-label">Нийтлэх өдөр
+          <input id="annDate" type="date"/>
+</label>
+<label class="bank-label">Нийтлэх цаг
+          <input id="annTime" type="time"/>
+</label>
+</div>
+<div class="form-actions">
+<button class="secondary-btn" id="previewAnnBtn">Preview</button>
+<button class="primary-btn" id="publishAnnBtn">Нийтлэх</button>
+</div>
+<div class="form-message" id="annPublishMsg"></div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Preview</h3><span class="pill">User view</span></div>
+<div class="notification-card preview-ann" id="announcementPreview">
+<div class="notif-icon">📢</div>
+<div>
+<div class="notif-meta"><span>МЭДЭГДЭЛ</span><time>Өнөөдөр</time></div>
+<h3>Гарчиг энд харагдана</h3>
+<p>Мэдээллийн текст энд харагдана.</p>
+</div>
+</div>
+<div class="panel-head published-head"><h3>Сүүлд нийтэлсэн</h3><span class="pill" id="publishedAnnCount">3</span></div>
+<div class="published-ann-list" id="publishedAnnouncements">
+<div class="published-ann"><span>📢</span><div><b>Шинэ Mock Test нийтлэгдлээ</b><small>Бүгд • Өнөөдөр</small></div><button class="secondary-btn" data-v50-fallback="1">Edit</button></div>
+<div class="published-ann"><span>💡</span><div><b>Өдрийн Reading зөвлөгөө</b><small>Сурагч • Өнөөдөр</small></div><button class="secondary-btn" data-v50-fallback="1">Edit</button></div>
+<div class="published-ann"><span>🆕</span><div><b>Conditionals practice нэмэгдлээ</b><small>Сурагч • Өчигдөр</small></div><button class="secondary-btn" data-v50-fallback="1">Edit</button></div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="practiceHub">
+<div class="page-head">
+<span class="eyebrow">PRACTICE</span>
+<h1>Даалгаврын сан</h1>
+<p>Сэдвээрээ богино practice ажиллаад, алдаатай хэсгээ дахин давтана.</p>
+</div>
+<div class="section-wrap">
+<div class="practice-main-grid">
+<button class="practice-main-card" data-view="grammarBank">
+<span>🧩</span><b>Grammar</b><small>Дүрэм • тайлбар • practice</small>
+</button>
+<button class="practice-main-card" data-view="vocabBank">
+<span>🔤</span><b>Vocabulary</b><small>Word meaning • collocation • phrasal verb</small>
+</button>
+<button class="practice-main-card" data-view="communicationBank">
+<span>💬</span><b>Communication</b><small>Dialogue • responses • functional language</small>
+</button>
+<button class="practice-main-card" data-view="readingBank">
+<span>📖</span><b>Reading</b><small>Main idea • detail • inference • summary</small>
+</button>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div><h3>Танд санал болгох</h3><small>Weak topic дээр тулгуурласан practice.</small></div>
+<span class="pill free">Smart Practice</span>
+</div>
+<div class="recommend-grid">
+<div class="recommend-item"><b>Conditionals</b><span>Grammar • 10 questions</span><button class="secondary-btn" data-view="grammarBank">Ажиллах</button></div>
+<div class="recommend-item"><b>Vocabulary in Context</b><span>Reading • 8 questions</span><button class="secondary-btn" data-view="readingBank">Ажиллах</button></div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="grammarBank">
+<div class="page-head">
+<span class="eyebrow">PRACTICE BANK</span>
+<h1>Grammar</h1>
+<p>Дүрмээ эхлээд тайлбар, зураг, видеоноос үзээд дараа нь practice ажиллана.</p>
+</div>
+<div class="section-wrap">
+<div class="skill-bank-grid">
+<button class="skill-topic" data-v50-fallback="1"><b>Tenses</b><span>📖 Lesson • 📝 Practice</span><small>Present • Past • Perfect</small></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Conditionals</b><span>📖 Lesson • 📝 Practice</span><small>0 • 1 • 2 • 3</small></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Modals</b><span>📖 Lesson • 📝 Practice</span><small>can • must • should • might</small></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Passive &amp; Causative</b><span>exam-style practice</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Reported Speech</b><span>statements • questions</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Relative Clauses</b><span>who • which • that</span></button>
+</div>
+</div>
+</section>
+<section class="view" id="vocabBank">
+<div class="page-head">
+<span class="eyebrow">PRACTICE BANK</span>
+<h1>Vocabulary даалгаврын сан</h1>
+<p>Үгийн сан, collocation, phrasal verb, word formation, idiom төрлөөр ажиллана.</p>
+</div>
+<div class="section-wrap">
+<div class="skill-bank-grid">
+<button class="skill-topic" data-v50-fallback="1"><b>Word Meaning</b><span>context vocabulary</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Collocations</b><span>common exam combinations</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Phrasal Verbs</b><span>high-frequency items</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Word Formation</b><span>prefix • suffix</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Prepositions</b><span>fixed expressions</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Idioms</b><span>meaning in context</span></button>
+</div>
+</div>
+</section>
+<section class="view" id="communicationBank">
+<div class="page-head">
+<span class="eyebrow">PRACTICE BANK</span>
+<h1>Communication даалгаврын сан</h1>
+<p>Харилцан яриа, зөв хариу сонгох, нөхцөлд тохирсон хэллэгийн дасгалууд.</p>
+</div>
+<div class="section-wrap">
+<div class="skill-bank-grid">
+<button class="skill-topic" data-v50-fallback="1"><b>Everyday Responses</b><span>choose the best reply</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Functional Language</b><span>request • offer • advice</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Short Dialogues</b><span>meaning • intent</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Conversation Completion</b><span>gap-fill dialogues</span></button>
+</div>
+</div>
+</section>
+<section class="view" id="readingBank">
+<div class="page-head">
+<span class="eyebrow">PRACTICE BANK</span>
+<h1>Reading даалгаврын сан</h1>
+<p>ЭЕШ-ийн хэв маягийн уншлагын богино болон урт даалгаврууд.</p>
+</div>
+<div class="section-wrap">
+<div class="skill-bank-grid">
+<button class="skill-topic" data-v50-fallback="1"><b>Main Idea</b><span>identify the central idea</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Detail Questions</b><span>find specific information</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Inference</b><span>read between the lines</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Vocabulary in Context</b><span>meaning from passage</span></button>
+<button class="skill-topic" data-v50-fallback="1"><b>Summary Completion</b><span>exam-style task</span></button>
+</div>
+</div>
+</section>
+<section class="view" id="previousExams">
+<div class="page-head">
+<span class="eyebrow">PREVIOUS EESH BANK</span>
+<h1>Өмнөх оны ЭЕШ материал</h1>
+<p>Жил, хувилбар, хэсгээр ажиллаж feedback авах эсвэл бүтэн шалгалт эхлүүлнэ.</p>
+</div>
+<div class="section-wrap">
+<div class="panel eesh-archive-panel-v30" id="eeshArchiveV30">
+<div class="panel-head">
+<div><span class="eyebrow">ЭЕШ ARCHIVE • 21 YEARS</span><h3>2006–2026 оны тестийн сан</h3></div>
+<span class="pill">2006–2026</span>
+</div>
+<p class="helper-text">SmartESH-ийн бүтэц 2006–2026 оны бүх ЭЕШ тестийг хадгалах, онуудаар эсвэл холимгоор ажиллуулахад бэлэн. Одоогийн prototype-д 2024 A бодитоор импортлогдсон; бусад оны албан ёсны PDF + answer key-г Admin-аар нэмнэ.</p>
+<div class="eesh-year-grid-v30"><button class="eesh-year-card-v30" data-archive-year="2026">
+<b>2026</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2025">
+<b>2025</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30 available" data-archive-year="2024">
+<b>2024</b><small>A хувилбар • ажиллана</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2023">
+<b>2023</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2022">
+<b>2022</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2021">
+<b>2021</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2020">
+<b>2020</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2019">
+<b>2019</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2018">
+<b>2018</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2017">
+<b>2017</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2016">
+<b>2016</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2015">
+<b>2015</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2014">
+<b>2014</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2013">
+<b>2013</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2012">
+<b>2012</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2011">
+<b>2011</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2010">
+<b>2010</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2009">
+<b>2009</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2008">
+<b>2008</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2007">
+<b>2007</b><small>Импортын сан</small>
+</button><button class="eesh-year-card-v30" data-archive-year="2006">
+<b>2006</b><small>Импортын сан</small>
+</button></div>
+<div class="form-message" id="eeshArchiveStatusV30"></div>
+</div>
+<div class="cards-grid four compact">
+<div class="kpi"><span>Imported exam</span><b>2024 A</b></div>
+<div class="kpi"><span>Section 1</span><b>47 MCQ</b></div>
+<div class="kpi"><span>Section 1 points</span><b>80</b></div>
+<div class="kpi"><span>Answer key</span><b>Pending</b></div>
+</div>
+<div class="panel">
+<div class="panel-head">
+<div>
+<h3>2024 • Англи хэл • Хувилбар A</h3>
+<small>Imported from PDF • Admin review required before official publishing</small>
+</div>
+<span class="pill free">Imported</span>
+</div>
+<div class="exam-section-grid">
+<button class="exam-section-card" data-section="Grammar">
+<b>Grammar</b><span>Q1–18</span><small>Grammar use • transformation • conversation response</small>
+</button>
+<button class="exam-section-card" data-section="Vocabulary">
+<b>Vocabulary</b><span>Q19–33</span><small>Words • phrases • word formation • prepositions • idioms</small>
+</button>
+<button class="exam-section-card" data-section="Communication">
+<b>Communication</b><span>Q34–38</span><small>Conversation comprehension • phrasal verbs</small>
+</button>
+<button class="exam-section-card" data-section="Reading">
+<b>Reading</b><span>Q39–47</span><small>Main idea • detail • inference • summary</small>
+</button>
+</div>
+<div class="form-actions">
+<button class="primary-btn" id="start2024Full">Start full 2024 A</button>
+<button class="secondary-btn" id="practice2024Section">Practice selected section</button>
+</div>
+<div class="form-message" id="previousExamNotice"></div>
+<div class="teacher-preview-hint-v49 hidden" id="teacherPreviousExamHintV49">
+  👩‍🏫 Багшийн горим: тестийг шууд ажиллахгүй. Сонгосон тестээ <b>Preview</b> хийж, дараа нь даалгавар болгоно.
+</div>
+</div>
+<div class="teacher-exam-preview-v49 hidden" id="teacherExamPreviewV49">
+<div class="teacher-exam-preview-card-v49">
+<div class="panel-head">
+<div>
+<span class="eyebrow">TEACHER PREVIEW • ӨМНӨХ ОНЫ ТЕСТ</span>
+<h3 id="teacherExamPreviewTitleV49">2024 A • Preview</h3>
+<small id="teacherExamPreviewMetaV49">Багш тестийг ажиллахгүй — зөвхөн агуулгыг шалгана.</small>
+</div>
+<button class="icon-btn-v34" id="closeTeacherExamPreviewV49">×</button>
+</div>
+<div class="teacher-preview-summary-v49">
+<div><small>Year</small><b id="teacherPreviewYearV49">2024</b></div>
+<div><small>Version</small><b>A</b></div>
+<div><small>Questions</small><b id="teacherPreviewCountV49">47</b></div>
+<div><small>Answer key</small><b>Pending</b></div>
+</div>
+<div class="teacher-preview-sample-v49">
+<div class="teacher-preview-sidebar-v49">
+<b>Sections</b>
+<button data-teacher-preview-section="Grammar">Grammar <span>Q1–18</span></button>
+<button data-teacher-preview-section="Vocabulary">Vocabulary <span>Q19–33</span></button>
+<button data-teacher-preview-section="Communication">Communication <span>Q34–38</span></button>
+<button data-teacher-preview-section="Reading">Reading <span>Q39–47</span></button>
+</div>
+<div class="teacher-preview-question-v49">
+<span class="pill" id="teacherPreviewSectionPillV49">Grammar</span>
+<h3 id="teacherPreviewQuestionV49">Question preview</h3>
+<div id="teacherPreviewChoicesV49"></div>
+<p class="helper-text">Preview mode: хариулт сонгохгүй, оноо бодохгүй.</p>
+</div>
+</div>
+<div class="form-actions">
+<button class="secondary-btn" id="teacherPreviewPrevV49">← Previous</button>
+<button class="secondary-btn" id="teacherPreviewNextV49">Next →</button>
+<button class="primary-btn" id="teacherUseExamAssignmentV49">Даалгавар болгох</button>
+</div>
+<div class="form-message" id="teacherExamPreviewStatusV49"></div>
+</div>
+</div>
+<div class="panel previous-exam-runner hidden" id="previousExamRunner2024">
+<button class="task-exit-btn" data-task-exit="previousExams">← Тестээс гарах</button>
+<div class="panel-head">
+<div>
+<span class="eyebrow">2024 • VARIANT A</span>
+<h3 id="previousExamRunnerTitle">Grammar practice</h3>
+<small id="previousExamRunnerMeta">Question 1</small>
+</div>
+<span class="pill warn">Answer key pending</span>
+</div>
+<div class="previous-exam-progress"><div id="previousExamProgressBar"></div></div>
+<div class="previous-exam-count" id="previousExamAnsweredCount">0 answered</div>
+<details class="exam-source-context hidden" id="previousExamReadingPassage">
+<summary>📖 Reading passage харах / нуух</summary>
+<div id="previousExamReadingText"></div>
+</details>
+<pre class="exam-source-context hidden" id="previousExamContext"></pre>
+<div class="previous-exam-question" id="previousExamQuestion2024"></div>
+<div class="answer-grid previous-exam-answers" id="previousExamAnswers2024"></div>
+<div class="previous-exam-nav">
+<button class="secondary-btn" id="previousExamPrev">← Өмнөх</button>
+<button class="secondary-btn" id="previousExamSave">Хариултаа хадгалах</button>
+<button class="primary-btn" id="previousExamNext">Дараах →</button>
+</div>
+<div class="question-number-grid" id="previousExamQuestionNav2024"></div>
+<div class="form-message" id="previousExamRunnerNotice"></div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>Imported preview</h3><span class="pill">Sample questions</span></div>
+<div class="import-preview-list">
+<div class="import-q"><span>Q1 • Grammar • Quantifiers</span><b>We didn’t have ______ luggage – just two small bags.</b><small>A. -   B. many   C. a   D. any   E. much</small></div>
+<div class="import-q"><span>Q19 • Vocabulary • Weather</span><b>The rain won’t last long; it’s only a ______.</b><small>A. hail   B. breeze   C. shower   D. frost   E. downpour</small></div>
+<div class="import-q"><span>Q34 • Communication</span><b>What’s wrong with the woman’s current apartment?</b><small>Question imported and tagged; answer key not yet approved.</small></div>
+<div class="import-q"><span>Q39 • Reading • Main idea</span><b>What is the article about?</b><small>Reading passage linked to this item.</small></div>
+</div>
+</div>
+</div>
+</section>
+<section class="view" id="eeshImport">
+<div class="page-head">
+<span class="eyebrow">ADMIN • EESH IMPORT</span>
+<h1>Өмнөх оны ЭЕШ материал оруулах</h1>
+<p>PDF оруулах → асуултыг ялгах → зөв хариутай холбох → шалгах → нийтлэх.</p>
+</div>
+<div class="section-wrap import-layout">
+<div class="panel">
+<div class="panel-head"><h3>1. Material</h3><span class="pill">Admin only</span></div>
+<div class="two-col">
+<label class="bank-label">Он
+          <select id="importYear"><option>2026</option><option>2025</option><option selected="">2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option><option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option><option>2009</option><option>2008</option><option>2007</option><option>2006</option></select>
+</label>
+<label class="bank-label">Хувилбар
+          <select id="importVersion"><option selected="">A</option><option>B</option><option>C</option><option>D</option></select>
+</label>
+</div>
+<label class="bank-label">Exam PDF
+        <input accept=".pdf,image/*" id="examPdfInput" type="file"/>
+</label>
+<label class="bank-label">Official answer key
+        <input accept=".pdf,image/*,.csv,.xlsx" id="answerKeyInput" type="file"/>
+</label>
+<button class="primary-btn wide-btn" id="simulateImportBtn">Import &amp; Analyse</button>
+<p class="copyright-note">Production version: only publish material you are allowed to distribute. Imported questions remain Draft until Admin approval.</p>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>2. Import review</h3><span class="pill" id="importStatus">Ready</span></div>
+<div class="empty-state" id="importResult">
+        PDF сонгоод Import &amp; Analyse дарна уу.
+      </div>
+</div>
+</div>
+</section>
+<section class="view" id="assignmentBuilder">
+<div class="page-head">
+<span class="eyebrow">TEACHER • CREATE / ASSIGN</span>
+<h1>Даалгавар үүсгэх</h1>
+<p>Багш асуултын эх үүсвэрээ сонгоод даалгавраа бүрдүүлнэ. Дараа нь сурагчийн харах байдлаар preview хийгээд цахимаар онооно.</p>
+</div>
+<div class="section-wrap">
+<div class="builder-steps">
+<span class="active">1 Source</span><b>→</b><span>2 Select</span><b>→</b><span>3 Review</span><b>→</b><span>4 Assign</span>
+</div>
+<div class="assignment-builder-grid">
+<div class="panel">
+<div class="panel-head"><h3>1. Эх үүсвэр</h3><span class="pill free">Хольж болно</span></div>
+<div class="source-card-grid" id="sourceCards">
+<button class="source-card active" data-asource="Өмнөх ЭЕШ"><span>🎯</span><b>Өмнөх ЭЕШ</b><small>Year • section • topic</small></button>
+<button class="source-card" data-asource="Grammar / Vocabulary Bank"><span>📘</span><b>Grammar / Vocabulary Bank</b><small>Grammar / Vocabulary / Reading</small></button>
+<button class="source-card" data-asource="Асуултын сан"><span>🗃️</span><b>Асуултын сан</b><small>Saved questions</small></button>
+<button class="source-card" data-asource="AI"><span>✨</span><b>AI Generate</b><small>Original aligned tasks</small></button>
+<button class="source-card" data-asource="Миний асуулт"><span>✏️</span><b>Миний асуулт</b><small>Багшийн өөрийн асуулт</small></button>
+</div>
+<div class="source-options" id="sourceOptions">
+<div class="two-col">
+<label class="bank-label">Year<select id="builderYear"><option selected="">2024</option><option>2023</option><option>2022</option></select></label>
+<label class="bank-label">Section<select id="builderSection"><option>Grammar</option><option>Vocabulary</option><option>Communication</option><option>Reading</option><option>Mixed</option></select></label>
+</div>
+<label class="bank-label">Question count<input id="builderCount" max="50" min="1" type="number" value="10"/></label>
+<button class="primary-btn wide-btn" id="addSourceBtn">+ Add to assignment</button>
+</div>
+</div>
+<div class="panel">
+<div class="panel-head"><h3>2. Нэмсэн даалгавар</h3><span class="pill" id="mixCount">0 items</span></div>
+<div class="mix-list" id="mixList"><p class="empty-state">Эх үүсвэрээс асуулт нэмнэ үү.</p></div>
+<div class="mix-total"><span>Total questions</span><b id="mixTotal">0</b></div>
+<button class="primary-btn wide-btn" id="continueAssignBtn">Preview хийх</button>
+</div>
+</div>
+</div>
+</section>
+<section class="view legal-page-v55" id="termsV55">
+<div class="page-head"><span class="eyebrow">SMARTESH • LEGAL</span><h1>Үйлчилгээний нөхцөл</h1><p>SmartESH платформыг ашиглах үндсэн нөхцөл.</p></div>
+<div class="section-wrap legal-doc-v55">
+<div class="panel"><h3>1. Үйлчилгээний тухай</h3><p>SmartESH нь англи хэлний ЭЕШ-д бэлтгэх цахим боловсролын платформ. Сурагч тест, дасгал, mock test ажиллах, үр дүн ба ахицаа харах; багш анги, даалгавар, шалгалт болон үр дүнг удирдах боломжтой.</p></div>
+<div class="panel"><h3>2. Бүртгэл ба хэрэглэгчийн үүрэг</h3><p>Хэрэглэгч бүртгэлдээ үнэн зөв мэдээлэл ашиглаж, нууц үгээ хамгаална. Бусдын account-д зөвшөөрөлгүй нэвтрэх, системийн ажиллагаанд саад учруулах, хууль бус зорилгоор ашиглахыг хориглоно.</p></div>
+<div class="panel"><h3>3. Premium эрх</h3><p>Student Premium нь 10,000₮ / 365 хоног, Teacher Premium нь 20,000₮ / 365 хоног. Төлбөр серверээр баталгаажсаны дараа эрх идэвхжинэ. Эрхийн хугацаа болон багцын мэдээллийг төлбөр хийхээс өмнө хэрэглэгчид харуулна.</p></div>
+<div class="panel"><h3>4. Контент ба шударга хэрэглээ</h3><p>SmartESH-ийн контентыг хувийн суралцах болон зөвшөөрөгдсөн сургалтын зорилгоор ашиглана. Платформын хамгаалалттай контентыг зөвшөөрөлгүйгээр бөөнөөр хуулбарлах, дахин худалдах, автомат аргаар татахыг хориглоно.</p></div>
+<div class="panel"><h3>5. Үйлчилгээний өөрчлөлт</h3><p>SmartESH нь аюулгүй байдал, хууль, техникийн шаардлага болон үйлчилгээний чанарыг сайжруулах зорилгоор боломжуудыг шинэчилж болно. Чухал өөрчлөлтийг боломжтой үед хэрэглэгчдэд мэдэгдэнэ.</p></div>
+<div class="panel"><h3>6. Асуудал, гомдол</h3><p>Account, төлбөр, контент болон үйлчилгээтэй холбоотой асуудлыг “Холбоо барих / Гомдол хүсэлт” хэсгээр илгээж болно.</p></div>
+<p class="legal-updated-v55">Сүүлд шинэчилсэн: 2026-09-07</p>
+</div></section>
+
+<section class="view legal-page-v55" id="privacyV55">
+<div class="page-head"><span class="eyebrow">SMARTESH • PRIVACY</span><h1>Нууцлалын бодлого</h1><p>SmartESH ямар мэдээлэл ашигладаг, хэрхэн хамгаалдгийг тайлбарлана.</p></div>
+<div class="section-wrap legal-doc-v55">
+<div class="panel"><h3>1. Цуглуулах мэдээлэл</h3><p>Бүртгэлийн нэр, имэйл, хэрэглэгчийн төрөл; анги ба даалгаврын мэдээлэл; тестийн хариулт, оноо, ахиц; төлбөрийн төлөв болон үйлчилгээ ашиглалтын техникийн мэдээлэл боловсруулагдаж болно.</p></div>
+<div class="panel"><h3>2. Ашиглах зорилго</h3><p>Мэдээллийг account ажиллуулах, шалгалт ба даалгаврыг боловсруулах, ахиц/feedback үзүүлэх, багшийн тайлан гаргах, Premium эрх баталгаажуулах, аюулгүй байдлыг хангах болон үйлчилгээ сайжруулахад ашиглана.</p></div>
+<div class="panel"><h3>3. Төлбөрийн мэдээлэл</h3><p>QPay-ийн нууц credential browser-д хадгалахгүй. Төлбөрийн амжилтыг SmartESH сервер баталгаажуулсны дараа Premium эрх идэвхжинэ. SmartESH нь банкны нууц үг, картын PIN хадгалах зориулалтгүй.</p></div>
+<div class="panel"><h3>4. Мэдээллийн хамгаалалт</h3><p>Нэвтрэлт, өгөгдлийн сангийн эрх, server-side төлбөрийн баталгаажуулалт зэрэг техникийн хамгаалалт ашиглана. Хэрэглэгч мөн нууц үгээ бусдад дамжуулахгүй байх үүрэгтэй.</p></div>
+<div class="panel"><h3>5. Хандалт ба хүсэлт</h3><p>Хэрэглэгч өөрийн мэдээлэлтэй холбоотой асуулт, засварлах эсвэл үйлчилгээний хүсэлтийг “Холбоо барих / Гомдол хүсэлт” хэсгээр гаргаж болно.</p></div>
+<div class="panel"><h3>6. Насанд хүрээгүй хэрэглэгч</h3><p>SmartESH-ийг сурагчид ашиглаж болох тул зөвхөн үйлчилгээнд шаардлагатай мэдээллийг боловсруулах зарчим баримтална. Сургууль, багш болон асран хамгаалагчийн холбогдох шаардлагыг хэрэгжүүлэх боломжийг бүтээгдэхүүн хөгжих явцад нэмэгдүүлнэ.</p></div>
+<p class="legal-updated-v55">Сүүлд шинэчилсэн: 2026-09-07</p>
+</div></section>
+
+<section class="view" id="contactV55">
+<div class="page-head"><span class="eyebrow">SMARTESH • SUPPORT</span><h1>Холбоо барих / Гомдол хүсэлт</h1><p>Account, төлбөр, контент эсвэл үйлчилгээний асуудлаа илгээнэ үү.</p></div>
+<div class="section-wrap support-grid-v55"><div class="panel support-form-v55">
+<label>Асуудлын төрөл<select id="supportTypeV55"><option value="account">Account / Нэвтрэх</option><option value="payment">Төлбөр / Premium</option><option value="content">Контент / Тест</option><option value="teacher">Багш / Анги</option><option value="privacy">Нууцлал</option><option value="other">Бусад</option></select></label>
+<label>Нэр<input id="supportNameV55" placeholder="Таны нэр"/></label>
+<label>Имэйл<input id="supportEmailV55" type="email" placeholder="name@email.com"/></label>
+<label>Тайлбар<textarea id="supportMessageV55" rows="7" placeholder="Асуудлаа тодорхой бичнэ үү."></textarea></label>
+<button class="primary-btn" id="supportSubmitV55">Хүсэлт илгээх</button><div class="form-message" id="supportStatusV55"></div>
+</div><div class="panel"><h3>Таны хүсэлт</h3><p>Илгээсэн хүсэлт SmartESH-ийн Admin хэсэгт бүртгэгдэнэ. Нууц үг, банкны PIN, QPay secret зэрэг нууц мэдээллээ хүсэлтэд бүү бичээрэй.</p><div class="support-note-v55">💡 Төлбөрийн асуудал бол төлбөр хийсэн ойролцоо огноо/цагийг тайлбарт оруулбал шалгахад хялбар.</div></div></div>
+</section>
+
+<section class="view" id="supportAdminV55">
+<div class="page-head"><span class="eyebrow">ADMIN • SUPPORT</span><h1>Гомдол & хүсэлт</h1><p>Хэрэглэгчийн илгээсэн support хүсэлтүүд.</p></div>
+<div class="section-wrap"><div class="panel"><div class="panel-head"><h3>Хүсэлтүүд</h3><button class="secondary-btn" id="supportRefreshV55">Шинэчлэх</button></div><div id="supportAdminListV55"><div class="empty-state">Одоогоор хүсэлт алга.</div></div></div></div>
+</section>
+<section class="view" id="studyHub"><div class="page-head"><span class="eyebrow">GRADES 10–12</span><h1>Судлах хичээл</h1><p>Өдөр тутмын хичээл, бататгал, даалгавар.</p></div><div class="section-wrap"><div class="hub-grid"><button class="hub-card" data-go="learn">📘<b>Learn</b><small>10 • 11 • 12-р анги</small></button><button class="hub-card" data-go="practice">✍️<b>Practice</b><small>Vocabulary • Grammar • Reading</small></button><button class="hub-card" data-go="progress">📈<b>Progress</b><small>Ахиц • сул сэдэв</small></button></div></div></section>
+<section class="view" id="eeshHub"><div class="page-head"><span class="eyebrow">SMARTESH CORE</span><h1>ЭЕШ бэлтгэл</h1><p>Өмнөх оны материал → Mock Test → Feedback → Ахиц.</p></div><div class="section-wrap"><div class="core-flow"><span>Previous papers</span><b>→</b><span>Practice</span><b>→</b><span>Mock Test</span><b>→</b><span>Feedback</span><b>→</b><span>Weak Topics</span></div><div class="hub-grid"><button class="hub-card featured" data-go="bank">🗂️<b>Өмнөх оны ЭЕШ</b><small>Он • skill • mixed • custom</small></button><button class="hub-card" data-go="exams">⏱️<b>Mock Tests</b><small>Тогтмол хугацаатай шалгалт</small></button><button class="hub-card" data-go="progress">💡<b>Feedback &amp; Progress</b><small>Сул сэдэв → targeted practice</small></button></div></div></section>
+<section class="view" id="teacherHub"><div class="page-head"><span class="eyebrow">TEACHER WORKSPACE</span><h1>Багшийн хэсэг</h1><p>Бэлтгэх, өгөх, шалгах, тайлагнах ажлыг нэг дор.</p></div><div class="section-wrap"><div class="teacher-principle"><b>Choose → Assign → Review</b><span>SmartESH багшийн давтагддаг ажлыг автоматжуулна.</span></div><div class="hub-grid"><button class="hub-card" data-go="bank">📝<b>Test Builder</b><small>Асуултын сан • ЭЕШ • textbook support</small></button><button class="hub-card" data-go="assignments">📤<b>Assign</b><small>Анги • deadline • attempts</small></button><button class="hub-card" data-go="scanner">📷<b>Answer Sheet Scanner</b><small>Paper → score → analysis</small></button><button class="hub-card" data-go="quickclass">⚡<b>Quick Class</b><small>Code үүсгээд шууд ажиллуулах</small></button><button class="hub-card" data-go="classes">👥<b>Classes</b><small>Анги • сурагчид</small></button><button class="hub-card" data-go="resultsHub">📊<b>Results</b><small>Analytics • weak topics</small></button></div></div></section>
+<section class="view" id="dashboardHub"><div class="page-head"><span class="eyebrow">MY SMARTESH</span><h1>Dashboard</h1><p>Хэрэглэгчийн эрхээс хамаарч тохирох хэсгээ нээнэ.</p></div><div class="section-wrap"><div class="hub-grid"><button class="hub-card" data-go="student">🎓<b>Student</b><small>Work • results • progress</small></button><button class="hub-card" data-go="teacher">🧑‍🏫<b>Teacher</b><small>Classes • assignments • analytics</small></button><button class="hub-card" data-go="admin">⚙️<b>Admin</b><small>Users • content • settings</small></button><button class="hub-card" data-go="auth">🔐<b>Account</b><small>Login • Register</small></button></div></div></section>
+</main>
+<footer class="footer-v55">
+<div><b>SmartESH © 2026</b> — Smart English Exam Preparation</div>
+<div class="footer-links-v55"><button data-view="termsV55">Үйлчилгээний нөхцөл</button><button data-view="privacyV55">Нууцлалын бодлого</button><button data-view="contactV55">Холбоо барих / Гомдол хүсэлт</button></div>
+</footer>
+<div aria-hidden="true" class="preview-modal" id="assignmentPreviewModal">
+<div class="preview-backdrop" data-closepreview="1"></div>
+<div class="preview-dialog">
+<div class="preview-topbar">
+<div>
+<span class="eyebrow">STUDENT VIEW</span>
+<h2>Даалгаврын Preview</h2>
+<p>Сурагч яг ингэж харж, цахимаар ажиллана.</p>
+</div>
+<button class="icon-close" data-closepreview="1">✕</button>
+</div>
+<div class="preview-layout">
+<div class="student-preview-card">
+<div class="student-preview-head">
+<div>
+<small>Grade 12 • English</small>
+<h3 id="previewAssignmentTitle">Mixed Practice</h3>
+</div>
+<span class="pill free" id="previewQuestionCount">20 questions</span>
+</div>
+<div class="student-progress-line"><span style="width:20%"></span></div>
+<div class="preview-question">
+<span class="question-no">Question 1</span>
+<h4>Choose the correct answer.</h4>
+<p>If I _____ more time, I would study English every day.</p>
+<label><input name="pvq1" type="radio"/> A. have</label>
+<label><input name="pvq1" type="radio"/> B. had</label>
+<label><input name="pvq1" type="radio"/> C. will have</label>
+<label><input name="pvq1" type="radio"/> D. am having</label>
+</div>
+<div class="preview-nav">
+<button class="secondary-btn" data-v50-fallback="1">← Previous</button>
+<button class="primary-btn" data-v50-fallback="1">Next →</button>
+</div>
+</div>
+<div class="preview-settings">
+<h3>Assign settings</h3>
+<label class="bank-label">Даалгаврын нэр
+          <input id="previewTitleInput" value="Mixed Practice"/>
+</label>
+<div class="two-col">
+<label class="bank-label">Хугацаа
+            <input id="previewTimeInput" min="1" type="number" value="20"/>
+</label>
+<label class="bank-label">Attempts
+            <select id="previewAttempts"><option>1</option><option>2</option><option>Unlimited</option></select>
+</label>
+</div>
+<label class="toggle-row">
+<input checked="" id="previewFeedbackToggle" type="checkbox"/>
+<span><b>Instant feedback</b><small>Зөв/бурууг шалгалт дууссаны дараа харуулна.</small></span>
+</label>
+<label class="toggle-row">
+<input checked="" id="previewShuffleToggle" type="checkbox"/>
+<span><b>Shuffle questions</b><small>Сурагч бүрт асуултын дарааллыг хольж өгнө.</small></span>
+</label>
+<div class="delivery-note">
+<b>📱 Default: Цахим даалгавар</b>
+<p>Сурагч SmartESH-д нэвтэрч ажиллана. Оноо, алдаа, weak topic автоматаар хадгалагдана.</p>
+</div>
+<div class="preview-actions">
+<button class="secondary-btn" id="backToEditBtn">← Засварлах</button>
+<button class="primary-btn" id="assignDigitalBtn">Сурагчдад оноох</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="entry-announcement" id="siteEntryAnnouncement">
+<div class="entry-ann-backdrop"></div>
+<div class="entry-ann-card">
+<button aria-label="Close" class="entry-ann-close" id="closeEntryAnn">×</button>
+<span class="eyebrow">SMARTESH • ШИНЭ МЭДЭЭЛЭЛ</span>
+<div class="entry-ann-icon">📢</div>
+<h2 id="entryAnnTitle">Шинэ Mock Test нийтлэгдлээ</h2>
+<p id="entryAnnBody">Өнөөдрийн шинэ мэдээлэл болон чухал мэдэгдэл энд харагдана.</p>
+<div class="entry-ann-actions">
+<button class="secondary-btn" id="entryAnnLater">Хаах</button>
+<button class="primary-btn" id="entryAnnOpen">Дэлгэрэнгүй үзэх</button>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+<script src="supabase-v46.js"></script>
+<div class="smart-modal-v34 hidden" id="mixedReviewModalV34">
+<div class="smart-modal-card-v34">
+<div class="panel-head">
+<div><span class="eyebrow">REVIEW BEFORE SUBMIT</span><h3>Тестээ эцэслэхээс өмнө шалгаарай</h3></div>
+<button class="icon-btn-v34" id="closeMixedReviewV34">×</button>
+</div>
+<div class="review-stats-v34">
+<div><b id="mixedReviewAnsweredV34">0</b><small>Answered</small></div>
+<div><b id="mixedReviewUnansweredV34">0</b><small>Unanswered</small></div>
+<div><b id="mixedReviewFlaggedV34">0</b><small>Flagged</small></div>
+</div>
+<div class="review-q-list-v34" id="mixedReviewQListV34"></div>
+<div class="form-actions">
+<button class="secondary-btn" id="backToMixedTestV34">Буцаад шалгах</button>
+<button class="primary-btn" id="confirmMixedSubmitV34">Эцэслэн илгээх</button>
+</div>
+</div>
+</div>
+<div class="smart-modal-v34 hidden" id="weakPracticeModalV37">
+<div class="smart-modal-card-v34">
+<div class="panel-head">
+<div><span class="eyebrow">AUTO REMEDIATION</span><h3>Weak-topic practice үүсгэх</h3></div>
+<button class="icon-btn-v34" id="closeWeakPracticeV37">×</button>
+</div>
+<div class="settings-grid-v33">
+<div class="panel">
+<label>Priority topic
+          <select id="weakPracticeTopicV37">
+<option>Conditionals</option>
+<option>Reading inference</option>
+<option>Phrasal verbs</option>
+<option>Tenses</option>
+</select>
+</label>
+<label>Асуултын тоо<input id="weakPracticeCountV37" max="50" min="5" type="number" value="10"/></label>
+<label>Хэнд<select id="weakPracticeRecipientV37"><option>Сул сэдэвтэй сурагчид</option><option>Бүх сурагч</option></select></label>
+</div>
+<div class="panel">
+<h3>Smart rule</h3>
+<p class="helper-text">Question Bank-аас сонгосон topic-тэй асуултуудыг random сонгож targeted practice draft үүсгэнэ.</p>
+<label class="toggle-row-v33"><input checked="" id="weakPracticeShuffleV37" type="checkbox"/> Randomize</label>
+<label class="toggle-row-v33"><input checked="" id="weakPracticeFeedbackV37" type="checkbox"/> Дараа нь explanation харуулах</label>
+</div>
+</div>
+<div class="form-actions">
+<button class="secondary-btn" id="previewWeakPracticeV37">Preview</button>
+<button class="primary-btn" id="saveWeakPracticeV37">Draft үүсгэх</button>
+</div>
+<div class="selected-filter-summary-v35" id="weakPracticeStatusV37">Topic болон асуултын тоогоо сонгоно уу.</div>
+<div aria-live="polite" class="weak-preview-v47 hidden" id="weakPracticePreviewV47"></div>
+</div>
+</div>
+<div class="smart-modal-v34 hidden" id="assignmentBuilderModalV39">
+<div class="smart-modal-card-v34 assignment-builder-card-v39">
+<div class="panel-head"><div><span class="eyebrow">CREATE ASSIGNMENT</span><h3>Question Bank → Assignment</h3></div><button class="icon-btn-v34" id="closeAssignmentBuilderV39">×</button></div>
+<div class="settings-grid-v33">
+<div class="panel">
+<label>Даалгаврын нэр<input id="assignTitleV39" value="Smart Practice Assignment"/></label>
+<label>Агуулга<select id="assignTopicV39"><option>Conditionals</option><option>Tenses</option><option>Question tags</option><option>Phrasal verbs</option><option>Reading inference</option></select></label>
+<label>Асуултын тоо<input id="assignCountV39" max="50" min="5" type="number" value="10"/></label>
+</div>
+<div class="panel">
+<label>Хэнд<select id="assignAudienceV39"><option>Бүх сурагч</option><option>Сонгосон сурагчид</option><option>Weak-topic group</option></select></label>
+<label>Deadline<input id="assignDeadlineV39" type="date"/></label>
+<label class="toggle-row-v33"><input checked="" id="assignShuffleV39" type="checkbox"/> Асуулт randomize</label>
+<label class="toggle-row-v33"><input checked="" id="assignFeedbackV39" type="checkbox"/> Submit дараа feedback</label>
+</div>
+</div>
+<div class="form-actions"><button class="secondary-btn" id="saveAssignmentDraftV39">Draft хадгалах</button><button class="primary-btn" id="assignNowV39">Сурагчдад өгөх</button></div>
+<div class="selected-filter-summary-v35" id="assignmentBuilderStatusV39">Question Bank metadata ашиглан assignment үүсгэнэ.</div>
+</div>
+</div>
+<div class="interaction-status-v47" id="interactionStatusV47" title="Interaction QA status">● UI Ready</div>
+<script>
+(function(){
+  function go(id){ if(typeof showView==='function') showView(id); }
+  document.querySelectorAll('.footer-v55 [data-view]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
+  async function prefill(){
+    try{const u=currentUser?.(); if(!u)return; const n=document.getElementById('supportNameV55'),e=document.getElementById('supportEmailV55'); if(n&&!n.value)n.value=u.name||'';if(e&&!e.value)e.value=u.email||'';}catch(_){ }
+  }
+  document.querySelectorAll('[data-view="contactV55"]').forEach(x=>x.addEventListener('click',()=>setTimeout(prefill,20)));
+  const submit=document.getElementById('supportSubmitV55');
+  if(submit) submit.onclick=async()=>{
+    const type=document.getElementById('supportTypeV55').value;
+    const name=document.getElementById('supportNameV55').value.trim();
+    const email=document.getElementById('supportEmailV55').value.trim();
+    const message=document.getElementById('supportMessageV55').value.trim();
+    const status=document.getElementById('supportStatusV55');
+    if(!name||!email||!message){status.textContent='Нэр, имэйл, тайлбараа бүрэн оруулна уу.';status.style.color='#9a3c35';return;}
+    if(!window.smarteshSupabase){status.textContent='Online database холбогдоогүй байна. Түр хүлээгээд дахин оролдоно уу.';status.style.color='#9a3c35';return;}
+    status.textContent='Илгээж байна…';status.style.color='#64748b';
+    const u=currentUser?.();
+    const {error}=await window.smarteshSupabase.from('support_requests_v55').insert({user_id:u?.cloud?u.id:null,name,email,type,message,status:'new'});
+    if(error){status.textContent='Илгээж чадсангүй: '+error.message;status.style.color='#9a3c35';return;}
+    status.textContent='Хүсэлт амжилттай илгээгдлээ.';status.style.color='#1f7a4d';document.getElementById('supportMessageV55').value='';
+  };
+  async function loadAdmin(){
+    const box=document.getElementById('supportAdminListV55');if(!box||!window.smarteshSupabase)return;
+    const u=currentUser?.();if(u?.role!=='admin'){box.innerHTML='<div class="empty-state">Admin эрх шаардлагатай.</div>';return;}
+    box.innerHTML='<div class="empty-state">Уншиж байна…</div>';
+    const {data,error}=await window.smarteshSupabase.from('support_requests_v55').select('id,created_at,name,email,type,message,status').order('created_at',{ascending:false}).limit(100);
+    if(error){box.innerHTML='<div class="empty-state">'+error.message+'</div>';return;}
+    box.innerHTML=(data||[]).map(r=>`<div class="support-ticket-v55"><div><b>${escapeHtmlV55(r.name)}</b> <span class="pill">${escapeHtmlV55(r.type)}</span><small>${new Date(r.created_at).toLocaleString()}</small></div><div class="support-email-v55">${escapeHtmlV55(r.email)}</div><p>${escapeHtmlV55(r.message)}</p><span class="support-status-v55">${escapeHtmlV55(r.status)}</span></div>`).join('')||'<div class="empty-state">Одоогоор хүсэлт алга.</div>';
+  }
+  function escapeHtmlV55(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  const refresh=document.getElementById('supportRefreshV55');if(refresh)refresh.onclick=loadAdmin;
+  document.querySelectorAll('[data-view="supportAdminV55"]').forEach(x=>x.addEventListener('click',()=>setTimeout(loadAdmin,30)));
+  window.addEventListener('smartesh-auth-changed',prefill);
+})();
+</script>
+<script src="learning-v64.js"></script>
+<script src="smart-learning-v65.js"></script>
+
+<script src="student-interaction-v67.js"></script>
+
+<script src="student-exit-v68.js"></script>
+
+
+<script src="role-preview-v70.js"></script>
+<script src="deploy-readiness-v70.js"></script>
+<script src="activation-code-v73.js"></script>
+<script src="imported-assignment-v75.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+<script src="pdf-import-v74.js" type="module"></script>
+</body>
+</html>

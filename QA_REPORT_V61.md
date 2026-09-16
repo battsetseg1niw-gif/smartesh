@@ -1,0 +1,14 @@
+# SmartESH v61 QA
+- PASS: Learning Center has Grammar, Vocabulary, Communication, Reading, Phrasal Verbs, Idioms tabs.
+- PASS: Verb tenses are separate lessons and include comparison teaching.
+- PASS: Humanized Mongolian explanations, exam traps, examples and strategies added.
+- PASS: Communication functions and common expressions added.
+- PASS: Reading question strategies added.
+- PASS: Two original worked reading lessons with question-by-question explanations added.
+- PASS: First two lessons in every main Learning Center category are free.
+- PASS: Other lessons show Premium paywall for non-premium Student/Teacher.
+- PASS: Admin bypasses lesson paywall.
+- PASS: Active Supabase entitlement unlocks Premium lessons.
+- PASS: Student 10,000 MNT / 365 days and Teacher 20,000 MNT / 365 days shown on paywall.
+- PASS: v60 Learning Center independent script architecture preserved.
+- NOTE: QPay unlock becomes automatic when production merchant credentials/callback are active.

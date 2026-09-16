@@ -1,0 +1,42 @@
+[
+  {
+    "id": "PS-001",
+    "case": "Verified key + clear scan",
+    "expected": "paper attempt scored and saved"
+  },
+  {
+    "id": "PS-002",
+    "case": "Unverified official key",
+    "expected": "answers preserved, no score"
+  },
+  {
+    "id": "PS-003",
+    "case": "Low OMR confidence",
+    "expected": "manual review required"
+  },
+  {
+    "id": "PS-004",
+    "case": "Manual mark correction",
+    "expected": "audit trail recorded"
+  },
+  {
+    "id": "PS-005",
+    "case": "Missing student mapping",
+    "expected": "finalization blocked"
+  },
+  {
+    "id": "PS-006",
+    "case": "Batch analytics",
+    "expected": "uses canonical paper attempts"
+  },
+  {
+    "id": "PS-007",
+    "case": "Unified analytics",
+    "expected": "digital + paper both counted"
+  },
+  {
+    "id": "PS-008",
+    "case": "Weak topic practice",
+    "expected": "draft generated from exact topic accuracy"
+  }
+]

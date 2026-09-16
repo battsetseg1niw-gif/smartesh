@@ -1,0 +1,52 @@
+[
+  {
+    "id": "TE-001",
+    "case": "Autosave answer",
+    "expected": "upsert selected answer without submit"
+  },
+  {
+    "id": "TE-002",
+    "case": "Resume attempt",
+    "expected": "restore saved answers and flags"
+  },
+  {
+    "id": "TE-003",
+    "case": "Submit verified test",
+    "expected": "server calculates exact score"
+  },
+  {
+    "id": "TE-004",
+    "case": "Submit unverified official test",
+    "expected": "answers saved; no fabricated score"
+  },
+  {
+    "id": "TE-005",
+    "case": "Double submit",
+    "expected": "idempotent same result; no duplicate mistakes"
+  },
+  {
+    "id": "TE-006",
+    "case": "Student reads another attempt",
+    "expected": "denied"
+  },
+  {
+    "id": "TE-007",
+    "case": "Answer after submit",
+    "expected": "denied"
+  },
+  {
+    "id": "TE-008",
+    "case": "Expired deadline",
+    "expected": "apply configured deadline policy"
+  },
+  {
+    "id": "TE-009",
+    "case": "Timer refresh",
+    "expected": "server timestamp prevents timer reset"
+  },
+  {
+    "id": "TE-010",
+    "case": "Verified wrong answer",
+    "expected": "exact mistake record created"
+  }
+]

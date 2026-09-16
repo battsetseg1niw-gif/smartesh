@@ -1,0 +1,52 @@
+{
+  "smarteshAssignmentsV39": [
+    "assignments",
+    "assignment_targets"
+  ],
+  "smarteshMixedResultsV29": [
+    "attempts",
+    "attempt_answers"
+  ],
+  "smarteshPaperResultsV17": [
+    "paper_batches",
+    "attempts",
+    "attempt_answers"
+  ],
+  "smarteshMistakesV37": [
+    "mistakes"
+  ],
+  "smarteshV14Announcements": [
+    "notifications"
+  ],
+  "smarteshAdminSettingsV33": [
+    "server_settings",
+    "audit_logs"
+  ],
+  "smarteshAIReviewQueueV35": [
+    "questions"
+  ],
+  "smarteshPublishedBatchV36": [
+    "questions"
+  ],
+  "smarteshAccountsV41": [
+    "auth.users",
+    "profiles",
+    "entitlements"
+  ],
+  "smarteshAttemptsV43": [
+    "attempts",
+    "attempt_answers",
+    "mistakes"
+  ],
+  "smarteshTestEngineStateV43": [
+    "attempts",
+    "attempt_answers"
+  ],
+  "smarteshPaperBatchesV44": [
+    "paper_batches",
+    "paper_scans",
+    "paper_scan_marks",
+    "attempts",
+    "attempt_answers"
+  ]
+}

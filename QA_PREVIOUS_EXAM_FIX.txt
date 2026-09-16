@@ -1,0 +1,32 @@
+SmartESH v25 — Previous Exam Runner Fix
+
+FIXED
+- Clicking Grammar now opens Q1–18 immediately.
+- Clicking Vocabulary opens Q19–33 immediately.
+- Clicking Communication opens Q34–38 immediately.
+- Clicking Reading opens Q39–47 immediately.
+- “Practice selected section” opens the selected section.
+- “Start full 2024 A” opens all 47 Section 1 questions.
+- Answer choices are clickable.
+- Previous / Next navigation works.
+- Question-number navigation works.
+- Selected answers remain saved in browser localStorage.
+- Reading passage and conversation context appear where needed.
+- Answer progress is displayed.
+
+VALIDATION
+- JavaScript syntax: PASS
+- Grammar question count: 18
+- Vocabulary question count: 15
+- Communication question count: 5
+- Reading question count: 9
+- Full test count: 47
+- Previous-exam interaction test: PASS
+- Full Student / Teacher / Admin regression test: PASS
+- Browser page errors: 0
+- Browser console errors: 0
+
+NOTE
+The uploaded 2024 Variant A PDF does not include an approved official answer key,
+so this version does not fabricate scores for these 47 imported questions.
+Answers are saved and the scoring step can be activated once the official key is added.

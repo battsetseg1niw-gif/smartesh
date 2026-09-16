@@ -1,0 +1,26 @@
+[
+  {
+    "case": "Student plan",
+    "expected": "10000 MNT / 365 days"
+  },
+  {
+    "case": "Teacher plan",
+    "expected": "20000 MNT / 365 days"
+  },
+  {
+    "case": "Browser success only",
+    "expected": "no Premium"
+  },
+  {
+    "case": "Verified callback/payment check",
+    "expected": "Premium activated"
+  },
+  {
+    "case": "Duplicate callback",
+    "expected": "no duplicate grant"
+  },
+  {
+    "case": "Active renewal",
+    "expected": "extend current expiry"
+  }
+]
