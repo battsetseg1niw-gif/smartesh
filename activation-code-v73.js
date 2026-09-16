@@ -1,16 +1,88 @@
-// SmartESH v73 — one-time annual activation codes
+// SmartESH v76 — annual access via one-time activation codes
+// QPay is intentionally NOT the primary launch flow.
 (function(){
  const $=id=>document.getElementById(id), sb=()=>window.smarteshSupabase;
  function user(){try{return typeof currentUser==='function'?currentUser():null}catch(e){return null}}
  function msg(id,t,bad=false){const x=$(id);if(x){x.textContent=t;x.style.color=bad?'#b42318':''}}
  function cleanCode(v){return String(v||'').trim().toUpperCase().replace(/\s+/g,'')}
- async function loadContact(){const s=sb();if(!s)return;const {data}=await s.from('activation_settings_v73').select('facebook_url,contact_email').eq('id',1).maybeSingle();const fb=$('v73FacebookLink'),em=$('v73EmailLink');if(fb){if(data?.facebook_url){fb.href=data.facebook_url;fb.removeAttribute('aria-disabled')}else{fb.removeAttribute('href');fb.setAttribute('aria-disabled','true')}}if(em){if(data?.contact_email){em.href='mailto:'+data.contact_email+'?subject='+encodeURIComponent('SmartESH жилийн эрх авах')}else em.removeAttribute('href')}if(data?.facebook_url||data?.contact_email)msg('v73ContactHint','Student 10,000₮ / Teacher 20,000₮. Төлбөрөө хийсний дараа нэг удаагийн кодоо авна.');if(user()?.role==='admin'){if($('v73AdminFacebook'))$('v73AdminFacebook').value=data?.facebook_url||'';if($('v73AdminEmail'))$('v73AdminEmail').value=data?.contact_email||''}}
- async function saveContact(){try{const u=user(),s=sb();if(u?.role!=='admin'||!s)throw Error('Admin эрх болон Supabase холболт шаардлагатай.');const row={id:1,facebook_url:$('v73AdminFacebook').value.trim()||null,contact_email:$('v73AdminEmail').value.trim()||null,updated_at:new Date().toISOString()};const {error}=await s.from('activation_settings_v73').upsert(row);if(error)throw error;msg('v73ContactSaveStatus','✓ Хадгаллаа');loadContact()}catch(e){msg('v73ContactSaveStatus',e.message,true)}}
- async function generate(){try{const u=user(),s=sb();if(u?.role!=='admin'||!s)throw Error('Admin эрх шаардлагатай.');msg('v73GeneratedBox','Код үүсгэж байна...');const {data,error}=await s.rpc('create_activation_code_v73',{p_plan:$('v73CodePlan').value,p_note:$('v73CodeNote').value.trim()||null});if(error)throw error;const code=typeof data==='string'?data:data?.code||data;msg('v73GeneratedBox','✓ '+code+' — хэрэглэгчид энэ кодыг илгээнэ үү.');$('v73CodeNote').value='';listCodes()}catch(e){msg('v73GeneratedBox',e.message||'Код үүсгэж чадсангүй.',true)}}
- async function redeem(){try{const u=user(),s=sb();if(!u||!s)throw Error('Эхлээд account-аараа нэвтэрнэ үү.');const c=cleanCode($('v73ActivationCode').value);if(c.length<8)throw Error('Кодоо зөв оруулна уу.');msg('v73RedeemStatus','Код шалгаж байна...');const {data,error}=await s.rpc('redeem_activation_code_v73',{p_code:c});if(error)throw error;msg('v73RedeemStatus','✓ Амжилттай! 365 хоногийн Premium эрх идэвхжлээ.');$('v73ActivationCode').value='';if(window.SmartESHPaymentV53?.loadEntitlement)window.SmartESHPaymentV53.loadEntitlement();setTimeout(()=>location.reload(),900)}catch(e){msg('v73RedeemStatus',e.message||'Код идэвхжүүлэхэд алдаа гарлаа.',true)}}
- async function listCodes(){const u=user(),s=sb(),h=$('v73CodeRegistry');if(u?.role!=='admin'||!s||!h)return;const {data,error}=await s.from('activation_codes_v73').select('code,plan,status,note,created_at,expires_at,redeemed_at,redeemed_by').order('created_at',{ascending:false}).limit(200);if(error){h.innerHTML='<div class="empty-state-v50">'+error.message+'</div>';return}if(!data?.length){h.innerHTML='<div class="empty-state-v50">Одоогоор код үүсгээгүй байна.</div>';return}h.innerHTML=data.map(x=>`<div class="manual-admin-row-v72"><span><b>${x.code}</b><small>${new Date(x.created_at).toLocaleDateString('mn-MN')}</small></span><span>${x.plan}<small>${x.plan==='teacher'?'20,000₮':'10,000₮'}</small></span><span><b>${x.status}</b><small>${x.expires_at?'Expire: '+new Date(x.expires_at).toLocaleDateString('mn-MN'):''}</small></span><span><small>${x.note||'—'}</small></span><span><small>${x.redeemed_at?'Used '+new Date(x.redeemed_at).toLocaleDateString('mn-MN'):'—'}</small></span></div>`).join('')}
- $('v73SaveContact')?.addEventListener('click',saveContact);$('v73GenerateCode')?.addEventListener('click',generate);$('v73RedeemCode')?.addEventListener('click',redeem);$('v73RefreshCodes')?.addEventListener('click',listCodes);
- document.addEventListener('click',e=>{if(e.target.closest('[data-view="accountV21"]'))setTimeout(loadContact,80);if(e.target.closest('[data-view="qpayPremiumV45"]'))setTimeout(()=>{loadContact();listCodes()},80)});
- setTimeout(()=>{loadContact();listCodes()},500);
- window.SmartESHActivationV73={loadContact,listCodes};
+
+ // Production guard: old QPay UI must never be shown to Student/Teacher.
+ function removeLegacyQPay(){
+   const account=$('accountV21');
+   if(!account)return;
+   account.querySelectorAll('[id*="qpay" i],[class*="qpay" i]').forEach(el=>{
+     // Do not remove the account section itself; only legacy payment widgets.
+     if(el!==account) el.remove();
+   });
+   account.querySelectorAll('*').forEach(el=>{
+     const t=(el.textContent||'').trim();
+     if(t==='QPay merchant credentials missing' || t==='QPay төлбөр') el.style.display='none';
+   });
+ }
+
+ async function loadContact(){
+   removeLegacyQPay();
+   const s=sb();
+   const fb=$('v73FacebookLink'),em=$('v73EmailLink');
+   if(!s){msg('v73ContactHint','Supabase холболтыг шалгаж байна...');return}
+   const {data,error}=await s.from('activation_settings_v73').select('facebook_url,contact_email').eq('id',1).maybeSingle();
+   if(error){msg('v73ContactHint','Холбоо барих мэдээлэл одоогоор тохируулагдаагүй байна.');return}
+   if(fb){if(data?.facebook_url){fb.href=data.facebook_url;fb.removeAttribute('aria-disabled')}else{fb.removeAttribute('href');fb.setAttribute('aria-disabled','true')}}
+   if(em){if(data?.contact_email){em.href='mailto:'+data.contact_email+'?subject='+encodeURIComponent('SmartESH жилийн эрх авах')}else em.removeAttribute('href')}
+   if(data?.facebook_url||data?.contact_email)msg('v73ContactHint','Student 10,000₮ / Teacher 20,000₮. Төлбөрөө хийсний дараа нэг удаагийн кодоо авна.');
+   if(user()?.role==='admin'){
+     if($('v73AdminFacebook'))$('v73AdminFacebook').value=data?.facebook_url||'';
+     if($('v73AdminEmail'))$('v73AdminEmail').value=data?.contact_email||'';
+   }
+ }
+
+ async function saveContact(){try{
+   const u=user(),s=sb();
+   if(u?.role!=='admin'||!s)throw Error('Admin эрх болон Supabase холболт шаардлагатай.');
+   const row={id:1,facebook_url:$('v73AdminFacebook').value.trim()||null,contact_email:$('v73AdminEmail').value.trim()||null,updated_at:new Date().toISOString()};
+   const {error}=await s.from('activation_settings_v73').upsert(row);if(error)throw error;
+   msg('v73ContactSaveStatus','✓ Хадгаллаа');loadContact();
+ }catch(e){msg('v73ContactSaveStatus',e.message,true)}}
+
+ async function generate(){try{
+   const u=user(),s=sb();if(u?.role!=='admin'||!s)throw Error('Admin эрх шаардлагатай.');
+   msg('v73GeneratedBox','Код үүсгэж байна...');
+   const {data,error}=await s.rpc('create_activation_code_v73',{p_plan:$('v73CodePlan').value,p_note:$('v73CodeNote').value.trim()||null});
+   if(error)throw error;
+   const code=typeof data==='string'?data:data?.code||data;
+   msg('v73GeneratedBox','✓ '+code+' — хэрэглэгчид энэ кодыг илгээнэ үү.');
+   $('v73CodeNote').value='';listCodes();
+ }catch(e){msg('v73GeneratedBox',e.message||'Код үүсгэж чадсангүй.',true)}}
+
+ async function redeem(){try{
+   const u=user(),s=sb();if(!u||!s)throw Error('Эхлээд account-аараа нэвтэрнэ үү.');
+   const c=cleanCode($('v73ActivationCode').value);if(c.length<8)throw Error('Кодоо зөв оруулна уу.');
+   msg('v73RedeemStatus','Код шалгаж байна...');
+   const {error}=await s.rpc('redeem_activation_code_v73',{p_code:c});if(error)throw error;
+   msg('v73RedeemStatus','✓ Амжилттай! 365 хоногийн Premium эрх идэвхжлээ.');
+   $('v73ActivationCode').value='';
+   if(window.SmartESHPaymentV53?.loadEntitlement)window.SmartESHPaymentV53.loadEntitlement();
+   setTimeout(()=>location.reload(),900);
+ }catch(e){msg('v73RedeemStatus',e.message||'Код идэвхжүүлэхэд алдаа гарлаа.',true)}}
+
+ async function listCodes(){
+   const u=user(),s=sb(),h=$('v73CodeRegistry');if(u?.role!=='admin'||!s||!h)return;
+   const {data,error}=await s.from('activation_codes_v73').select('code,plan,status,note,created_at,expires_at,redeemed_at,redeemed_by').order('created_at',{ascending:false}).limit(200);
+   if(error){h.innerHTML='<div class="empty-state-v50">'+error.message+'</div>';return}
+   if(!data?.length){h.innerHTML='<div class="empty-state-v50">Одоогоор код үүсгээгүй байна.</div>';return}
+   h.innerHTML=data.map(x=>`<div class="manual-admin-row-v72"><span><b>${x.code}</b><small>${new Date(x.created_at).toLocaleDateString('mn-MN')}</small></span><span>${x.plan}<small>${x.plan==='teacher'?'20,000₮':'10,000₮'}</small></span><span><b>${x.status}</b><small>${x.expires_at?'Expire: '+new Date(x.expires_at).toLocaleDateString('mn-MN'):''}</small></span><span><small>${x.note||'—'}</small></span><span><small>${x.redeemed_at?'Used '+new Date(x.redeemed_at).toLocaleDateString('mn-MN'):'—'}</small></span></div>`).join('');
+ }
+
+ $('v73SaveContact')?.addEventListener('click',saveContact);
+ $('v73GenerateCode')?.addEventListener('click',generate);
+ $('v73RedeemCode')?.addEventListener('click',redeem);
+ $('v73RefreshCodes')?.addEventListener('click',listCodes);
+ document.addEventListener('click',e=>{
+   if(e.target.closest('[data-view="accountV21"]'))setTimeout(()=>{removeLegacyQPay();loadContact()},80);
+   if(e.target.closest('[data-view="qpayPremiumV45"]'))setTimeout(()=>{loadContact();listCodes()},80);
+ });
+ const observer=new MutationObserver(removeLegacyQPay);
+ if(document.body)observer.observe(document.body,{childList:true,subtree:true});
+ setTimeout(()=>{removeLegacyQPay();loadContact();listCodes()},500);
+ window.SmartESHActivationV73={loadContact,listCodes,removeLegacyQPay};
 })();
