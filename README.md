@@ -16,3 +16,4 @@ Primary launch flow is v73 one-time Activation Code for 365-day Student/Teacher 
 
 ## Important limitations
 Scanned/image-only PDF OCR and real answer-sheet OMR computer vision are still external backend work. The UI does not fabricate OCR/OMR results.
+Deployment trigger: SmartESH v75
